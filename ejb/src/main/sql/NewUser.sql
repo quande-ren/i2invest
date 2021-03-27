@@ -1,0 +1,5 @@
+alter session set "_ORACLE_SCRIPT"=true;  
+CREATE USER i2invest IDENTIFIED BY i2invest;
+GRANT CONNECT TO i2invest ;
+GRANT RESOURCE TO i2invest ;
+GRANT UNLIMITED TABLESPACE TO i2invest;

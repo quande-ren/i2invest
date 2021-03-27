@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>ejbtest</artifactId>
+
+	<properties>
+		<!-- <spring.version>5.0.0.RELEASE</spring.version> -->
+		<spring.version>2.4.3</spring.version>
+	</properties>
+
+	<parent>
+		<groupId>com.i2invest</groupId>
+		<artifactId>reactor</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../reactor</relativePath>
+	</parent>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.i2invest</groupId>
+			<artifactId>domain</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.spec.javax.transaction</groupId>
+			<artifactId>jboss-transaction-api_1.1_spec</artifactId>
+			<scope>system</scope>
+			<version>4.13.2</version>
+			<systemPath>C:/tools/wildfly-17.0.1.Final/bin/client/jboss-client.jar</systemPath>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<finalName>i2invest</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

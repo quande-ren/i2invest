@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>ear</artifactId>
+
+	<parent>
+		<groupId>com.i2invest</groupId>
+		<artifactId>reactor</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../reactor</relativePath>
+	</parent>
+
+	<packaging>ear</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0-6</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.i2invest</groupId>
+			<artifactId>domain</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.i2invest</groupId>
+			<artifactId>ejb</artifactId>
+			<type>ejb</type>
+			<version>0.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.i2invest</groupId>
+			<artifactId>restful</artifactId>
+			<type>war</type>
+			<version>0.0.1</version>
+		</dependency>
+
+
+
+	</dependencies>
+
+	<build>
+		<finalName>i2invest_ear</finalName>
+
+		<plugins>
+
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<modules>
+						<jarModule>
+							<groupId>com.i2invest</groupId>
+							<artifactId>domain</artifactId>
+						</jarModule>
+						<ejbModule>
+							<groupId>com.i2invest</groupId>
+							<artifactId>ejb</artifactId>
+						</ejbModule>
+						<webModule>
+							<groupId>com.i2invest</groupId>
+							<artifactId>restful</artifactId>
+							<contextRoot>/i2invest</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
