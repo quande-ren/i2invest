@@ -1,0 +1,21 @@
+<p>member-home works!</p>
+
+
+
+<div class="p-field p-grid">
+    <label for="searchEmail" class="p-col-fixed" style="width:100px">Email</label>
+    <div class="p-col">
+        <input id="searchEmail" type="text" [(ngModel)]="searchEmail" pInputText> 
+    </div>
+</div>
+
+<div class="p-field p-grid">
+	<button name="loginBtn" class="btn btn-primary" (click)="doSearch()">Search</button>
+</div>
+
+First Name: {{ userVo?.firstName}}
+Last Name: {{ userVo?.lastName}}
+Email: {{ userVo?.email}}
+
+
+

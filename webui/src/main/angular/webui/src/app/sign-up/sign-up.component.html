@@ -1,0 +1,70 @@
+<p>Sign Up To I 2 Invest</p>
+
+<div class="p-field p-grid">
+    <label for="email" class="p-col-fixed" style="width:140px">Email</label>
+    <div class="p-col">
+        <input id="email" type="text" [(ngModel)]="userVo.email" pInputText required/> 
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <label for="password" class="p-col-fixed" style="width:140px">Password</label>
+    <div class="p-col">
+        <input id="password" type="password" [(ngModel)]="userVo.password"  pInputText required/> 
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <label for="passwordConfirm" class="p-col-fixed" style="width:140px">Password Confirm</label>
+    <div class="p-col">
+        <input id="passwordConfirm" type="password" [(ngModel)]="passwordConfirm" pInputText required/>
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <label for="firstName" class="p-col-fixed" style="width:140px">First Name</label>
+    <div class="p-col">
+       <input id="firstName" type="text" [(ngModel)]="userVo.firstName"  pInputText required/>
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <label for="lastName" class="p-col-fixed" style="width:140px">Last Name</label>
+    <div class="p-col">
+        <input id="lastName" type="text" [(ngModel)]="userVo.lastName" pInputText required/>
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <label for="phoneNum" class="p-col-fixed" style="width:140px">Phone Number</label>
+    <div class="p-col">
+        <input id="phoneNum" type="text" [(ngModel)]="userVo.phoneNum" pInputText required/>
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <button name="signUpBtn" class="btn btn-primary" (click)="doSignUp()">Sign Up</button>
+</div>
+
+
+
+<br/><br/>
+
+I already have credentials, 
+
+Click
+<a [routerLink]="['/signin']"> 
+	<button name="SignUpBtn" class="btn btn-primary">here</button>
+</a>
+ to Sign In.
+
+<!-- 
+<a [routerLink]="['/member/memberhome']"> 
+	Member Home
+</a>
+ -->
+
+
+
+
+
