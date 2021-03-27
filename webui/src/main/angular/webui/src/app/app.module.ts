@@ -13,14 +13,16 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MemberHomeComponent } from './member/member-home/member-home.component';
-
+import { ChangeProfileComponent } from './member/change-profile/change-profile.component';
+import { FieldsetModule } from 'primeng/fieldset';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    MemberHomeComponent
+    MemberHomeComponent,
+    ChangeProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { MemberHomeComponent } from './member/member-home/member-home.component'
 	HttpModule,
 	HttpClientModule,
 	ToastModule,
-	BrowserAnimationsModule
+	BrowserAnimationsModule,
+	FieldsetModule
   ],
   providers: [RestfulService, MessageService],
   bootstrap: [AppComponent]

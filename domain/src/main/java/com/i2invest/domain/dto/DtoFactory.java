@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
 import com.i2invest.domain.BaseDto;
+import com.i2invest.domain.request.ChangeProfileRequest;
 import com.i2invest.domain.request.ForgotPasswordRequest;
 import com.i2invest.domain.request.PingRequest;
 import com.i2invest.domain.request.RetrieveUserRequest;
@@ -23,6 +24,7 @@ public class DtoFactory {
 		RetrieveUserRequest.class,
 		SignInRequest.class,
 		SignUpRequest.class,
+		ChangeProfileRequest.class
 	};
 	
 	public static BaseDto getDto(String requestType, String json) {

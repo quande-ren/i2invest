@@ -1,0 +1,80 @@
+<p>Change Profile</p>
+
+
+<p-fieldset legend="Change Email" [toggleable]="true">
+
+	<div class="p-field p-grid">
+	    <label for="email" class="p-col-fixed" style="width:140px">Email</label>
+	    <div class="p-col">
+	        <input id="email" type="text" [(ngModel)]="userVo.email" pInputText required/> 
+	    </div>
+	</div>
+	
+	<div class="p-field p-grid">
+	    <button name="signUpBtn" class="btn btn-primary" (click)="doChangeEmail()">Change Email</button>
+	</div>
+
+</p-fieldset>
+
+<p-fieldset legend="Change Password" [toggleable]="true">
+
+	<div class="p-field p-grid">
+	    <label for="password" class="p-col-fixed" style="width:140px">Old Password</label>
+	    <div class="p-col">
+	        <input id="password" type="password" [(ngModel)]="oldPassword"  pInputText required/> 
+	    </div>
+	</div>
+	
+	<div class="p-field p-grid">
+	    <label for="password" class="p-col-fixed" style="width:140px">New Password</label>
+	    <div class="p-col">
+	        <input id="password" type="password" [(ngModel)]="userVo.password"  pInputText required/> 
+	    </div>
+	</div>
+	
+	<div class="p-field p-grid">
+	    <label for="passwordConfirm" class="p-col-fixed" style="width:140px">New Password Confirm</label>
+	    <div class="p-col">
+	        <input id="passwordConfirm" type="password" [(ngModel)]="passwordConfirm" pInputText required/>
+	    </div>
+	</div>
+	
+	<div class="p-field p-grid">
+	    <button name="signUpBtn" class="btn btn-primary" (click)="doChangePassword()">Change Password</button>
+	</div>
+
+</p-fieldset>
+
+
+<p-fieldset legend="Change Profile" [toggleable]="true">
+	<div class="p-field p-grid">
+	    <label for="firstName" class="p-col-fixed" style="width:140px">First Name</label>
+	    <div class="p-col">
+	       <input id="firstName" type="text" [(ngModel)]="userVo.firstName"  pInputText required/>
+	    </div>
+	</div>
+	
+	<div class="p-field p-grid">
+	    <label for="lastName" class="p-col-fixed" style="width:140px">Last Name</label>
+	    <div class="p-col">
+	        <input id="lastName" type="text" [(ngModel)]="userVo.lastName" pInputText required/>
+	    </div>
+	</div>
+	
+	<div class="p-field p-grid">
+	    <label for="phoneNum" class="p-col-fixed" style="width:140px">Phone Number</label>
+	    <div class="p-col">
+	        <input id="phoneNum" type="text" [(ngModel)]="userVo.phoneNum" pInputText required/>
+	    </div>
+	</div>
+	
+	<div class="p-field p-grid">
+	    <button name="signUpBtn" class="btn btn-primary" (click)="doChangeProfile()">Change Profile</button>
+	</div>
+</p-fieldset>
+
+
+<a [routerLink]="['/member/memberhome']"> 
+	<button name="SignUpBtn" class="btn btn-primary">Member Home</button>
+</a>
+
