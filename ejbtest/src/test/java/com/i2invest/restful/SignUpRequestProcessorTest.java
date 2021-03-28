@@ -22,7 +22,7 @@ public class SignUpRequestProcessorTest {
 	@Test
 	public void testIt() throws NamingException, AppException {
 		FacadeService facadeService = TestUtil.getFacadeService();
-		String email="quande.ren@gmail.com";
+		String email=TestUtil.email;
 
 		try {
 			facadeService.processRequest(new SignUpRequest(new UserDto("firstName", null/* email is null*/)));
@@ -40,8 +40,8 @@ public class SignUpRequestProcessorTest {
 
 		UserDto user = new UserDto("Quande", "Ren", email);
 		user.setPhoneNum("123");
-		user.setPassword("Yanmei123");
-//		facadeService.processRequest(new SignUpRequest(user));
+		user.setPassword(TestUtil.password);
+		facadeService.processRequest(new SignUpRequest(user));
 
 		try {
 			facadeService.processRequest(new SignUpRequest(user));

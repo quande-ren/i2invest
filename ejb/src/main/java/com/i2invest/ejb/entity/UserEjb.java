@@ -2,15 +2,21 @@ package com.i2invest.ejb.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.i2invest.domain.BaseDto;
 
+import lombok.Data;
+
+@Data 
 @Entity
 @Table(name = "I2_User")
 public class UserEjb extends BaseDto implements Serializable  {
@@ -32,7 +38,10 @@ public class UserEjb extends BaseDto implements Serializable  {
 	private Timestamp createTime;
 
 	private Timestamp updateTime;
-
+	
+	@OneToMany
+	@JoinColumn(name="userId")
+	private Set<UserClubRoleEjb> clubRoles;
 	
 	public String getLastName() {
 		return lastName;
@@ -107,4 +116,13 @@ public class UserEjb extends BaseDto implements Serializable  {
 	public void setPasswordHash(String passwordHash) {
 		this.passwordHash = passwordHash;
 	}
+
+	public Set<UserClubRoleEjb> getClubRoles() {
+		return clubRoles;
+	}
+
+	public void setClubRoles(Set<UserClubRoleEjb> clubRoles) {
+		this.clubRoles = clubRoles;
+	}
+
 }

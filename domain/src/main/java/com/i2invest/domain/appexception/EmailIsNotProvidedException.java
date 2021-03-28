@@ -2,7 +2,8 @@ package com.i2invest.domain.appexception;
 
 import lombok.Data;
 
-public @Data class EmailIsNotProvidedException extends AppException{
+@Data
+public  class EmailIsNotProvidedException extends AppException{
 	public EmailIsNotProvidedException() {
 	}
 	

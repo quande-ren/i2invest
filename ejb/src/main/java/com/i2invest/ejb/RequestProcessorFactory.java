@@ -1,7 +1,6 @@
 package com.i2invest.ejb;
 
 import com.i2invest.domain.request.BaseRequest;
-import com.i2invest.ejb.processor.ForgotPasswordRequestProcessor;
 import com.i2invest.ejb.processor.*;
 
 public class RequestProcessorFactory {
@@ -11,6 +10,7 @@ public class RequestProcessorFactory {
 			new ForgotPasswordRequestProcessor(),
 			new RetrieveUserRequestProcessor(),
 			new ChangeProfileRequestProcessor(),
+			new StartClubRequestProcessor(),
 	};
 	
 	public static AbstractRequestProcessor getProcessor(BaseRequest request) {

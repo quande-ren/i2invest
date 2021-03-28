@@ -4,7 +4,8 @@ import com.i2invest.domain.response.ForgotPasswordResponse;
 
 import lombok.Data;
 
-public @Data class ForgotPasswordRequest extends BaseRequest<ForgotPasswordResponse>{
+@Data
+public  class ForgotPasswordRequest extends BaseRequest<ForgotPasswordResponse>{
 	public String username;
 	
 	public ForgotPasswordRequest() {

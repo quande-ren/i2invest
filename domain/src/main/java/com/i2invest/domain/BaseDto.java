@@ -10,10 +10,17 @@ import com.google.gson.Gson;
 
 import lombok.Data;
 
-public @Data abstract class BaseDto  implements Serializable, Cloneable{
+@Data
+public abstract class BaseDto  implements Serializable, Cloneable{
 	private static final long serialVersionUID = 4324588586408069539L;
 
 	private static final Logger logger=Logger.getLogger(BaseDto.class.getName());
+	
+	public BaseDto() {}
+	
+	public BaseDto(BaseDto fromCopy) {
+		copyPropertiesFrom(fromCopy);
+	}
 	
 	private static final Gson gson=new Gson();
 	public String toJson() {

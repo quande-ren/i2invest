@@ -2,7 +2,8 @@ package com.i2invest.domain.appexception;
 
 import lombok.Data;
 
-public @Data class TokenIsNotValidException extends AppException{
+@Data
+public  class TokenIsNotValidException extends AppException{
 	public TokenIsNotValidException() {
 	}
 	

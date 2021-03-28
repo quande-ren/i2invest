@@ -4,7 +4,8 @@ import com.i2invest.domain.response.RetrieveUserResponse;
 
 import lombok.Data;
 
-public @Data class RetrieveUserRequest extends BaseRequest<RetrieveUserResponse>{
+@Data
+public  class RetrieveUserRequest extends BaseRequest<RetrieveUserResponse>{
 	public String searchEmail;
 	
 	public RetrieveUserRequest() {

@@ -2,7 +2,8 @@ package com.i2invest.domain.appexception;
 
 import lombok.Data;
 
-public @Data class TokenIsNotProvidedException extends AppException{
+@Data
+public  class TokenIsNotProvidedException extends AppException{
 	public TokenIsNotProvidedException() {
 	}
 	

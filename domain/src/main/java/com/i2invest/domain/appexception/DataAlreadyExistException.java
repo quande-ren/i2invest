@@ -2,7 +2,8 @@ package com.i2invest.domain.appexception;
 
 import lombok.Data;
 
-public @Data class DataAlreadyExistException extends AppException{
+@Data
+public class DataAlreadyExistException extends AppException{
 	public DataAlreadyExistException(String duplicate) {
 		this.duplicate=duplicate;
 	}

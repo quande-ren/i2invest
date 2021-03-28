@@ -2,10 +2,14 @@ package com.i2invest.domain.appexception;
 
 import lombok.Data;
 
-public @Data class MissingParameterException extends AppException{
+@Data
+public  class MissingParameterException extends AppException{
 	public MissingParameterException(String parameterName, String source) {
 		this.setParameterName(parameterName);
 		this.setSource(source);
+	}
+	public MissingParameterException(String parameterName) {
+		this.setParameterName(parameterName);
 	}
 	public MissingParameterException() {
 	}

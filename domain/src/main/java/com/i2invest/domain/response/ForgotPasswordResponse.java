@@ -2,7 +2,8 @@ package com.i2invest.domain.response;
 
 import lombok.Data;
 
-public @Data class ForgotPasswordResponse extends BaseResponse {
+@Data
+public  class ForgotPasswordResponse extends BaseResponse {
 	public String newPassword;
 
 	public ForgotPasswordResponse() {

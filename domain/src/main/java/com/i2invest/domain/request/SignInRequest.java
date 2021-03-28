@@ -4,7 +4,8 @@ import com.i2invest.domain.response.SignInResponse;
 
 import lombok.Data;
 
-public @Data class SignInRequest extends BaseRequest<SignInResponse>{
+@Data
+public  class SignInRequest extends BaseRequest<SignInResponse>{
 	private static final long serialVersionUID = 6556666213116651308L;
 	public String password;
 	

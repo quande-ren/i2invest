@@ -11,6 +11,7 @@ import com.i2invest.domain.request.PingRequest;
 import com.i2invest.domain.request.RetrieveUserRequest;
 import com.i2invest.domain.request.SignInRequest;
 import com.i2invest.domain.request.SignUpRequest;
+import com.i2invest.domain.request.StartClubRequest;
 
 public class DtoFactory {
 	private static final Logger logger=Logger.getLogger(DtoFactory.class.getName());
@@ -23,7 +24,8 @@ public class DtoFactory {
 		RetrieveUserRequest.class,
 		SignInRequest.class,
 		SignUpRequest.class,
-		ChangeProfileRequest.class
+		ChangeProfileRequest.class,
+		StartClubRequest.class,
 	};
 	
 	public static BaseDto getDto(String requestType, String json) {

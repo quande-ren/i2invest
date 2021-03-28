@@ -1,18 +1,21 @@
 package com.i2invest.domain.response;
 
+import com.i2invest.domain.dto.ClubDto;
 import com.i2invest.domain.dto.UserDto;
 
 import lombok.Data;
 
 @Data
-public  class ChangeProfileResponse extends BaseResponse {
+public  class StartClubResponse extends BaseResponse {
 	private static final long serialVersionUID = -151115347725319372L;
 	public UserDto user;
-	public ChangeProfileResponse() {
+	public ClubDto club;
+	public StartClubResponse() {
 	}
 
-	public ChangeProfileResponse(UserDto user) {
+	public StartClubResponse(UserDto user, ClubDto club) {
 		this.user=user;
+		this.club=club;
 	}
-
+	
 }

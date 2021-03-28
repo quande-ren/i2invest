@@ -20,9 +20,8 @@ public  class RetrieveUserRequestProcessor
 		implements TokenRequiredRequestProcessor{
 
 	public void process(EntityManager entityManager, RetrieveUserRequest request, RetrieveUserResponse response) throws AppException{
-		List<UserEjb> list = retrieveUserByEmail(entityManager, request.searchEmail);
-		if(list!=null && list.size()>0) {
-			UserEjb ejb=list.get(0);
+		UserEjb ejb= retrieveUserByEmail(entityManager, request.searchEmail);
+		if(ejb!=null ) {
 			response.user=new UserDto(ejb);
 		}else {
 			throw new DataNotFoundException(request.searchEmail);
@@ -34,12 +33,15 @@ public  class RetrieveUserRequestProcessor
 	}
 
 	
-	public static List<UserEjb> retrieveUserByEmail(EntityManager entityManager, String email) {
+	public static UserEjb retrieveUserByEmail(EntityManager entityManager, String email) {
 		String ejbQL = "From UserEjb b where b.email = ?1";
 		Query query = entityManager.createQuery(ejbQL);
 		query.setParameter(1, email);
 		List<UserEjb> list = query.getResultList();
-		return list;
+		if(list!=null && list.size()>0) {
+			return list.get(0);
+		}
+		return null;
 	}
 
 	public void verifyData(RetrieveUserRequest request) throws MissingParameterException {

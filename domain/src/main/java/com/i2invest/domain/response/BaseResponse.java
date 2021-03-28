@@ -4,7 +4,8 @@ import com.i2invest.domain.BaseDto;
 
 import lombok.Data;
 
-public @Data  class BaseResponse extends BaseDto{
+@Data
+public   class BaseResponse extends BaseDto{
 	public boolean success;
 	public String errorCode;
 	public String errorMessage;

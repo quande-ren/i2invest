@@ -19,8 +19,8 @@ import com.i2invest.ejb.entity.UserEjb;
 
 public class SignUpRequestProcessor extends AbstractRequestProcessor<SignUpRequest, SignUpResponse> {
 	public void process(EntityManager entityManager, SignUpRequest request, SignUpResponse response) throws AppException{
-		List<UserEjb> list = RetrieveUserRequestProcessor.retrieveUserByEmail(entityManager, request.user.getEmail());
-		if (list != null && list.size() > 0) {
+		UserEjb userEjb= RetrieveUserRequestProcessor.retrieveUserByEmail(entityManager, request.user.getEmail());
+		if(userEjb!=null ) {
 			throw new DataAlreadyExistException(request.user.getEmail());
 		}
 

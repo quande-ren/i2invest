@@ -2,7 +2,8 @@ package com.i2invest.domain.appexception;
 
 import lombok.Data;
 
-public @Data class DataNotFoundException extends AppException{
+@Data
+public class DataNotFoundException extends AppException{
 	public DataNotFoundException(String searchData) {
 		this.searchData=searchData;
 	}

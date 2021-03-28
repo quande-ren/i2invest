@@ -5,7 +5,8 @@ import com.i2invest.domain.response.SignUpResponse;
 
 import lombok.Data;
 
-public @Data class SignUpRequest extends BaseRequest<SignUpResponse>{
+@Data
+public  class SignUpRequest extends BaseRequest<SignUpResponse>{
 	private static final long serialVersionUID = 6556666213116651308L;
 	public UserDto user;
 	

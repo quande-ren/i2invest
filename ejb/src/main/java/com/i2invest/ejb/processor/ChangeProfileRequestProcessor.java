@@ -1,7 +1,5 @@
 package com.i2invest.ejb.processor;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 
 import com.i2invest.domain.appexception.AppException;
@@ -15,20 +13,17 @@ import com.i2invest.domain.response.ChangeProfileResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.TokenRequiredRequestProcessor;
 import com.i2invest.ejb.entity.UserEjb;
-import com.i2invest.util.JwtUtil;
 
 public class ChangeProfileRequestProcessor extends AbstractRequestProcessor<ChangeProfileRequest, ChangeProfileResponse> implements TokenRequiredRequestProcessor{
 
 	public void process(EntityManager entityManager, ChangeProfileRequest request, ChangeProfileResponse response) throws AppException{
 		UserDto inUser = new UserDto();
 		inUser.setEmail(request.email);
-		
-		List<UserEjb> list = RetrieveUserRequestProcessor.retrieveUserByEmail(entityManager, request.email);
-		if (list == null || list.size() < 1) {
+
+		UserEjb userEjb= RetrieveUserRequestProcessor.retrieveUserByEmail(entityManager, request.email);
+		if(userEjb==null ) {
 			throw new InvalidCredential();
 		}
-		UserEjb userEjb = list.get(0);
-		
 		
 		if(request.changePasswordOnly) {
 			changePassword(entityManager, userEjb, request.oldPassword, request.newPassword);

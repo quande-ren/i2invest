@@ -7,7 +7,8 @@ import com.i2invest.domain.BaseDto;
 import lombok.Data;
 
 
-public @Data class UserDto extends BaseDto{
+@Data
+public  class UserDto extends BaseDto{
 	private static final long serialVersionUID = -4926938619167517315L;
 
 	public UserDto(BaseDto fromCopy) {
@@ -34,7 +35,8 @@ public @Data class UserDto extends BaseDto{
 	private   String email;
 	private   String password;
 	private   String phoneNum;
-	
+	private   String status;
+
 	private Timestamp createTime;
 
 	private Timestamp updateTime;

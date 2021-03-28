@@ -4,7 +4,8 @@ import com.i2invest.domain.dto.UserDto;
 
 import lombok.Data;
 
-public @Data class RetrieveUserResponse extends BaseResponse {
+@Data
+public  class RetrieveUserResponse extends BaseResponse {
 	public UserDto user;
 	public RetrieveUserResponse() {
 	}
