@@ -12,9 +12,12 @@ import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.request.RetrieveUserRequest;
 import com.i2invest.domain.response.RetrieveUserResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
+import com.i2invest.ejb.TokenRequiredRequestProcessor;
 import com.i2invest.ejb.entity.UserEjb;
 
-public  class RetrieveUserRequestProcessor extends AbstractRequestProcessor<RetrieveUserRequest, RetrieveUserResponse>{
+public  class RetrieveUserRequestProcessor 
+		extends AbstractRequestProcessor<RetrieveUserRequest, RetrieveUserResponse> 
+		implements TokenRequiredRequestProcessor{
 
 	public void process(EntityManager entityManager, RetrieveUserRequest request, RetrieveUserResponse response) throws AppException{
 		List<UserEjb> list = retrieveUserByEmail(entityManager, request.searchEmail);

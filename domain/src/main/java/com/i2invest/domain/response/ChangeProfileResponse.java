@@ -7,17 +7,11 @@ import lombok.Data;
 public @Data class ChangeProfileResponse extends BaseResponse {
 	private static final long serialVersionUID = -151115347725319372L;
 	public UserDto user;
-	public String token;
 	public ChangeProfileResponse() {
 	}
 
 	public ChangeProfileResponse(UserDto user) {
 		this.user=user;
-	}
-
-	public ChangeProfileResponse(String token, UserDto user) {
-		this.user=user;
-		this.token=token;
 	}
 
 }

@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
+import com.i2invest.domain.appexception.EmailIsNotProvidedException;
 import com.i2invest.domain.appexception.TokenIsNotProvidedException;
 import com.i2invest.domain.appexception.TokenIsNotValidException;
 import com.i2invest.domain.request.BaseRequest;
@@ -33,25 +34,34 @@ public class FacadeEjb implements FacadeService {
 
 	@Override
 	public BaseResponse processRequest(BaseRequest request) throws AppException {
-		AbstractRequestProcessor processor = RequestProcessorFactory.getProcessor(request);
-		
-		if(processor.requireToken()) {
-			if(request.email==null || request.token==null) {
-				throw new TokenIsNotProvidedException();
+		BaseResponse response=null;
+		try {
+			AbstractRequestProcessor processor = RequestProcessorFactory.getProcessor(request);
+			
+			if(processor instanceof TokenRequiredRequestProcessor) {
+				if(request.email==null) {
+					throw new EmailIsNotProvidedException();
+				}
+				if(request.token==null) {
+					throw new TokenIsNotProvidedException();
+				}
+				if( ! JwtUtil.isValidToken(request.token, request.email)) {
+					throw new TokenIsNotValidException();
+				}
 			}
-			if( ! JwtUtil.isValidToken(request.token, request.email)) {
-				throw new TokenIsNotValidException();
-			}
+			
+			processor.verifyData(request);
+			
+			response= request.getDummayResponse();
+			
+			processor.process(entityManager, request, response);
+	
+			logger.info("\n\n\nRequest is\n"+request+"\n\nResponse is\n"+response+"\n");
+			
+			return response;
+		}catch (AppException e) {
+			logger.warn("\n\n\nRequest is\n"+request+"\n\nException:\n", e);
+			throw e;
 		}
-		
-		processor.verifyData(request);
-		
-		BaseResponse response= request.getDummayResponse();
-		
-		processor.process(entityManager, request, response);
-
-		logger.info("\n\n\nRequest is\n"+request+"\n\nResponse is\n"+response+"\n");
-		
-		return response;
 	}
 }

@@ -10,6 +10,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import org.apache.log4j.Logger;
+
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.dto.DtoJsonWrapper;
@@ -18,9 +20,9 @@ import com.i2invest.domain.response.BaseResponse;
 
 @Path("/api")
 public class RestServiceController {
+	private static final Logger logger=Logger.getLogger(RestServiceController.class.getName());
 
 	private FacadeService facadeService;
-	private Context context;
 
 	@POST
     @Path("/postJson3")
@@ -28,10 +30,12 @@ public class RestServiceController {
 	@Consumes("application/json")
 	public BaseResponse processRequest(DtoJsonWrapper dto ) throws NamingException {
 		if(facadeService==null) {
-			getFacadeService();
+			prepareFacadeService();
 		};
 		
+		
 		BaseRequest payloadRequest=(BaseRequest) dto.getPayloadDto();
+		logger.info("Request Type="+dto.type+" Payload="+ dto.jsonString+"\nPayload Request="+payloadRequest);
 
 		try {
 			BaseResponse response=facadeService.processRequest(payloadRequest);
@@ -41,7 +45,7 @@ public class RestServiceController {
 		}
 	}
 
-	private void getFacadeService() throws NamingException {
+	private void prepareFacadeService() throws NamingException {
 		final Hashtable<String, String> jndiProperties = new Hashtable<String, String>();
 		jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
 		jndiProperties.put(Context.PROVIDER_URL,"remote+http://localhost:8080");

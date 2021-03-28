@@ -3,6 +3,9 @@ package com.i2invest.domain.request;
 import com.i2invest.domain.BaseDto;
 import com.i2invest.domain.response.BaseResponse;
 
+import lombok.Data;
+
+@Data
 public abstract class BaseRequest<R extends BaseResponse> extends BaseDto{
 	private static final long serialVersionUID = -7369800986300844786L;
 	public String email;

@@ -12,7 +12,4 @@ public abstract class AbstractRequestProcessor<RQS extends BaseRequest, RSP exte
 	public void verifyData(RQS request) throws AppException{
 	};
 	
-	public boolean requireToken() {
-		return false;
-	}
 }

@@ -17,28 +17,23 @@ import com.i2invest.domain.response.RetrieveUserResponse;
 import com.i2invest.domain.response.SignInResponse;
 
 public class RetrieveUserRequestProcessorTest {
+	
 
 	@Test
 	public void testSuccess() throws NamingException, AppException {
 		FacadeService facadeService = TestUtil.getFacadeService();
-		String email="quande.ren@gmail.com";
-		String password="Yanmei123";
 		
-
-		SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(email, password));
 		
-		assertNotNull(signInResponse.user);
-		assertNotNull(signInResponse.user.getFirstName());
-		assertNotNull(signInResponse.user.getLastName());
-		assertNotNull(signInResponse.token);
+		String token=SignInRequestProcessorTest.doSignIn(facadeService, TestUtil.email, TestUtil.password);
 		
-		RetrieveUserRequest retrieveUserRequest=new RetrieveUserRequest(signInResponse.token, email, email);
+		
+		RetrieveUserRequest retrieveUserRequest=new RetrieveUserRequest(token, TestUtil.email, TestUtil.email);
 		RetrieveUserResponse retrieveUserResponse=(RetrieveUserResponse) facadeService.processRequest(retrieveUserRequest);
 		
 		assertNotNull(retrieveUserResponse);
 		assertNotNull(retrieveUserResponse.user);
 		
-		retrieveUserRequest=new RetrieveUserRequest("abc", email, email);
+		retrieveUserRequest=new RetrieveUserRequest("abc", TestUtil.email, TestUtil.email);
 		try {
 			retrieveUserResponse=(RetrieveUserResponse) facadeService.processRequest(retrieveUserRequest);
 			fail("should not go to here");
@@ -51,11 +46,9 @@ public class RetrieveUserRequestProcessorTest {
 	@Test
 	public void testEmailNotFount() throws NamingException, AppException {
 		FacadeService facadeService = TestUtil.getFacadeService();
-		String email="quande.ren@gmail.com2";
-		String password="Yanmei123";
 
 		try {
-			SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(email, password));
+			SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(TestUtil.email+"NotFount", TestUtil.password));
 			fail("should not go to here");
 		}catch (InvalidCredential e) {
 			
@@ -65,11 +58,9 @@ public class RetrieveUserRequestProcessorTest {
 	@Test
 	public void testPasswordNotCorrect() throws NamingException, AppException {
 		FacadeService facadeService = TestUtil.getFacadeService();
-		String email="quande.ren@gmail.com";
-		String password="Yanmei1234444";
 		
 		try {
-			SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(email, password));
+			SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(TestUtil.email, TestUtil.password+"WrongPassword"));
 			fail("should not go to here");
 		}catch (InvalidCredential e) {
 			

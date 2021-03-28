@@ -1,6 +1,8 @@
 package com.i2invest.domain.appexception;
 
-public class InvalidCredential extends AppException{
+import lombok.Data;
+
+public @Data class InvalidCredential extends AppException{
 	public String getErrorCode() {
 		return "103";
 	}

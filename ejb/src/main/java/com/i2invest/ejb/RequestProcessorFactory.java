@@ -10,6 +10,7 @@ public class RequestProcessorFactory {
 			new SignInRequestProcessor(),
 			new ForgotPasswordRequestProcessor(),
 			new RetrieveUserRequestProcessor(),
+			new ChangeProfileRequestProcessor(),
 	};
 	
 	public static AbstractRequestProcessor getProcessor(BaseRequest request) {

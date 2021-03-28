@@ -15,6 +15,20 @@ import com.i2invest.domain.response.SignInResponse;
 
 public class SignInRequestProcessorTest {
 
+	public static String doSignIn(FacadeService facadeService, String email, String password) throws AppException {
+
+		SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(email, password));
+
+		assertNotNull(signInResponse.user);
+		assertNotNull(signInResponse.user.getFirstName());
+		assertNotNull(signInResponse.user.getLastName());
+		assertNotNull(signInResponse.token);
+		
+		return signInResponse.token;
+
+	}
+
+	
 	@Test
 	public void testSuccess() throws NamingException, AppException {
 		FacadeService facadeService = TestUtil.getFacadeService();

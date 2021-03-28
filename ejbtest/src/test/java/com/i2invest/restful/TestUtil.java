@@ -9,6 +9,11 @@ import javax.naming.NamingException;
 import com.i2invest.domain.FacadeService;
 
 public class TestUtil {
+	public 	static final String email = "quande.ren@gmail.com";
+	public 	static final String password="Yanmei123";
+	public 	static final String oldPassword=password;
+	public 	static final String newPassword="Yanmei124";
+
 
 	public static FacadeService getFacadeService() throws NamingException {
 		final Hashtable<String, String> jndiProperties = new Hashtable<String, String>();
