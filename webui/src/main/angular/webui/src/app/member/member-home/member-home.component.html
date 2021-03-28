@@ -1,28 +1,29 @@
-<p>member-home works!</p>
-
-
+<h2>Search Person by Email</h2>
 
 <div class="p-field p-grid">
-    <label for="searchEmail" class="p-col-fixed" style="width:100px">Email</label>
-    <div class="p-col">
-        <input id="searchEmail" type="text" [(ngModel)]="searchEmail" pInputText> 
-    </div>
+	<label for="searchEmail" class="p-col-fixed" style="width: 100px">Email</label>
+	<div class="p-col">
+		<input id="searchEmail" type="text" [(ngModel)]="searchEmail"
+			pInputText>
+	</div>
 </div>
 
 <div class="p-field p-grid">
-	<button name="loginBtn" class="btn btn-primary" (click)="doSearch()">Search</button>
+	&nbsp;&nbsp;&nbsp;<button name="loginBtn" class="btn btn-primary" (click)="doSearch()">Search</button>
 </div>
 
-First Name: {{ userVo?.firstName}}
-Last Name: {{ userVo?.lastName}}
-Email: {{ userVo?.email}}
 
-
-
-<a [routerLink]="['/member/changeprofile']"> 
-	<button name="SignUpBtn" class="btn btn-primary">Change Profile</button>
-</a>
-
-
-
-
+<div fxLayout="column" fxLayoutAlign="space-between stretch" *ngIf="userVo?.firstName != null">
+	<div class="p-field p-grid">
+		<label class="p-col-fixed" style="width: 100px">First Name</label>
+		<div class="p-col">{{ userVo?.firstName}}</div>
+	</div>
+	<div class="p-field p-grid">
+		<label class="p-col-fixed" style="width: 100px">Last Name</label>
+		<div class="p-col">{{ userVo?.lastName}}</div>
+	</div>
+	<div class="p-field p-grid">
+		<label class="p-col-fixed" style="width: 100px">Email</label>
+		<div class="p-col">{{ userVo?.email}}</div>
+	</div>
+</div>

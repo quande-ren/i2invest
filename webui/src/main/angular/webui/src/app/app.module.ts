@@ -15,6 +15,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MemberHomeComponent } from './member/member-home/member-home.component';
 import { ChangeProfileComponent } from './member/change-profile/change-profile.component';
 import { FieldsetModule } from 'primeng/fieldset';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +28,10 @@ import { FieldsetModule } from 'primeng/fieldset';
     LoginComponent,
     SignUpComponent,
     MemberHomeComponent,
-    ChangeProfileComponent
+    ChangeProfileComponent,
+    FooterComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +41,8 @@ import { FieldsetModule } from 'primeng/fieldset';
 	HttpClientModule,
 	ToastModule,
 	BrowserAnimationsModule,
-	FieldsetModule
+	FieldsetModule,
+	FlexLayoutModule 
   ],
   providers: [RestfulService, MessageService],
   bootstrap: [AppComponent]

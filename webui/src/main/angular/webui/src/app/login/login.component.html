@@ -1,41 +1,36 @@
+	<h1>Welcome to I 2 Invest!</h1>
 
-
-<h1>Welcome to I 2 Invest!</h1>
-<br/><br/>
-
-<div class="p-field p-grid">
-    <label for="email" class="p-col-fixed" style="width:100px">Email</label>
-    <div class="p-col">
-        <input id="email" type="text" [(ngModel)]="email" pInputText> 
-    </div>
-</div>
-<div class="p-field p-grid">
-    <label for="password" class="p-col-fixed" style="width:100px">Password</label>
-    <div class="p-col">
-        <input id="password" type="password" [(ngModel)]="password" pInputText> 
-    </div>
-</div>
-
-<div class="p-field p-grid">
-	<button name="loginBtn" class="btn btn-primary" (click)="doLogin()">Login</button>
-</div>
-
-
-<br/><br/>
-
-<br/><br/>
 	
-I am not registered yet, 
-<a [routerLink]="['/signup']"> 
-	<button name="SignUpBtn" class="btn btn-primary">Sign Up</button>
-</a>
-<br/><br/>
+	<div>
+		<div class="p-field p-grid">
+		    <label for="email" class="p-col-fixed" style="width:100px">Email</label>
+		    <div class="p-col">
+		        <input id="email" type="text" [(ngModel)]="email" pInputText> 
+		    </div>
+		</div>
+		<div class="p-field p-grid">
+		    <label for="password" class="p-col-fixed" style="width:100px">Password</label>
+		    <div class="p-col">
+		        <input id="password" type="password" [(ngModel)]="password" pInputText> 
+		    </div>
+		</div>
+		
+		<div class="p-field p-grid">
+	&nbsp;&nbsp;&nbsp;		<button name="loginBtn" class="btn btn-primary" (click)="doLogin()">Login</button>
+		</div>
+	</div>	
+	
 
-Forgot password?	
-<button name="ForgotPasswordBtn" class="btn btn-primary">Reset Password</button>
-<br/><br/>
-
-
-<a [routerLink]="['/member/memberhome']"> 
-	Member Home
-</a>
+	<div>
+		<br/><br/>
+			
+		I am not registered yet, 
+		<a [routerLink]="['/signup']"> 
+			<button name="SignUpBtn" class="btn btn-primary">Sign Up</button>
+		</a>
+		<br/><br/>
+		
+		Forgot password?	
+		<button name="ForgotPasswordBtn" class="btn btn-primary">Reset Password</button>
+	
+	</div>	

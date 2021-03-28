@@ -14,8 +14,9 @@ import { FieldsetModule } from 'primeng/fieldset';
 export class ChangeProfileComponent implements OnInit {
 
 	userVo: UserVo = new UserVo();
-	oldPassword = 'Yanmei123';
-	passwordConfirm = 'Yanmei123';
+	newPassword = '';
+	oldPassword = '';
+	passwordConfirm = '';
 
 	constructor(
 		private restfulService: RestfulService,
