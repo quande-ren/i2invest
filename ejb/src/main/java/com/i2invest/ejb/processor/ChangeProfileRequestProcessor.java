@@ -4,11 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import com.i2invest.domain.UserDto;
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.InvalidCredential;
 import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.appexception.PasswordNotMatchException;
+import com.i2invest.domain.dto.UserDto;
 import com.i2invest.domain.request.ChangeProfileRequest;
 import com.i2invest.domain.request.SignUpRequest;
 import com.i2invest.domain.response.ChangeProfileResponse;

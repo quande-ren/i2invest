@@ -5,10 +5,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.i2invest.domain.UserDto;
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.DataNotFoundException;
 import com.i2invest.domain.appexception.MissingParameterException;
+import com.i2invest.domain.dto.UserDto;
 import com.i2invest.domain.request.RetrieveUserRequest;
 import com.i2invest.domain.response.RetrieveUserResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;

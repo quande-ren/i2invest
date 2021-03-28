@@ -1,6 +1,6 @@
 package com.i2invest.domain.response;
 
-import com.i2invest.domain.UserDto;
+import com.i2invest.domain.dto.UserDto;
 
 import lombok.Data;
 

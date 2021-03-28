@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.Test;
 
-import com.i2invest.domain.dto.DtoJsonWrapper;
+import com.i2invest.domain.DtoJsonWrapper;
 import com.i2invest.domain.request.BaseRequest;
 import com.i2invest.domain.request.SignInRequest;
 

@@ -12,9 +12,9 @@ import javax.ws.rs.Produces;
 
 import org.apache.log4j.Logger;
 
+import com.i2invest.domain.DtoJsonWrapper;
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
-import com.i2invest.domain.dto.DtoJsonWrapper;
 import com.i2invest.domain.request.BaseRequest;
 import com.i2invest.domain.response.BaseResponse;
 

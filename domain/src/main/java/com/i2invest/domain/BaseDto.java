@@ -7,7 +7,6 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
-import com.i2invest.domain.dto.DtoJsonWrapper;
 
 import lombok.Data;
 
