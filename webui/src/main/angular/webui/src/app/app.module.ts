@@ -20,6 +20,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { StartClubComponent } from './member/start-club/start-club.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     ChangeProfileComponent,
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    StartClubComponent
   ],
   imports: [
     BrowserModule,

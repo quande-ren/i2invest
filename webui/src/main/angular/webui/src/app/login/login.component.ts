@@ -14,7 +14,7 @@ import { SessionManagerService } from '../services/session-manager.service';
 
 export class LoginComponent implements OnInit {
 	email = 'quande.ren@gmail.com';
-	password = 'Yanmei124';
+	password = 'Yanmei123';
 
 
 	constructor( private restfulService : RestfulService,
