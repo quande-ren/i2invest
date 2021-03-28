@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 import { FieldsetModule } from 'primeng/fieldset';
+import { SessionManagerService } from '../../services/session-manager.service';
 
 @Component({
 	selector: 'app-change-profile',
@@ -13,32 +14,52 @@ import { FieldsetModule } from 'primeng/fieldset';
 })
 export class ChangeProfileComponent implements OnInit {
 
-	userVo: UserVo = new UserVo();
-	newPassword = '';
-	oldPassword = '';
-	passwordConfirm = '';
+	userVo: UserVo=new UserVo();
+	oldPassword = '1';
+	newPassword = '2';
+	passwordConfirm = '2';
 
 	constructor(
 		private restfulService: RestfulService,
 		private messageService: MessageService,
+		private sessionManager: SessionManagerService,
 		private router: Router
 	) { }
 
 	ngOnInit(): void {
+		this.userVo=this.sessionManager.userVo;
 	}
 
 	doChangePassword() {
+		let errorMsg='';
+		if(this.newPassword!=this.passwordConfirm){
+			errorMsg='New Password and password confirm does not match';
+		}else if(this.newPassword===this.oldPassword){
+			errorMsg='Old Password and new Password are the same.'
+		}
+		console.log("errorMsg="+errorMsg);
+		
+		if(errorMsg!==''){
+			this.messageService.add({ severity: 'error', summary: 'Error', detail: errorMsg });
+			return;
+		}
+		
 		let jsonType = 'ChangeProfileRequest';
-		let jsonObj = { user: this.userVo };
+		let jsonObj = { user: this.userVo , 
+		                email: this.sessionManager?.userVo?.email,
+						token: this.sessionManager?.token, 
+						oldPassword: this.oldPassword, 
+						newPassword: this.newPassword, 
+						changePasswordOnly: true};
 
 		this.restfulService.callRestful(jsonType, jsonObj).subscribe(
 			response => {
 				if (response.success) {
 					console.log(response);
 					this.router.navigateByUrl('/signin');
-					this.messageService.add({ severity: 'message', summary: 'Success', detail: 'You can now sign in using the new created credential' });
+					this.messageService.add({ severity: 'message', summary: 'Password Change Success', detail: 'You can now sign in using the new created credential' });
 				} else {
-					this.messageService.add({ severity: 'error', summary: 'Error Sign Up', detail: response.errorMessage + ' (' + response.errorCode + ')' });
+					this.messageService.add({ severity: 'error', summary: 'Error', detail: response.errorMessage + ' (' + response.errorCode + ')' });
 				}
 			},
 

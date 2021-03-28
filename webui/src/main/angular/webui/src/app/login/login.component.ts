@@ -14,7 +14,7 @@ import { SessionManagerService } from '../services/session-manager.service';
 
 export class LoginComponent implements OnInit {
 	email = 'quande.ren@gmail.com';
-	password = 'Yanmei123';
+	password = 'Yanmei124';
 
 
 	constructor( private restfulService : RestfulService,
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
 							if(response.success){
 								this.sessionManager.token=response.token;
 								this.sessionManager.email=this.email;
+								this.sessionManager.userVo=response.user;
 								console.log(this.sessionManager.token);
 								this.router.navigateByUrl('/member/memberhome');
 							}else{
@@ -47,9 +48,7 @@ export class LoginComponent implements OnInit {
 						},
 			 
 		 	error   => 	{
-							this.messageService.add({severity:'error', summary: 'Error Message', detail:error});
-							this.sessionManager.token='';
-							this.sessionManager.email='';
+							this.messageService.add({severity:'error', summary: 'Error !', detail:'Failed to connect server'});
 						}
 		);
 	}
