@@ -13,11 +13,11 @@ import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.DataAlreadyExistException;
 import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.dto.UserDto;
-import com.i2invest.domain.request.RetrieveUserRequest;
-import com.i2invest.domain.request.SignUpRequest;
-import com.i2invest.domain.response.RetrieveUserResponse;
+import com.i2invest.domain.request.UserRetrieveRequest;
+import com.i2invest.domain.request.UserSignUpRequest;
+import com.i2invest.domain.response.UserRetrieveResponse;
 
-public class SignUpRequestProcessorTest {
+public class UserSignUpRequestProcessorTest {
 
 	@Test
 	public void testIt() throws NamingException, AppException {
@@ -25,14 +25,14 @@ public class SignUpRequestProcessorTest {
 		String email=TestUtil.email;
 
 		try {
-			facadeService.processRequest(new SignUpRequest(new UserDto("firstName", null/* email is null*/)));
+			facadeService.processRequest(new UserSignUpRequest(new UserDto("firstName", null/* email is null*/)));
 			fail("Should not go to here");
 		}catch (MissingParameterException e) {
 			assertEquals(e.getParameterName(), "user.email");
 		}
 
 		try {
-			facadeService.processRequest(new SignUpRequest(new UserDto(null, email/* firstName is null*/)));
+			facadeService.processRequest(new UserSignUpRequest(new UserDto(null, email/* firstName is null*/)));
 			fail("Should not go to here");
 		}catch (MissingParameterException e) {
 			assertEquals(e.getParameterName(), "user.firstName");
@@ -41,16 +41,16 @@ public class SignUpRequestProcessorTest {
 		UserDto user = new UserDto("Quande", "Ren", email);
 		user.setPhoneNum("123");
 		user.setPassword(TestUtil.password);
-		facadeService.processRequest(new SignUpRequest(user));
+		facadeService.processRequest(new UserSignUpRequest(user));
 
 		try {
-			facadeService.processRequest(new SignUpRequest(user));
+			facadeService.processRequest(new UserSignUpRequest(user));
 			fail("Should not go to here");
 		}catch (DataAlreadyExistException e) {
 			assertEquals(e.duplicate, email);
 		}
 		
-		RetrieveUserResponse retrieveUserResponse=(RetrieveUserResponse) facadeService.processRequest(new RetrieveUserRequest(email, email, email));
+		UserRetrieveResponse retrieveUserResponse=(UserRetrieveResponse) facadeService.processRequest(new UserRetrieveRequest(email, email, email));
 		
 		assertNotNull(retrieveUserResponse);
 		assertNotNull(retrieveUserResponse.user);

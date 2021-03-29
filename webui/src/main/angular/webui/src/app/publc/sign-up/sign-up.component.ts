@@ -1,8 +1,7 @@
-import { UserVo } from '../model/user-vo.model';
+import { UserVo } from '../../model/user-vo.model';
 import { Component, OnInit, OnDestroy, ChangeDetectorRef, Input, Renderer2 } from '@angular/core';
-import { RestfulService } from '../services/restful.service';
+import { RestfulService } from '../../services/restful.service';
 import { MessageService } from 'primeng/api';
-import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
 
@@ -24,7 +23,7 @@ export class SignUpComponent implements OnInit   {
   }
 
 	doSignUp(){
-		let jsonType='SignUpRequest';
+		let jsonType='UserSignUpRequest';
 		let jsonObj={user: this.userVo};
 
 		this.restfulService.callRestful(jsonType, jsonObj).subscribe(

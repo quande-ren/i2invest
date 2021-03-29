@@ -8,8 +8,8 @@ import org.junit.Test;
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.dto.UserDto;
-import com.i2invest.domain.request.ForgotPasswordRequest;
-import com.i2invest.domain.request.SignUpRequest;
+import com.i2invest.domain.request.UserForgotPasswordRequest;
+import com.i2invest.domain.request.UserSignUpRequest;
 
 public class FacadeEjbTest {
 
@@ -19,9 +19,9 @@ public class FacadeEjbTest {
 	    FacadeService facadeService = TestUtil.getFacadeService();
 		
 	    facadeService.sayHelloFromServiceBean();
-	    facadeService.processRequest(new SignUpRequest(new UserDto("aaa","bbb")));
+	    facadeService.processRequest(new UserSignUpRequest(new UserDto("aaa","bbb")));
 
-	    facadeService.processRequest(new ForgotPasswordRequest("aaa"));
+	    facadeService.processRequest(new UserForgotPasswordRequest("aaa"));
 
 	}
 

@@ -9,10 +9,10 @@ import org.junit.Test;
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.dto.ClubDto;
-import com.i2invest.domain.request.StartClubRequest;
-import com.i2invest.domain.response.StartClubResponse;
+import com.i2invest.domain.request.ClubStartRequest;
+import com.i2invest.domain.response.ClubStartResponse;
 
-public class StartClubRequestProcessorTest {
+public class ClubStartRequestProcessorTest {
 
 	@Test
 	public void testIt() throws NamingException, AppException {
@@ -20,10 +20,10 @@ public class StartClubRequestProcessorTest {
 		FacadeService facadeService = TestUtil.getFacadeService();
 		
 		
-		String token=SignInRequestProcessorTest.doSignIn(facadeService, TestUtil.email, TestUtil.password);
+		String token=UserSignInRequestProcessorTest.doSignIn(facadeService, TestUtil.email, TestUtil.password);
 		
 		
-		StartClubRequest startClubRequest=new StartClubRequest();
+		ClubStartRequest startClubRequest=new ClubStartRequest();
 		startClubRequest.email=TestUtil.email;
 		startClubRequest.token=token;
 		startClubRequest.club=new ClubDto();
@@ -31,7 +31,7 @@ public class StartClubRequestProcessorTest {
 		startClubRequest.club.setContactEmail(TestUtil.email);
 		
 		
-		StartClubResponse startClubResponse=(StartClubResponse) facadeService.processRequest(startClubRequest);
+		ClubStartResponse startClubResponse=(ClubStartResponse) facadeService.processRequest(startClubRequest);
 		
 		assertNotNull(startClubResponse.club);
 		

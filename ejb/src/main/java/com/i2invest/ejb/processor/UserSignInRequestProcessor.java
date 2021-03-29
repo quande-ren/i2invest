@@ -6,21 +6,21 @@ import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.InvalidCredential;
 import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.dto.UserDto;
-import com.i2invest.domain.request.SignInRequest;
-import com.i2invest.domain.request.SignUpRequest;
-import com.i2invest.domain.response.SignInResponse;
+import com.i2invest.domain.request.UserSignInRequest;
+import com.i2invest.domain.request.UserSignUpRequest;
+import com.i2invest.domain.response.UserSignInResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.entity.UserEjb;
 import com.i2invest.util.JwtUtil;
 
-public class SignInRequestProcessor extends AbstractRequestProcessor<SignInRequest, SignInResponse> {
+public class UserSignInRequestProcessor extends AbstractRequestProcessor<UserSignInRequest, UserSignInResponse> {
 
-	public void process(EntityManager entityManager, SignInRequest request, SignInResponse response) throws AppException{
+	public void process(EntityManager entityManager, UserSignInRequest request, UserSignInResponse response) throws AppException{
 		UserDto inUser = new UserDto();
 		inUser.setEmail(request.email);
 		inUser.setPassword(request.password);
 		
-		UserEjb userEjb= RetrieveUserRequestProcessor.retrieveUserByEmail(entityManager, request.email);
+		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
 		if(userEjb==null ) {
 			throw new InvalidCredential();
 		}
@@ -35,7 +35,7 @@ public class SignInRequestProcessor extends AbstractRequestProcessor<SignInReque
 		
 	}
 
-	public void verifyData(SignUpRequest request) throws MissingParameterException {
+	public void verifyData(UserSignUpRequest request) throws MissingParameterException {
 		if (request.user == null) {
 			throw new MissingParameterException("user", "SignInRequest");
 		}

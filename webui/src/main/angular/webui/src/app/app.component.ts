@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ToastModule } from 'primeng/toast';
+import { ToastItem } from 'primeng/toast';
+import { Toast } from 'primeng/toast';
+
 
 @Component({
   selector: 'app-root',

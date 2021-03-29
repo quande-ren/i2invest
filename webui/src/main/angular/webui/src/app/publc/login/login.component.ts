@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RestfulService } from '../services/restful.service';
+import { RestfulService } from '../../services/restful.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Response } from '@angular/http';
-import { SessionManagerService } from '../services/session-manager.service';
+import { SessionManagerService } from '../../services/session-manager.service';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 	}
 
 	doLogin() {
-		let jsonType='SignInRequest';
+		let jsonType='UserSignInRequest';
 		let jsonObj={email: this.email, password: this.password};
 
 		this.restfulService.callRestful(jsonType, jsonObj).subscribe(

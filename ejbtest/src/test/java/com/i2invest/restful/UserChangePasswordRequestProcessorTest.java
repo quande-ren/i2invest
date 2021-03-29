@@ -6,32 +6,32 @@ import org.junit.Test;
 
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
-import com.i2invest.domain.request.ChangeProfileRequest;
-import com.i2invest.domain.response.ChangeProfileResponse;
+import com.i2invest.domain.request.UserProfileChangeRequest;
+import com.i2invest.domain.response.UserProfileChangeResponse;
 
-public class ChangePasswordRequestProcessorTest {
+public class UserChangePasswordRequestProcessorTest {
 
 	@Test
 	public void testSuccess() throws NamingException, AppException {
 		FacadeService facadeService = TestUtil.getFacadeService();
 		
-		String token=SignInRequestProcessorTest.doSignIn(facadeService, TestUtil.email, TestUtil.oldPassword);
+		String token=UserSignInRequestProcessorTest.doSignIn(facadeService, TestUtil.email, TestUtil.oldPassword);
 
 
-		ChangeProfileRequest request = new ChangeProfileRequest(TestUtil.email, TestUtil.oldPassword);
+		UserProfileChangeRequest request = new UserProfileChangeRequest(TestUtil.email, TestUtil.oldPassword);
 		request.token=token;
 
 		request.changePasswordOnly=true;
 		request.oldPassword=TestUtil.oldPassword;
 		request.newPassword=TestUtil.newPassword;
 		
-		ChangeProfileResponse response= (ChangeProfileResponse)facadeService.processRequest(request);
+		UserProfileChangeResponse response= (UserProfileChangeResponse)facadeService.processRequest(request);
 
 		request.changePasswordOnly=true;
 		request.oldPassword=TestUtil.newPassword;
 		request.newPassword=TestUtil.oldPassword;
 		
-		response= (ChangeProfileResponse)facadeService.processRequest(request);
+		response= (UserProfileChangeResponse)facadeService.processRequest(request);
 
 	}
 

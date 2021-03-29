@@ -2,7 +2,6 @@ package com.i2invest.ejb.entity;
 
 import java.sql.Timestamp;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

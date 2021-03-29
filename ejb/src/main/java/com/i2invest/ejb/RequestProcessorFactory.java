@@ -5,12 +5,13 @@ import com.i2invest.ejb.processor.*;
 
 public class RequestProcessorFactory {
 	private static final AbstractRequestProcessor[] processors=new AbstractRequestProcessor[] {
-			new SignUpRequestProcessor(),
-			new SignInRequestProcessor(),
-			new ForgotPasswordRequestProcessor(),
-			new RetrieveUserRequestProcessor(),
-			new ChangeProfileRequestProcessor(),
-			new StartClubRequestProcessor(),
+			new UserSignUpRequestProcessor(),
+			new UserSignInRequestProcessor(),
+			new UserForgotPasswordRequestProcessor(),
+			new UserRetrieveRequestProcessor(),
+			new UserProfileChangeRequestProcessor(),
+			new ClubStartRequestProcessor(),
+			new ClubRetrieveRequestProcessor(),
 	};
 	
 	public static AbstractRequestProcessor getProcessor(BaseRequest request) {

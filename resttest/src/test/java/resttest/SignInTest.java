@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import com.i2invest.domain.DtoJsonWrapper;
 import com.i2invest.domain.request.BaseRequest;
-import com.i2invest.domain.request.SignInRequest;
+import com.i2invest.domain.request.UserSignInRequest;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -16,7 +16,7 @@ public class SignInTest {
 	@Test
 	public void testSinInFail(){
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-		SignInRequest pingRequest=new SignInRequest("123","abc");
+		UserSignInRequest pingRequest=new UserSignInRequest("123","abc");
 
 		given()
 			.contentType(ContentType.JSON)
@@ -36,7 +36,7 @@ public class SignInTest {
 	@Test
 	public void testSinInSuccess(){
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-		SignInRequest pingRequest=new SignInRequest("quande.ren@gmail.com","Yanmei123");
+		UserSignInRequest pingRequest=new UserSignInRequest("quande.ren@gmail.com","Yanmei123");
 
 		given()
 			.contentType(ContentType.JSON)

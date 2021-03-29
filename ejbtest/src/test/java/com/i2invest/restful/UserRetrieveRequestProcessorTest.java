@@ -11,12 +11,12 @@ import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.InvalidCredential;
 import com.i2invest.domain.appexception.TokenIsNotValidException;
-import com.i2invest.domain.request.RetrieveUserRequest;
-import com.i2invest.domain.request.SignInRequest;
-import com.i2invest.domain.response.RetrieveUserResponse;
-import com.i2invest.domain.response.SignInResponse;
+import com.i2invest.domain.request.UserRetrieveRequest;
+import com.i2invest.domain.request.UserSignInRequest;
+import com.i2invest.domain.response.UserRetrieveResponse;
+import com.i2invest.domain.response.UserSignInResponse;
 
-public class RetrieveUserRequestProcessorTest {
+public class UserRetrieveRequestProcessorTest {
 	
 
 	@Test
@@ -24,18 +24,18 @@ public class RetrieveUserRequestProcessorTest {
 		FacadeService facadeService = TestUtil.getFacadeService();
 		
 		
-		String token=SignInRequestProcessorTest.doSignIn(facadeService, TestUtil.email, TestUtil.password);
+		String token=UserSignInRequestProcessorTest.doSignIn(facadeService, TestUtil.email, TestUtil.password);
 		
 		
-		RetrieveUserRequest retrieveUserRequest=new RetrieveUserRequest(token, TestUtil.email, TestUtil.email);
-		RetrieveUserResponse retrieveUserResponse=(RetrieveUserResponse) facadeService.processRequest(retrieveUserRequest);
+		UserRetrieveRequest retrieveUserRequest=new UserRetrieveRequest(token, TestUtil.email, TestUtil.email);
+		UserRetrieveResponse retrieveUserResponse=(UserRetrieveResponse) facadeService.processRequest(retrieveUserRequest);
 		
 		assertNotNull(retrieveUserResponse);
 		assertNotNull(retrieveUserResponse.user);
 		
-		retrieveUserRequest=new RetrieveUserRequest("abc", TestUtil.email, TestUtil.email);
+		retrieveUserRequest=new UserRetrieveRequest("abc", TestUtil.email, TestUtil.email);
 		try {
-			retrieveUserResponse=(RetrieveUserResponse) facadeService.processRequest(retrieveUserRequest);
+			retrieveUserResponse=(UserRetrieveResponse) facadeService.processRequest(retrieveUserRequest);
 			fail("should not go to here");
 		}catch (TokenIsNotValidException e) {
 			//should go here.
@@ -48,7 +48,7 @@ public class RetrieveUserRequestProcessorTest {
 		FacadeService facadeService = TestUtil.getFacadeService();
 
 		try {
-			SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(TestUtil.email+"NotFount", TestUtil.password));
+			UserSignInResponse signInResponse= (UserSignInResponse)facadeService.processRequest(new UserSignInRequest(TestUtil.email+"NotFount", TestUtil.password));
 			fail("should not go to here");
 		}catch (InvalidCredential e) {
 			
@@ -60,7 +60,7 @@ public class RetrieveUserRequestProcessorTest {
 		FacadeService facadeService = TestUtil.getFacadeService();
 		
 		try {
-			SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(TestUtil.email, TestUtil.password+"WrongPassword"));
+			UserSignInResponse signInResponse= (UserSignInResponse)facadeService.processRequest(new UserSignInRequest(TestUtil.email, TestUtil.password+"WrongPassword"));
 			fail("should not go to here");
 		}catch (InvalidCredential e) {
 			

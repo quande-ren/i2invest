@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { ClubVo } from 'src/app/model/club-vo.module';
-import { RestfulService } from 'src/app/services/restful.service';
-import { SessionManagerService } from 'src/app/services/session-manager.service';
+import { ClubVo } from '../../model/club-vo.module';
+import { RestfulService } from '../../services/restful.service';
+import { SessionManagerService } from '../../services/session-manager.service';
 
 @Component({
   selector: 'app-start-club',
@@ -24,7 +24,7 @@ export class StartClubComponent implements OnInit {
   }
 
   startClub() {
-		let jsonType='StartClubRequest';
+		let jsonType='ClubStartRequest';
     this.clubVo.clubName="abc";
     this.clubVo.contactEmail=this.sessionManager.email;
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, club: this.clubVo};

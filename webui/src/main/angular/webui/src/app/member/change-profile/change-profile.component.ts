@@ -44,7 +44,7 @@ export class ChangeProfileComponent implements OnInit {
 			return;
 		}
 		
-		let jsonType = 'ChangeProfileRequest';
+		let jsonType = 'UserChangeProfileRequest';
 		let jsonObj = { user: this.userVo , 
 		                email: this.sessionManager?.userVo?.email,
 						token: this.sessionManager?.token, 

@@ -9,17 +9,17 @@ import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.DataNotFoundException;
 import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.dto.UserDto;
-import com.i2invest.domain.request.RetrieveUserRequest;
-import com.i2invest.domain.response.RetrieveUserResponse;
+import com.i2invest.domain.request.UserRetrieveRequest;
+import com.i2invest.domain.response.UserRetrieveResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.TokenRequiredRequestProcessor;
 import com.i2invest.ejb.entity.UserEjb;
 
-public  class RetrieveUserRequestProcessor 
-		extends AbstractRequestProcessor<RetrieveUserRequest, RetrieveUserResponse> 
+public  class UserRetrieveRequestProcessor 
+		extends AbstractRequestProcessor<UserRetrieveRequest, UserRetrieveResponse> 
 		implements TokenRequiredRequestProcessor{
 
-	public void process(EntityManager entityManager, RetrieveUserRequest request, RetrieveUserResponse response) throws AppException{
+	public void process(EntityManager entityManager, UserRetrieveRequest request, UserRetrieveResponse response) throws AppException{
 		UserEjb ejb= retrieveUserByEmail(entityManager, request.searchEmail);
 		if(ejb!=null ) {
 			response.user=new UserDto(ejb);
@@ -44,7 +44,7 @@ public  class RetrieveUserRequestProcessor
 		return null;
 	}
 
-	public void verifyData(RetrieveUserRequest request) throws MissingParameterException {
+	public void verifyData(UserRetrieveRequest request) throws MissingParameterException {
 		if(request.email==null) {
 			throw new MissingParameterException("email", "RetrieveUserRequest");
 		}

@@ -5,13 +5,14 @@ import java.util.Hashtable;
 import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
-import com.i2invest.domain.request.ChangeProfileRequest;
-import com.i2invest.domain.request.ForgotPasswordRequest;
+import com.i2invest.domain.request.UserProfileChangeRequest;
+import com.i2invest.domain.request.UserForgotPasswordRequest;
 import com.i2invest.domain.request.PingRequest;
-import com.i2invest.domain.request.RetrieveUserRequest;
-import com.i2invest.domain.request.SignInRequest;
-import com.i2invest.domain.request.SignUpRequest;
-import com.i2invest.domain.request.StartClubRequest;
+import com.i2invest.domain.request.UserRetrieveRequest;
+import com.i2invest.domain.request.UserSignInRequest;
+import com.i2invest.domain.request.UserSignUpRequest;
+import com.i2invest.domain.request.ClubRetrieveRequest;
+import com.i2invest.domain.request.ClubStartRequest;
 
 public class DtoFactory {
 	private static final Logger logger=Logger.getLogger(DtoFactory.class.getName());
@@ -19,13 +20,14 @@ public class DtoFactory {
 	private static final Gson gson = new Gson();
 	private static Hashtable<String, Class> requestClassList=null;
 	private static final Class[] requestClasses=new Class[] {
-		ForgotPasswordRequest.class,
+		UserForgotPasswordRequest.class,
 		PingRequest.class,
-		RetrieveUserRequest.class,
-		SignInRequest.class,
-		SignUpRequest.class,
-		ChangeProfileRequest.class,
-		StartClubRequest.class,
+		UserRetrieveRequest.class,
+		UserSignInRequest.class,
+		UserSignUpRequest.class,
+		UserProfileChangeRequest.class,
+		ClubStartRequest.class,
+		ClubRetrieveRequest.class,
 	};
 	
 	public static BaseDto getDto(String requestType, String json) {

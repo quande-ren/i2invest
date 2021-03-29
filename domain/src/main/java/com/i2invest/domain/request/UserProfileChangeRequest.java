@@ -1,12 +1,12 @@
 package com.i2invest.domain.request;
 
 import com.i2invest.domain.dto.UserDto;
-import com.i2invest.domain.response.ChangeProfileResponse;
+import com.i2invest.domain.response.UserProfileChangeResponse;
 
 import lombok.Data;
 
 @Data 
-public class ChangeProfileRequest extends BaseRequest<ChangeProfileResponse>{
+public class UserProfileChangeRequest extends BaseRequest<UserProfileChangeResponse>{
 	private static final long serialVersionUID = 6556666213116651308L;
 	public UserDto user;
 	public String oldPassword;
@@ -15,16 +15,16 @@ public class ChangeProfileRequest extends BaseRequest<ChangeProfileResponse>{
 	public boolean changeProfileOnly=false;
 	public boolean changePasswordOnly=false;
 	
-	public ChangeProfileRequest() {
+	public UserProfileChangeRequest() {
 		
 	}
 
-	public ChangeProfileRequest(String email, String password) {
+	public UserProfileChangeRequest(String email, String password) {
 		this.email=email;
 	}
 	
-	public  ChangeProfileResponse getDummayResponse() {
-		return new ChangeProfileResponse();
+	public  UserProfileChangeResponse getDummayResponse() {
+		return new UserProfileChangeResponse();
 	}
 	
 	@Override

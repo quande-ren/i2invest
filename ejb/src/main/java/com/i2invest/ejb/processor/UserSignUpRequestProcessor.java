@@ -10,16 +10,16 @@ import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.DataAlreadyExistException;
 import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.dto.UserDto;
-import com.i2invest.domain.request.SignInRequest;
-import com.i2invest.domain.request.SignUpRequest;
-import com.i2invest.domain.response.SignInResponse;
-import com.i2invest.domain.response.SignUpResponse;
+import com.i2invest.domain.request.UserSignInRequest;
+import com.i2invest.domain.request.UserSignUpRequest;
+import com.i2invest.domain.response.UserSignInResponse;
+import com.i2invest.domain.response.UserSignUpResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.entity.UserEjb;
 
-public class SignUpRequestProcessor extends AbstractRequestProcessor<SignUpRequest, SignUpResponse> {
-	public void process(EntityManager entityManager, SignUpRequest request, SignUpResponse response) throws AppException{
-		UserEjb userEjb= RetrieveUserRequestProcessor.retrieveUserByEmail(entityManager, request.user.getEmail());
+public class UserSignUpRequestProcessor extends AbstractRequestProcessor<UserSignUpRequest, UserSignUpResponse> {
+	public void process(EntityManager entityManager, UserSignUpRequest request, UserSignUpResponse response) throws AppException{
+		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.user.getEmail());
 		if(userEjb!=null ) {
 			throw new DataAlreadyExistException(request.user.getEmail());
 		}
@@ -39,7 +39,7 @@ public class SignUpRequestProcessor extends AbstractRequestProcessor<SignUpReque
 		response.user=newUser;
 	}
 
-	public void verifyData(SignUpRequest request) throws MissingParameterException {
+	public void verifyData(UserSignUpRequest request) throws MissingParameterException {
 		if (request.user == null) {
 			throw new MissingParameterException("user", "SignUpRequest");
 		}

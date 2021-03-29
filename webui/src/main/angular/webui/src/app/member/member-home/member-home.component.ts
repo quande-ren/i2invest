@@ -24,7 +24,7 @@ export class MemberHomeComponent implements OnInit {
 	}
 
 	doSearch() {
-		let jsonType='RetrieveUserRequest';
+		let jsonType='UserRetrieveRequest';
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, searchEmail: this.searchEmail};
 
 		this.restfulService.callRestful(jsonType, jsonObj).subscribe(

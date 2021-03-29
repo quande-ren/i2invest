@@ -10,14 +10,14 @@ import org.junit.Test;
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.InvalidCredential;
-import com.i2invest.domain.request.SignInRequest;
-import com.i2invest.domain.response.SignInResponse;
+import com.i2invest.domain.request.UserSignInRequest;
+import com.i2invest.domain.response.UserSignInResponse;
 
-public class SignInRequestProcessorTest {
+public class UserSignInRequestProcessorTest {
 
 	public static String doSignIn(FacadeService facadeService, String email, String password) throws AppException {
 
-		SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(email, password));
+		UserSignInResponse signInResponse= (UserSignInResponse)facadeService.processRequest(new UserSignInRequest(email, password));
 
 		assertNotNull(signInResponse.user);
 		assertNotNull(signInResponse.user.getFirstName());
@@ -36,7 +36,7 @@ public class SignInRequestProcessorTest {
 		String password="Yanmei123";
 		
 
-		SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(email, password));
+		UserSignInResponse signInResponse= (UserSignInResponse)facadeService.processRequest(new UserSignInRequest(email, password));
 		
 		assertNotNull(signInResponse.user);
 		assertNotNull(signInResponse.user.getFirstName());
@@ -51,7 +51,7 @@ public class SignInRequestProcessorTest {
 		String password="Yanmei123";
 
 		try {
-			SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(email, password));
+			UserSignInResponse signInResponse= (UserSignInResponse)facadeService.processRequest(new UserSignInRequest(email, password));
 			fail("should not go to here");
 		}catch (InvalidCredential e) {
 			
@@ -65,7 +65,7 @@ public class SignInRequestProcessorTest {
 		String password="Yanmei1234444";
 		
 		try {
-			SignInResponse signInResponse= (SignInResponse)facadeService.processRequest(new SignInRequest(email, password));
+			UserSignInResponse signInResponse= (UserSignInResponse)facadeService.processRequest(new UserSignInRequest(email, password));
 			fail("should not go to here");
 		}catch (InvalidCredential e) {
 			
