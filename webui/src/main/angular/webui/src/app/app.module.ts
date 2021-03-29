@@ -20,6 +20,7 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StartClubComponent } from './member/start-club/start-club.component';
 import { MyClubsComponent } from './member/my-clubs/my-clubs.component';
+import { UpdateClubComponent } from './member/update-club/update-club.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MyClubsComponent } from './member/my-clubs/my-clubs.component';
     HeaderComponent,
     SidebarComponent,
     StartClubComponent,
-    MyClubsComponent
+    MyClubsComponent,
+    UpdateClubComponent
 
   ],
   imports: [

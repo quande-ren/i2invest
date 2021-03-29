@@ -5,15 +5,16 @@ import java.util.Hashtable;
 import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
-import com.i2invest.domain.request.UserProfileChangeRequest;
-import com.i2invest.domain.request.UserForgotPasswordRequest;
-import com.i2invest.domain.request.PingRequest;
-import com.i2invest.domain.request.UserRetrieveRequest;
-import com.i2invest.domain.request.UserSignInRequest;
-import com.i2invest.domain.request.UserSignUpRequest;
 import com.i2invest.domain.request.ClubJoinRequest;
 import com.i2invest.domain.request.ClubRetrieveRequest;
 import com.i2invest.domain.request.ClubStartRequest;
+import com.i2invest.domain.request.ClubUpdateRequest;
+import com.i2invest.domain.request.PingRequest;
+import com.i2invest.domain.request.UserForgotPasswordRequest;
+import com.i2invest.domain.request.UserProfileChangeRequest;
+import com.i2invest.domain.request.UserRetrieveRequest;
+import com.i2invest.domain.request.UserSignInRequest;
+import com.i2invest.domain.request.UserSignUpRequest;
 
 public class DtoFactory {
 	private static final Logger logger=Logger.getLogger(DtoFactory.class.getName());
@@ -30,6 +31,7 @@ public class DtoFactory {
 		ClubStartRequest.class,
 		ClubRetrieveRequest.class,
 		ClubJoinRequest.class,
+		ClubUpdateRequest.class,
 	};
 	
 	public static BaseDto getDto(String requestType, String json) {

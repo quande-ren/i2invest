@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ClubVo } from '../../model/club-vo.module';
 import { RestfulService } from '../../services/restful.service';
@@ -15,9 +16,23 @@ export class MyClubsComponent implements OnInit {
 
   constructor(private restfulService: RestfulService,
 		private messageService: MessageService,
-		private sessionManager: SessionManagerService) { }
+		private sessionManager: SessionManagerService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
+    this.doRetrieve();
+  }
+
+  goModify(clubId: number){
+    for(let club of this.clubs){
+      if(club.id===clubId){
+        this.sessionManager.clubVo=club;
+        this.router.navigateByUrl('/member/updateclub');
+        return;
+      }
+    }
+
   }
 
   doRetrieve(){

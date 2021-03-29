@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { ClubVo } from '../model/club-vo.module';
+import { UserVo } from '../model/user-vo.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionManagerService {
-  public userVo : any;
+  public userVo : UserVo;
+  public clubVo : ClubVo;
   public token='';
   public email='';
 	

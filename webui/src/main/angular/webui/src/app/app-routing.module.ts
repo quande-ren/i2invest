@@ -7,6 +7,7 @@ import { ChangeProfileComponent } 	from './member/change-profile/change-profile.
 import { StartClubComponent } from './member/start-club/start-club.component';
 import { MyClubsComponent } from './member/my-clubs/my-clubs.component';
 import { MatTableModule } from '@angular/material/table'; 
+import { UpdateClubComponent } from './member/update-club/update-club.component';
 
 const routes: Routes = [
 	{ path: '', 					component: LoginComponent, 			data: {name: '', 					role: ['ALL']} },
@@ -16,6 +17,7 @@ const routes: Routes = [
 	{ path: 'member/changeprofile', component: ChangeProfileComponent, 	data: {name: 'ChangeProfile', 		role: ['ALL']} },
 	{ path: 'member/startclub', 	component: StartClubComponent, 		data: {name: 'StartClubComponent', 	role: ['ALL']} },
 	{ path: 'member/myclubs', 		component: MyClubsComponent, 		data: {name: 'MyClubsComponent', 	role: ['ALL']} },
+	{ path: 'member/updateclub', 	component: UpdateClubComponent, 	data: {name: 'UpdateClubComponent', role: ['ALL']} },
 ];
 
 @NgModule({
