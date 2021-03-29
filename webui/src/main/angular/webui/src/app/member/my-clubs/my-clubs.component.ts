@@ -4,6 +4,7 @@ import { ClubVo } from '../../model/club-vo.module';
 import { RestfulService } from '../../services/restful.service';
 import { SessionManagerService } from '../../services/session-manager.service';
 
+
 @Component({
   selector: 'app-my-clubs',
   templateUrl: './my-clubs.component.html',

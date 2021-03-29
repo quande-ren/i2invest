@@ -24,6 +24,7 @@ public class ClubEjb extends BaseDto{
 	@NotNull
 	private   Long id;
 	private   String clubName;
+	private   String description;
 	private   String contactEmail;
 	private   String status;
 	private   Timestamp createTime;
@@ -91,5 +92,13 @@ public class ClubEjb extends BaseDto{
 
 	public void setUserRoles(List<UserClubRoleEjb> userRoles) {
 		this.userRoles = userRoles;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

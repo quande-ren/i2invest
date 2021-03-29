@@ -6,12 +6,14 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Description</th>
         <th>Contact Email</th>
         <th>Create Time</th>
     </tr>
     <tr *ngFor="let club of clubs">
         <td>{{club.id}}</td>
         <td>{{club.clubName}}</td>
+        <td>{{club.description}}</td>
         <td>{{club.contactEmail}}</td>
         <td>{{club.createTime}}</td>
     </tr>
