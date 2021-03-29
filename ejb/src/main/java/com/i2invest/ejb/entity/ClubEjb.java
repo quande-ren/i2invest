@@ -27,6 +27,8 @@ public class ClubEjb extends BaseDto{
 	private   String description;
 	private   String contactEmail;
 	private   String status;
+	private   Long createdBy;
+	private   Long updatedBy;
 	private   Timestamp createTime;
 	private   Timestamp updateTime;
 	
@@ -101,4 +103,30 @@ public class ClubEjb extends BaseDto{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Long getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(Long createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Long getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(Long updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	
 }

@@ -13,6 +13,7 @@ public class RequestProcessorFactory {
 			new ClubStartRequestProcessor(),
 			new ClubRetrieveRequestProcessor(),
 			new ClubJoinRequestProcessor(),
+			new ClubUpdateRequestProcessor(),
 	};
 	
 	public static AbstractRequestProcessor getProcessor(BaseRequest request) {

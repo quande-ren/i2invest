@@ -12,7 +12,7 @@ import com.i2invest.domain.dto.ClubDto;
 import com.i2invest.domain.request.ClubUpdateRequest;
 import com.i2invest.domain.response.ClubUpdateResponse;
 
-public class ClubStartRequestProcessorTest {
+public class ClubUpdateRequestProcessorTest {
 
 	@Test
 	public void testIt() throws NamingException, AppException {
@@ -27,7 +27,9 @@ public class ClubStartRequestProcessorTest {
 		startClubRequest.email=TestUtil.email;
 		startClubRequest.token=token;
 		startClubRequest.club=new ClubDto();
-		startClubRequest.club.setClubName("Albert Shi Invest");
+		startClubRequest.club.setId(12L);
+		startClubRequest.club.setDescription("Albert Shi Invest, welcome to join.");
+		startClubRequest.club.setClubName("Albert Shi Invest...");
 		startClubRequest.club.setContactEmail(TestUtil.email);
 		
 		
