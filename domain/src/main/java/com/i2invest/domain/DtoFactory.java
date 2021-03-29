@@ -11,6 +11,7 @@ import com.i2invest.domain.request.PingRequest;
 import com.i2invest.domain.request.UserRetrieveRequest;
 import com.i2invest.domain.request.UserSignInRequest;
 import com.i2invest.domain.request.UserSignUpRequest;
+import com.i2invest.domain.request.ClubJoinRequest;
 import com.i2invest.domain.request.ClubRetrieveRequest;
 import com.i2invest.domain.request.ClubStartRequest;
 
@@ -28,6 +29,7 @@ public class DtoFactory {
 		UserProfileChangeRequest.class,
 		ClubStartRequest.class,
 		ClubRetrieveRequest.class,
+		ClubJoinRequest.class,
 	};
 	
 	public static BaseDto getDto(String requestType, String json) {
