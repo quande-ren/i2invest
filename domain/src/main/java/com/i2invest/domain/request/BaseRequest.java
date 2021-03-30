@@ -11,6 +11,11 @@ public abstract class BaseRequest<R extends BaseResponse> extends BaseDto{
 	public String email;
 	public String token;
 	
+	public static final String RequestType_Create="Create";
+	public static final String RequestType_Update="Update";
+	public static final String RequestType_Delete="Delete";
+	public static final String RequestType_Retrieve="Retrieve";
+	
 	public abstract R getDummayResponse();
 	
 	
