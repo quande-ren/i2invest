@@ -21,6 +21,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { StartClubComponent } from './member/start-club/start-club.component';
 import { MyClubsComponent } from './member/my-clubs/my-clubs.component';
 import { UpdateClubComponent } from './member/update-club/update-club.component';
+import { FileUploadComponent } from './publc/file-upload/file-upload.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { UpdateClubComponent } from './member/update-club/update-club.component'
     SidebarComponent,
     StartClubComponent,
     MyClubsComponent,
-    UpdateClubComponent
+    UpdateClubComponent,
+    FileUploadComponent
 
   ],
   imports: [
@@ -46,7 +49,10 @@ import { UpdateClubComponent } from './member/update-club/update-club.component'
 	  ToastModule,
 	  BrowserAnimationsModule,
 	  FieldsetModule,
-	  FlexLayoutModule
+	  FlexLayoutModule,
+    FileUploadModule,
+
+
   ],
   providers: [RestfulService, MessageService],
   bootstrap: [AppComponent]

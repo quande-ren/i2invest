@@ -6,13 +6,14 @@ import { MemberHomeComponent } 		from './member/member-home/member-home.componen
 import { ChangeProfileComponent } 	from './member/change-profile/change-profile.component';
 import { StartClubComponent } from './member/start-club/start-club.component';
 import { MyClubsComponent } from './member/my-clubs/my-clubs.component';
-import { MatTableModule } from '@angular/material/table'; 
 import { UpdateClubComponent } from './member/update-club/update-club.component';
+import { FileUploadComponent } from './publc/file-upload/file-upload.component';
 
 const routes: Routes = [
 	{ path: '', 					component: LoginComponent, 			data: {name: '', 					role: ['ALL']} },
 	{ path: 'signin', 				component: LoginComponent,  		data: {name: 'SignIn', 				role: ['ALL']} },
 	{ path: 'signup', 				component: SignUpComponent, 		data: {name: 'SignUp', 				role: ['ALL']} },
+	{ path: 'fileupload', 			component: FileUploadComponent, 	data: {name: 'FileUpload', 			role: ['ALL']} },
 	{ path: 'member/memberhome', 	component: MemberHomeComponent, 	data: {name: 'MemberHome', 			role: ['ALL']} },
 	{ path: 'member/changeprofile', component: ChangeProfileComponent, 	data: {name: 'ChangeProfile', 		role: ['ALL']} },
 	{ path: 'member/startclub', 	component: StartClubComponent, 		data: {name: 'StartClubComponent', 	role: ['ALL']} },
