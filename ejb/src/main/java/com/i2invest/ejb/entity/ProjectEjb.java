@@ -1,0 +1,135 @@
+package com.i2invest.ejb.entity;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import com.i2invest.domain.BaseDto;
+
+import lombok.Data;
+
+@Data 
+@Entity
+@Table(name = "I2_Project")
+public class ProjectEjb extends BaseDto{
+	@Id 
+	@GeneratedValue
+	@NotNull
+	private   Long id;
+	private   String name;
+	private   String description;
+	private   String contactEmail;
+	private   String status;
+	private   Long createdBy;
+	private   Long updatedBy;
+	private   Timestamp createTime;
+	private   Timestamp updateTime;
+	
+	@OneToMany
+	@JoinColumn(name="projectId")
+	private List<UserProjectRoleEjb> userRoles;
+
+
+	public String getContactEmail() {
+		return contactEmail;
+	}
+
+
+	public void setContactEmail(String contactEmail) {
+		this.contactEmail = contactEmail;
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
+	}
+
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	private static final long serialVersionUID = -4926938619167517315L;
+
+	public ProjectEjb(BaseDto fromCopy) {
+		super(fromCopy);
+	}
+
+	public ProjectEjb() {}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Long getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(Long createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Long getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(Long updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public List<UserProjectRoleEjb> getUserRoles() {
+		return userRoles;
+	}
+
+
+	public void setUserRoles(List<UserProjectRoleEjb> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	
+}

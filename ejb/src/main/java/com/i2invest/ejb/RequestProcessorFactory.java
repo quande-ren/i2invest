@@ -15,6 +15,7 @@ public class RequestProcessorFactory {
 			new ClubJoinRequestProcessor(),
 			new ClubUpdateRequestProcessor(),
 			new FileRequestProcessor(),
+			new ProjectRequestProcessor(),
 	};
 	
 	public static AbstractRequestProcessor getProcessor(BaseRequest request) {
