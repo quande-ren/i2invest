@@ -26,6 +26,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { StartProjectComponent } from './member/start-project/start-project.component';
 import { MyProjectsComponent } from './member/my-projects/my-projects.component';
 import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password.component';
+import {TableModule} from 'primeng/table';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password
 	  FieldsetModule,
 	  FlexLayoutModule,
     FileUploadModule,
+    TableModule
 
 
   ],
