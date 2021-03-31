@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { ClubVo } from 'src/app/model/club-vo.model';
 import { UserVo } from 'src/app/model/user-vo.model';
 import { RestfulService } from 'src/app/services/restful.service';
 import { SessionManagerService } from 'src/app/services/session-manager.service';
@@ -18,6 +19,16 @@ export class HeaderComponent implements OnInit {
     private router: Router,) { }
 
   ngOnInit(): void {
+  }
+
+
+  doLogout(){
+    this.sessionManager.email='';
+    this.sessionManager.token='';
+    this.sessionManager.clubVo=new ClubVo();
+    this.sessionManager.userVo=new UserVo();
+    this.sessionManager.isLoggedIn=false;
+    this.router.navigateByUrl('/signin');
   }
 
 }

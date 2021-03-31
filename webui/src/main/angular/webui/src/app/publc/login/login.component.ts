@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
 								this.sessionManager.token=response.token;
 								this.sessionManager.email=this.email;
 								this.sessionManager.userVo=response.user;
+								this.sessionManager.isLoggedIn=true;
 								console.log(this.sessionManager.token);
 								this.router.navigateByUrl('/member/memberhome');
 							}else{

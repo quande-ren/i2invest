@@ -5,6 +5,9 @@
 	    	I 2 Invest!
 	  </h1>
   </div>
-  <div *ngIf="sessionManager?.userVo !=null">Welcome {{sessionManager?.userVo?.firstName}}</div>
-  <div *ngIf="sessionManager?.userVo ==null">&nbsp;</div>
+  <div *ngIf="sessionManager?.isLoggedIn === true">
+    Welcome {{sessionManager?.userVo?.firstName}}
+    <button pButton type="button" icon="pi p-field" iconPos="left" (click)="doLogout()">Logout</button>
+  </div>
+  <div *ngIf="this.sessionManager.isLoggedIn===false">&nbsp;</div>
 </div>

@@ -10,6 +10,7 @@ export class SessionManagerService {
   public clubVo : ClubVo;
   public token='';
   public email='';
+  public isLoggedIn=false;
 	
   constructor() { }
 }
