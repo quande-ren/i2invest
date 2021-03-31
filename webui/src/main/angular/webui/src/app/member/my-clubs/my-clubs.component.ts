@@ -35,6 +35,10 @@ export class MyClubsComponent implements OnInit {
 
   }
 
+  joinClub(){
+  }
+  
+
   doRetrieve(){
     let jsonType='ClubRetrieveRequest';
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, retrieveType: 'select p.* from i2_Club p where p.clubName is not null'};

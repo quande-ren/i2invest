@@ -45,4 +45,27 @@ export class UpdateClubComponent implements OnInit {
 
   }
 
+  joinClub(){
+    let jsonType='ClubJoinRequest';
+    this.clubVo.contactEmail=this.sessionManager.email;
+    this.clubVo.id=this.sessionManager.clubVo.id;
+		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, clubId: this.sessionManager.clubVo.id};
+    this.restfulService.callRestful(jsonType, jsonObj).subscribe(
+        response => {
+              if(response.success){
+                this.messageService.add({severity:'message', summary: 'Success', detail: 'Request to Join Club is sent ' });
+                this.router.navigateByUrl('/member/myclubs');
+              }else{
+                this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
+              }
+            },
+        error   => 	{
+              this.messageService.add({severity:'error', summary: 'Error Message', detail:error});
+            }
+    );
+
+  }
+  
+
+
 }

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { UserVo } from 'src/app/model/user-vo.model';
+import { RestfulService } from 'src/app/services/restful.service';
+import { SessionManagerService } from 'src/app/services/session-manager.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +12,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private restfulService : RestfulService,
+    private messageService: MessageService,
+    public sessionManager : SessionManagerService,
+    private router: Router,) { }
 
   ngOnInit(): void {
   }

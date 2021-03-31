@@ -38,6 +38,9 @@ public class UserEjb extends BaseDto implements Serializable  {
 	private Timestamp createTime;
 
 	private Timestamp updateTime;
+	private   Long createdBy;
+	private   Long updatedBy;
+
 	
 	@OneToMany
 	@JoinColumn(name="userId")
@@ -123,6 +126,22 @@ public class UserEjb extends BaseDto implements Serializable  {
 
 	public void setClubRoles(Set<UserClubRoleEjb> clubRoles) {
 		this.clubRoles = clubRoles;
+	}
+
+	public Long getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(Long createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Long getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(Long updatedBy) {
+		this.updatedBy = updatedBy;
 	}
 
 }

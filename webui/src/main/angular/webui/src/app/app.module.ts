@@ -25,6 +25,7 @@ import { FileUploadComponent } from './publc/file-upload/file-upload.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { StartProjectComponent } from './member/start-project/start-project.component';
 import { MyProjectsComponent } from './member/my-projects/my-projects.component';
+import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { MyProjectsComponent } from './member/my-projects/my-projects.component'
     UpdateClubComponent,
     FileUploadComponent,
     StartProjectComponent,
-    MyProjectsComponent
+    MyProjectsComponent,
+    ForgotPasswordComponent
 
   ],
   imports: [
