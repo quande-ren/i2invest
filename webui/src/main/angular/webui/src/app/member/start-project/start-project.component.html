@@ -1,0 +1,30 @@
+<p>start-project works!</p>
+
+<p-fieldset legend="Start a new Project" [toggleable]="true">
+	<div class="p-field p-grid">
+	    <label for="clubName" class="p-col-fixed" style="width:160px">Club Name</label>
+	    <div class="p-col">
+	        <input id="name" type="text" [(ngModel)]="projectVo.name" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="description" class="p-col-fixed" style="width:160px">Description</label>
+	    <div class="p-col">
+	        <input id="description" type="text" [(ngModel)]="projectVo.description" pInputText required/> 
+	    </div>
+	</div>
+
+    <div class="p-field p-grid">
+	    <label for="address" class="p-col-fixed" style="width:160px">Address</label>
+	    <div class="p-col">
+	        <input id="address" type="text" [(ngModel)]="projectVo.address" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <button name="signUpBtn" class="btn btn-primary" (click)="startProject()">Start</button>
+	</div>
+</p-fieldset>
+
+

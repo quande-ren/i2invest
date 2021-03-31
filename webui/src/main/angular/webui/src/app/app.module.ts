@@ -23,6 +23,8 @@ import { MyClubsComponent } from './member/my-clubs/my-clubs.component';
 import { UpdateClubComponent } from './member/update-club/update-club.component';
 import { FileUploadComponent } from './publc/file-upload/file-upload.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { StartProjectComponent } from './member/start-project/start-project.component';
+import { MyProjectsComponent } from './member/my-projects/my-projects.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { FileUploadModule } from 'ng2-file-upload';
     StartClubComponent,
     MyClubsComponent,
     UpdateClubComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    StartProjectComponent,
+    MyProjectsComponent
 
   ],
   imports: [

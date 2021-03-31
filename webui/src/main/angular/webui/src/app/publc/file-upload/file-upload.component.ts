@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
-import { FileVo } from 'src/app/model/file-vo.module';
+import { FileVo } from 'src/app/model/file-vo.model';
 import { RestfulService } from 'src/app/services/restful.service';
 import { UploadFilesService } from 'src/app/services/upload-files.service';
 

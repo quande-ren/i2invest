@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { ClubVo } from '../../model/club-vo.module';
+import { ClubVo } from '../../model/club-vo.model';
 import { RestfulService } from '../../services/restful.service';
 import { SessionManagerService } from '../../services/session-manager.service';
 

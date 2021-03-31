@@ -17,6 +17,7 @@ public class ProjectRequestProcessor extends AbstractRequestProcessor<ProjectReq
 	public void process(EntityManager entityManager, ProjectRequest request, ProjectResponse response) throws AppException{
 		if(FileRequest.RequestType_Create.equals(request.requestType)) {
 			ProjectEjb ejb=new ProjectEjb(request.project);
+			ejb.setId(null);
 			entityManager.persist(ejb);
 			response.project=new ProjectDto(ejb);
 			response.project.setId(ejb.getId());

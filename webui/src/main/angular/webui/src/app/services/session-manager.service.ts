@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ClubVo } from '../model/club-vo.module';
+import { ClubVo } from '../model/club-vo.model';
 import { UserVo } from '../model/user-vo.model';
 
 @Injectable({
