@@ -19,6 +19,7 @@ export class MyProjectsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.doRetrieve();
   }
 
   doRetrieve(){
