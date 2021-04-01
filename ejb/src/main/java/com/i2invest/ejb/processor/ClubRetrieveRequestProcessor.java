@@ -19,7 +19,34 @@ public  class ClubRetrieveRequestProcessor
 		implements TokenRequiredRequestProcessor{
 
 	public void process(EntityManager entityManager, ClubRetrieveRequest request, ClubRetrieveResponse response) throws AppException{
-		List<ClubEjb> clubEjbList= retrieveClubsByEmail(entityManager, request.retrieveType);
+		String clubsOwnedSql = "select p.* "
+			+ "	 from i2_Club p "
+			+ " where p.clubName is not null "
+			+ "   and p.ownerId in ( "
+			+ "               select id"
+			+ "               from i2_user "
+			+ "               where email='"+request.email+"'"
+			+ "               )  ";
+		response.clubsOwn=retrieveClubs(entityManager, clubsOwnedSql);
+		
+		String clubsInvestedSql = 
+                     " SELECT   c.*   											\n"
+		           + "   FROM   i2_club c										\n"
+		           + "   join 	i2_userclubrole ucr on ucr.clubid= c.id 		\n"
+		           + "   join 	i2_user usr on usr.email='"+request.email+	"'	\n" 
+		           + "                     and usr.id=ucr.userid 				\n";
+		response.clubsInvested=retrieveClubs(entityManager, clubsInvestedSql);
+
+		String otherClubsSql = "select p.* "
+				+ "	 from i2_Club p "
+				+ " where p.clubName is not null  ";
+		response.otherClubs=retrieveClubs(entityManager, otherClubsSql);
+		
+	}
+
+	private List<ClubDto> retrieveClubs(EntityManager entityManager,  String clubsOwnedSql) {
+		List<ClubEjb> clubEjbList= retrieveClubsByEmail(entityManager, 
+				  clubsOwnedSql);
 		List<ClubDto> result = new ArrayList<ClubDto>();
 		if(clubEjbList!=null ) {
 			for(ClubEjb ejb : clubEjbList) {
@@ -27,8 +54,8 @@ public  class ClubRetrieveRequestProcessor
 				dto.copyPropertiesFrom(ejb);
 				result.add(dto);
 			}
-			response.clubs=result;
 		}
+		return result;
 	}
 	
 	public static List<ClubEjb> retrieveClubsByEmail(EntityManager entityManager, String ejbql) {

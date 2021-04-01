@@ -1,5 +1,22 @@
 alter session set "_ORACLE_SCRIPT"=true;  
 CREATE USER i2invest IDENTIFIED BY i2invest;
+
+CLUB_STARTER
+
 GRANT CONNECT TO i2invest ;
 GRANT RESOURCE TO i2invest ;
 GRANT UNLIMITED TABLESPACE TO i2invest;
+
+INSERT INTO "I2INVEST"."I2_ROLE" (ID, ROLENAME, ROLETYPE, STATUS) VALUES ('CLUB_STARTER', 'CLUB_STARTER', 'CLUB', 'ACTIVE');
+
+
+
+drop table I2_USERCLUBROLE;
+drop table I2_USERPROJECTROLE;
+drop table I2_CLUB;
+drop table I2_FILE;
+drop table I2_PROJECT;
+drop table I2_ROLE;
+drop table I2_USER;
+
+

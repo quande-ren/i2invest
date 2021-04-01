@@ -1,28 +1,92 @@
-<p>My Clubs</p>
-
 <button name="signUpBtn" class="btn btn-primary" (click)="doRetrieve()">Refresh</button>
 
-<p-table [value]="clubs">
-    <ng-template pTemplate="header">
-        <tr>
-            <th pSortableColumn="clubName">Name <p-sortIcon field="clubName"></p-sortIcon></th>
-            <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
-            <th pSortableColumn="contactEmail">Contact Email <p-sortIcon field="contactEmail"></p-sortIcon></th>
-            <th pSortableColumn="createTime">Create Time <p-sortIcon field="createTime"></p-sortIcon></th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-club>
-        <tr>
-            <td>
-                <span> 
-                    <a (click)="goModify(club.id)">    
-                        {{club.clubName}} 
-                    </a>
-                </span> 
-            </td>
-            <td>{{club.description}}</td>
-            <td>{{club.contactEmail}}</td>
-            <td>{{club.createTime}}</td>
-        </tr>
-    </ng-template>
-</p-table>
+<p-fieldset legend="Clubs I Own" [toggleable]="true">
+    <p-table [value]="clubsOwn">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="clubName">Name <p-sortIcon field="clubName"></p-sortIcon></th>
+                <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+                <th pSortableColumn="contactEmail">Contact Email <p-sortIcon field="contactEmail"></p-sortIcon></th>
+                <th pSortableColumn="createTime">Create Time <p-sortIcon field="createTime"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-club>
+            <tr>
+                <td>
+                    <div class="p-d-flex">
+                        <a class="dropdown-item"  (click)="goModify(club)" href="javascript:void(0);">    
+                            {{club.clubName}} 
+                        </a>
+                    </div> 
+                </td>
+                <td>{{club.description}}</td>
+                <td>{{club.contactEmail}}</td>
+                <td>{{club.createTime}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-fieldset>
+
+<br/>
+<br/>
+
+<p-fieldset legend="Clubs I Invested" [toggleable]="true">
+    <p-table [value]="clubsInvested">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="clubName">Name <p-sortIcon field="clubName"></p-sortIcon></th>
+                <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+                <th pSortableColumn="contactEmail">Contact Email <p-sortIcon field="contactEmail"></p-sortIcon></th>
+                <th pSortableColumn="createTime">Create Time <p-sortIcon field="createTime"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-club>
+            <tr>
+                <td>
+                    <div class="p-d-flex">
+                        <a class="dropdown-item"  (click)="goModify(club)" href="javascript:void(0);">    
+                            {{club.clubName}} 
+                        </a>
+                    </div> 
+                </td>
+                <td>{{club.description}}</td>
+                <td>{{club.contactEmail}}</td>
+                <td>{{club.createTime}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-fieldset>
+
+<br/>
+<br/>
+
+
+<p-fieldset legend="Other Clubs" [toggleable]="true">
+    <p-table [value]="otherClubs">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="clubName">Name <p-sortIcon field="clubName"></p-sortIcon></th>
+                <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+                <th pSortableColumn="contactEmail">Contact Email <p-sortIcon field="contactEmail"></p-sortIcon></th>
+                <th pSortableColumn="createTime">Create Time <p-sortIcon field="createTime"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-club>
+            <tr>
+                <td>
+                    <div class="p-d-flex">
+                        <a class="dropdown-item" (click)="goModify(club)" href="javascript:void(0);" >    
+                            {{club.clubName}} 
+                        </a>
+                    </div>
+                </td>
+                <td>{{club.description}}</td>
+                <td>{{club.contactEmail}}</td>
+                <td>{{club.createTime}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-fieldset>
+
+<br/>
+<br/>

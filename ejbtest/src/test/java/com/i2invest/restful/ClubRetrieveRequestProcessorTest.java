@@ -29,10 +29,10 @@ public class ClubRetrieveRequestProcessorTest {
 		ClubRetrieveResponse retrieveUserResponse=(ClubRetrieveResponse) facadeService.processRequest(retrieveUserRequest);
 		
 		assertNotNull(retrieveUserResponse);
-		assertNotNull(retrieveUserResponse.clubs);
-		assertTrue(retrieveUserResponse.clubs.size()>0);
+		assertNotNull(retrieveUserResponse.clubsOwn);
+		assertTrue(retrieveUserResponse.clubsOwn.size()>0);
 		
-		for(ClubDto club: retrieveUserResponse.clubs) {
+		for(ClubDto club: retrieveUserResponse.clubsOwn) {
 			System.out.println(club);
 		}
 		

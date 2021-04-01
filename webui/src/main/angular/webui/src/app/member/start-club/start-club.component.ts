@@ -25,13 +25,14 @@ export class StartClubComponent implements OnInit {
 
   startClub() {
 		let jsonType='ClubStartRequest';
-    this.clubVo.clubName="abc";
+    //this.clubVo.clubName="abc";
     this.clubVo.contactEmail=this.sessionManager.email;
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, club: this.clubVo};
       this.restfulService.callRestful(jsonType, jsonObj).subscribe(
         response => {
               if(response.success){
                 this.messageService.add({severity:'message', summary: 'Success', detail: 'Invest Club is created ' });
+                this.router.navigateByUrl('/member/myclubs');
               }else{
                 this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
               }

@@ -11,7 +11,6 @@ import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.DataNotFoundException;
 import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.dto.ClubDto;
-import com.i2invest.domain.request.UserSignUpRequest;
 import com.i2invest.domain.request.ClubStartRequest;
 import com.i2invest.domain.response.ClubStartResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
@@ -33,6 +32,7 @@ public class ClubStartRequestProcessor extends AbstractRequestProcessor<ClubStar
 		clubEjb.setCreateTime(nowTime);
 		clubEjb.setUpdateTime(nowTime);
 		clubEjb.setId(null);
+		clubEjb.setOwner(userEjb);
 		entityManager.persist(clubEjb);
 		
 		RoleEjb roleEjb=retrieveRoleById(entityManager, "CLUB_STARTER");

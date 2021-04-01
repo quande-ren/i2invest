@@ -23,11 +23,13 @@ export class StartProjectComponent implements OnInit {
 
   startProject(){
 		let jsonType='ProjectRequest';
+    this.projectVo.clubId=this.sessionManager.clubVo.id;
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, requestType: 'Create', project: this.projectVo};
       this.restfulService.callRestful(jsonType, jsonObj).subscribe(
         response => {
               if(response.success){
                 this.messageService.add({severity:'message', summary: 'Success', detail: 'Project is created ' });
+                this.router.navigateByUrl('/member/myprojects');
               }else{
                 this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
               }

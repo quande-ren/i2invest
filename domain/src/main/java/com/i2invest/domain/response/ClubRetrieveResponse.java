@@ -11,7 +11,9 @@ public  class ClubRetrieveResponse extends BaseResponse {
 	private static final long serialVersionUID = -3922026779808905917L;
 
 	public ClubDto club;
-	public List<ClubDto> clubs;
+	public List<ClubDto> clubsOwn;
+	public List<ClubDto> clubsInvested;
+	public List<ClubDto> otherClubs;
 	
 	public ClubRetrieveResponse() {
 	}
@@ -20,8 +22,10 @@ public  class ClubRetrieveResponse extends BaseResponse {
 		this.club=club;
 	}
 
-	public ClubRetrieveResponse(List<ClubDto> clubs) {
-		this.clubs=clubs;
+	public ClubRetrieveResponse(List<ClubDto> clubsOwn, List<ClubDto> clubsInvested, List<ClubDto> otherClubs) {
+		this.clubsOwn=clubsOwn;
+		this.clubsInvested=clubsInvested;
+		this.otherClubs=otherClubs;
 	}
 
 }

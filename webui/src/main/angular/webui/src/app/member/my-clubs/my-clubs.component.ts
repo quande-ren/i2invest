@@ -12,7 +12,9 @@ import { SessionManagerService } from '../../services/session-manager.service';
   styleUrls: ['./my-clubs.component.css']
 })
 export class MyClubsComponent implements OnInit {
-  clubs: ClubVo[];
+  clubsOwn: ClubVo[];
+  clubsInvested: ClubVo[];
+  otherClubs: ClubVo[];
 
   constructor(private restfulService: RestfulService,
 		private messageService: MessageService,
@@ -24,20 +26,11 @@ export class MyClubsComponent implements OnInit {
     this.doRetrieve();
   }
 
-  goModify(clubId: number){
-    for(let club of this.clubs){
-      if(club.id===clubId){
-        this.sessionManager.clubVo=club;
+  goModify(clubVo: ClubVo){
+        this.sessionManager.clubVo=clubVo;
         this.router.navigateByUrl('/member/updateclub');
-        return;
-      }
-    }
-
   }
 
-  joinClub(){
-  }
-  
 
   doRetrieve(){
     let jsonType='ClubRetrieveRequest';
@@ -45,7 +38,9 @@ export class MyClubsComponent implements OnInit {
       this.restfulService.callRestful(jsonType, jsonObj).subscribe(
         response => {
               if(response.success){
-                 this.clubs=response.clubs;
+                 this.clubsOwn=response.clubsOwn;
+                 this.clubsInvested=response.clubsInvested;
+                 this.otherClubs=response.otherClubs;
               }else{
                 this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
               }

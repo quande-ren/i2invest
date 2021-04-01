@@ -2,6 +2,7 @@ package com.i2invest.ejb.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -41,6 +42,9 @@ public class UserEjb extends BaseDto implements Serializable  {
 	private   Long createdBy;
 	private   Long updatedBy;
 
+	@OneToMany
+	@JoinColumn(name="ownerId")
+	private List<ClubEjb> clubsOwn;
 	
 	@OneToMany
 	@JoinColumn(name="userId")

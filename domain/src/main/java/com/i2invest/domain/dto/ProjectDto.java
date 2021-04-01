@@ -10,8 +10,9 @@ import lombok.Data;
 @Data
 public  class ProjectDto extends BaseDto{
 	private   Long id;
-	private   Long clubId;
 	private   String name;
+	private   Long clubId;
+	private   String clubName;
 	private   String address;
 	private   String description;
 	private   String status;
@@ -108,5 +109,13 @@ public  class ProjectDto extends BaseDto{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getClubName() {
+		return clubName;
+	}
+
+	public void setClubName(String clubName) {
+		this.clubName = clubName;
 	}
 }

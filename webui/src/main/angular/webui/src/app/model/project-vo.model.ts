@@ -3,5 +3,7 @@ export class ProjectVo {
 	public    name='';
 	public    description='';
 	public    address='';
+	public    clubId: number;
+	public    clubName='';
 
 }

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -32,9 +33,18 @@ public class ClubEjb extends BaseDto{
 	private   Timestamp createTime;
 	private   Timestamp updateTime;
 	
+	@ManyToOne
+	@JoinColumn(name = "ownerId", nullable=false)
+	private   UserEjb owner;
+
+	
 	@OneToMany
 	@JoinColumn(name="clubId")
 	private List<UserClubRoleEjb> userRoles;
+
+	@OneToMany
+	@JoinColumn(name="projectId")
+	private List<ProjectEjb> projects;
 
 
 	public String getClubName() {
@@ -126,6 +136,22 @@ public class ClubEjb extends BaseDto{
 
 	public void setUpdatedBy(Long updatedBy) {
 		this.updatedBy = updatedBy;
+	}
+
+	public List<ProjectEjb> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<ProjectEjb> projects) {
+		this.projects = projects;
+	}
+
+	public UserEjb getOwner() {
+		return owner;
+	}
+
+	public void setOwner(UserEjb owner) {
+		this.owner = owner;
 	}
 
 	
