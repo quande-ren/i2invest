@@ -1,7 +1,6 @@
 package com.i2invest.domain.response;
 
 import java.util.List;
-import java.util.Map;
 
 import com.i2invest.domain.dto.ClubDto;
 import com.i2invest.domain.dto.UserDto;
@@ -14,7 +13,7 @@ public  class ClubResponse extends BaseResponse {
 	public UserDto user;
 	public ClubDto club;
 	public List<ClubDto> clubs;
-	public Map<Long, List<UserDto>> clubUsers;
+	public List<UserDto> clubUsers;
 	public ClubResponse() {
 	}
 
@@ -27,7 +26,7 @@ public  class ClubResponse extends BaseResponse {
 		this.clubs=clubs;
 	}
 
-	public ClubResponse(List<ClubDto> clubs, Map<Long, List<UserDto>> clubUsers) {
+	public ClubResponse(List<ClubDto> clubs, List<UserDto> clubUsers) {
 		this.clubs=clubs;
 		this.clubUsers=clubUsers;
 	}

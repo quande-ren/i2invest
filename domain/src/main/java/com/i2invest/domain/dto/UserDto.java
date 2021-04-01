@@ -32,6 +32,8 @@ public  class UserDto extends BaseDto{
 	private   Long id;
 	private   String firstName;
 	private   String lastName;
+	private   String clubName;
+	private   String projectName;
 	private   String email;
 	private   String password;
 	private   String phoneNum;
@@ -113,6 +115,26 @@ public  class UserDto extends BaseDto{
 
 	public void setUpdateTime(Timestamp updateTime) {
 		this.updateTime = updateTime;
+	}
+
+
+	public String getClubName() {
+		return clubName;
+	}
+
+
+	public void setClubName(String clubName) {
+		this.clubName = clubName;
+	}
+
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 
 }

@@ -26,7 +26,8 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { StartProjectComponent } from './member/start-project/start-project.component';
 import { MyProjectsComponent } from './member/my-projects/my-projects.component';
 import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password.component';
-import {TableModule} from 'primeng/table';
+import { TableModule } from 'primeng/table';
+import { ClubApplicationsComponent } from './member/club-applications/club-applications.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {TableModule} from 'primeng/table';
     FileUploadComponent,
     StartProjectComponent,
     MyProjectsComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ClubApplicationsComponent
 
   ],
   imports: [
@@ -59,7 +61,6 @@ import {TableModule} from 'primeng/table';
 	  FlexLayoutModule,
     FileUploadModule,
     TableModule
-
 
   ],
   providers: [RestfulService, MessageService],

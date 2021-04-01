@@ -21,20 +21,26 @@ public  class ClubRequestProcessor
 		implements TokenRequiredRequestProcessor{
 
 	public void process(EntityManager entityManager, ClubRequest request, ClubResponse response) throws AppException{
-		if(ClubRequest.RequestType_RetrieveJoinApplocations.equals(request.requestType)) {
+		if(ClubRequest.RequestType_RetrieveClubApplocations.equals(request.requestType)) {
 			UserEjb userEjb=UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
 			response.clubs=ClubRetrieveRequestProcessor.convertClubsToDto(userEjb.getClubsOwn());
-			response.clubUsers=new HashMap<Long, List<UserDto>>();
+			response.clubUsers=new ArrayList<UserDto>();
+			List<UserDto> users= new ArrayList<UserDto>();
 			for(ClubEjb clubEjb: userEjb.getClubsOwn()) {
-				List<UserEjb> users= new ArrayList<UserEjb>();
 				clubEjb.getUserRoles()
 					.stream()
 					.filter(r -> r.getRole().getId().equals(RoleDto.ROLE_CLUB_APPLY))
-					.forEach(ucr->users.add(ucr.getUser()));;
-				response.clubUsers.put(clubEjb.getId(), UserRetrieveRequestProcessor.convertUsersToDto(users));
+					.forEach(ucr-> {
+										UserDto u=new UserDto(ucr.getUser());
+										u.setClubName(clubEjb.getClubName());
+										users.add(u); 
+									}
+							);
 			}
-			
+			response.clubUsers=users;
 		}
 	}
+	
+	
 
 }

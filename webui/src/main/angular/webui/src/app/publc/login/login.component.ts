@@ -13,7 +13,8 @@ import { SessionManagerService } from '../../services/session-manager.service';
 })
 
 export class LoginComponent implements OnInit {
-	email = 'quande.ren@gmail.com';
+//	email = 'quande.ren@gmail.com';
+	email = 'albert.shi@gmail.com';
 	password = '123456';
 
 
