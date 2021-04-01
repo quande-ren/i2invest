@@ -9,7 +9,6 @@ import lombok.Data;
 public  class ProjectRequest extends BaseRequest<ProjectResponse>{
 	private static final long serialVersionUID = 6556666213116651308L;
 	public ProjectDto project;
-	public String requestType;
 	
 	public ProjectRequest() {
 	}

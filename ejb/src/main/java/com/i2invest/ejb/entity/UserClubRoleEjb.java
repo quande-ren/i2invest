@@ -45,6 +45,11 @@ public class UserClubRoleEjb extends BaseDto{
 	@JoinColumn(name = "roleId", nullable=false)
 	private   RoleEjb role;
 
+	private   String status;
+	private   Timestamp createTime;
+	private   Timestamp updateTime;
+	
+
 	public ClubEjb getClub() {
 		return club;
 	}
@@ -84,10 +89,6 @@ public class UserClubRoleEjb extends BaseDto{
 		this.updateTime = updateTime;
 	}
 
-	private   String status;
-	private   Timestamp createTime;
-	private   Timestamp updateTime;
-	
 	
 	public UserEjb getUser()
 	{

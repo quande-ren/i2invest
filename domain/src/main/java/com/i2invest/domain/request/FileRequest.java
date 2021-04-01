@@ -9,7 +9,6 @@ import lombok.Data;
 public  class FileRequest extends BaseRequest<FileResponse>{
 	private static final long serialVersionUID = 6556666213116651308L;
 	public FileDto file;
-	public String requestType;
 	
 	public static final String RequestType_RetrieveWithData="RetrieveWithData";
 	public static final String RequestType_RetrieveWithoutData="RetrieveWithoutData";

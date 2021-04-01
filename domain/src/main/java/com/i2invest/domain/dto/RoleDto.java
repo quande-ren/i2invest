@@ -15,6 +15,11 @@ public  class RoleDto extends BaseDto{
 	private   String status;
 	private   Timestamp createTime;
 	private   Timestamp updateTime;
+	
+	public static final String ROLE_CLUB_STARTER="CLUB_STARTER";
+	public static final String ROLE_CLUB_APPLY="CLUB_APPLY";
+	public static final String ROLE_CLUB_ACTIVE="CLUB_ACTIVE";
+	public static final String ROLE_CLUB_REJECTED="CLUB_REJECTED";
 
 	public Timestamp getCreateTime() {
 		return createTime;

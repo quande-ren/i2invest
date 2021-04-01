@@ -10,7 +10,8 @@ import com.i2invest.domain.FacadeService;
 
 public class TestUtil {
 	public 	static final String email = "quande.ren@gmail.com";
-	public 	static final String password="Yanmei123";
+	public 	static final String emailAlbert = "albert.shi@gmail.com";
+	public 	static final String password="123456";
 	public 	static final String oldPassword=password;
 	public 	static final String newPassword="Yanmei124";
 

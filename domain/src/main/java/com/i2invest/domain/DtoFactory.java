@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
 import com.i2invest.domain.request.ClubJoinRequest;
+import com.i2invest.domain.request.ClubRequest;
 import com.i2invest.domain.request.ClubRetrieveRequest;
 import com.i2invest.domain.request.ClubStartRequest;
 import com.i2invest.domain.request.ClubUpdateRequest;
@@ -32,6 +33,7 @@ public class DtoFactory {
 		UserProfileChangeRequest.class,
 		ClubStartRequest.class,
 		ClubRetrieveRequest.class,
+		ClubRequest.class,
 		ClubJoinRequest.class,
 		ClubUpdateRequest.class,
 		FileRequest.class,

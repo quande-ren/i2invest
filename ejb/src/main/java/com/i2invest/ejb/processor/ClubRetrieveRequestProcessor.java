@@ -27,7 +27,7 @@ public  class ClubRetrieveRequestProcessor
 			+ "               from i2_user "
 			+ "               where email='"+request.email+"'"
 			+ "               )  ";
-		response.clubsOwn=retrieveClubs(entityManager, clubsOwnedSql);
+		response.clubsOwn=retrieveClubDtos(entityManager, clubsOwnedSql);
 		
 		String clubsInvestedSql = 
                      " SELECT   c.*   											\n"
@@ -35,18 +35,22 @@ public  class ClubRetrieveRequestProcessor
 		           + "   join 	i2_userclubrole ucr on ucr.clubid= c.id 		\n"
 		           + "   join 	i2_user usr on usr.email='"+request.email+	"'	\n" 
 		           + "                     and usr.id=ucr.userid 				\n";
-		response.clubsInvested=retrieveClubs(entityManager, clubsInvestedSql);
+		response.clubsInvested=retrieveClubDtos(entityManager, clubsInvestedSql);
 
 		String otherClubsSql = "select p.* "
 				+ "	 from i2_Club p "
 				+ " where p.clubName is not null  ";
-		response.otherClubs=retrieveClubs(entityManager, otherClubsSql);
+		response.otherClubs=retrieveClubDtos(entityManager, otherClubsSql);
 		
 	}
 
-	private List<ClubDto> retrieveClubs(EntityManager entityManager,  String clubsOwnedSql) {
-		List<ClubEjb> clubEjbList= retrieveClubsByEmail(entityManager, 
+	public static List<ClubDto> retrieveClubDtos(EntityManager entityManager,  String clubsOwnedSql) {
+		List<ClubEjb> clubEjbList= retrieveClubEjbs(entityManager, 
 				  clubsOwnedSql);
+		return convertClubsToDto(clubEjbList);
+	}
+
+	public static List<ClubDto> convertClubsToDto(List<ClubEjb> clubEjbList) {
 		List<ClubDto> result = new ArrayList<ClubDto>();
 		if(clubEjbList!=null ) {
 			for(ClubEjb ejb : clubEjbList) {
@@ -58,8 +62,7 @@ public  class ClubRetrieveRequestProcessor
 		return result;
 	}
 	
-	public static List<ClubEjb> retrieveClubsByEmail(EntityManager entityManager, String ejbql) {
-//		String ejbQL = "ejbql";
+	public static List<ClubEjb> retrieveClubEjbs(EntityManager entityManager, String ejbql) {
 		Query query = entityManager.createNativeQuery(ejbql, ClubEjb.class);
 		List<ClubEjb> list = query.getResultList();
 		return list;

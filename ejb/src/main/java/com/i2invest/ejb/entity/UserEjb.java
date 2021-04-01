@@ -148,4 +148,12 @@ public class UserEjb extends BaseDto implements Serializable  {
 		this.updatedBy = updatedBy;
 	}
 
+	public List<ClubEjb> getClubsOwn() {
+		return clubsOwn;
+	}
+
+	public void setClubsOwn(List<ClubEjb> clubsOwn) {
+		this.clubsOwn = clubsOwn;
+	}
+
 }

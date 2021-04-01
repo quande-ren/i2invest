@@ -10,6 +10,8 @@ public abstract class BaseRequest<R extends BaseResponse> extends BaseDto{
 	private static final long serialVersionUID = -7369800986300844786L;
 	public String email;
 	public String token;
+	public String requestType;
+
 	
 	public static final String RequestType_Create="Create";
 	public static final String RequestType_Update="Update";
