@@ -1,5 +1,5 @@
 import { HttpEvent, HttpEventType, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
@@ -17,6 +17,22 @@ import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 })
 export class FileUploadComponent implements OnInit {
 
+
+  onClick(evt:any){
+    console.log(evt.clientX+" "+evt.clientY);
+}  
+
+  width = 600;
+  height = 1000;
+  draggables = [
+    { x: 0, y: 0 },
+    { x: 300, y: 300 },
+    { x: 0, y: 300 },
+    { x: 300, y: 0 },
+  ];
+
+
+
   uploadUrl=environment.API_BASE_URL+'/fileapi/fileUpload';
 
   uploadedFiles: any[] = [];
@@ -30,6 +46,16 @@ export class FileUploadComponent implements OnInit {
       private restfulService : RestfulService) { 
 	//pdfDefaultOptions.assetsFolder = 'bleeding-edge';
 	}
+
+  fillColor = 'rgb(255, 0, 0)';
+
+  changeColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    this.fillColor = `rgb(${r}, ${g}, ${b})`;
+  }
+
   
 
   ngOnInit(): void {
