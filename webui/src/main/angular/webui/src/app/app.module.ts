@@ -28,7 +28,9 @@ import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password
 import { TableModule } from 'primeng/table';
 import { ClubApplicationsComponent } from './member/club-applications/club-applications.component';
 import { FileUploadModule } from 'primeng/fileupload';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { CdkDragDropOverviewComponent } from './cdk-drag-drop-overview/cdk-drag-drop-overview.component';
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     StartProjectComponent,
     MyProjectsComponent,
     ForgotPasswordComponent,
-    ClubApplicationsComponent
+    ClubApplicationsComponent,
+    CdkDragDropOverviewComponent
 
   ],
   imports: [
@@ -62,7 +65,8 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 	  FlexLayoutModule,
     FileUploadModule,
     TableModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    DragDropModule
 
   ],
   providers: [RestfulService, MessageService],
