@@ -27,7 +27,9 @@ export class FileUploadComponent implements OnInit {
       private uploadService: UploadFilesService, 
       private messageService: MessageService,
       private router: Router,
-      private restfulService : RestfulService) { }
+      private restfulService : RestfulService) { 
+	//pdfDefaultOptions.assetsFolder = 'bleeding-edge';
+	}
   
 
   ngOnInit(): void {
