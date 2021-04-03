@@ -25,6 +25,7 @@
     "@angular/router": "~11.2.6",
     "font-awesome": "^4.7.0",
     "ng2-file-upload": "^1.4.0",
+    "ngx-extended-pdf-viewer": "^9.0.0-alpha.0",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
     "primeng": "^11.3.1",

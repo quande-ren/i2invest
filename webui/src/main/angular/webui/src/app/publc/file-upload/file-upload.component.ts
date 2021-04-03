@@ -7,6 +7,8 @@ import { FileVo } from 'src/app/model/file-vo.model';
 import { RestfulService } from 'src/app/services/restful.service';
 import { UploadFilesService } from 'src/app/services/upload-files.service';
 import { environment } from 'src/environments/environment';
+import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+
 
 @Component({
   selector: 'app-file-upload',

@@ -28,6 +28,7 @@ import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password
 import { TableModule } from 'primeng/table';
 import { ClubApplicationsComponent } from './member/club-applications/club-applications.component';
 import { FileUploadModule } from 'primeng/fileupload';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { FileUploadModule } from 'primeng/fileupload';
 	  FieldsetModule,
 	  FlexLayoutModule,
     FileUploadModule,
-    TableModule
+    TableModule,
+    NgxExtendedPdfViewerModule
 
   ],
   providers: [RestfulService, MessageService],
