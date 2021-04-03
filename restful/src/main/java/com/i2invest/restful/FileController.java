@@ -13,6 +13,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
@@ -52,8 +53,8 @@ public class FileController {
 	private final String UPLOADED_FILE_PATH = "c:/temp/";
 
 	@POST
-    @Path("/image-upload")
-    @Consumes("multipart/form-data")
+    @Path("/fileUpload")
+    @Consumes({  MediaType.MEDIA_TYPE_WILDCARD})
     public Response uploadFile(MultipartFormDataInput input) throws IOException 
     {
 		 System.out.println("In uploadFile....");
@@ -61,36 +62,44 @@ public class FileController {
         Map<String, List<InputPart>> uploadForm = input.getFormDataMap();
          
         //Get file name
-        String fileName = uploadForm.get("fileName").get(0).getBodyAsString();
+        InputPart inputPart = uploadForm.values().iterator().next().iterator().next();
          
-        //Get file data to save
-        List<InputPart> inputParts = uploadForm.get("attachment");
- 
-        for (InputPart inputPart : inputParts)
-        {
+        String fileName = UPLOADED_FILE_PATH + getFileName(inputPart.getHeaders());
             try
             {
-                //Use this header for extra processing if required
-                @SuppressWarnings("unused")
-                MultivaluedMap<String, String> header = inputPart.getHeaders();
-                 
-                // convert the uploaded file to inputstream
                 InputStream inputStream = inputPart.getBody(InputStream.class, null);
                  
                 byte[] bytes = IOUtils.toByteArray(inputStream);
                 // constructs upload file path
-                fileName = UPLOADED_FILE_PATH + fileName;
 	            writeFile(bytes, fileName);
-                System.out.println("Success !!!!!");
+                System.out.println("Success !!!!! "+fileName);
             } 
             catch (Exception e) 
             {
                 e.printStackTrace();
             }
-        }
-        return Response.status(200)
+
+            return Response.status(200)
                 .entity("Uploaded file name : "+ fileName).build();
     }
+	
+	
+	private String getFileName(MultivaluedMap<String, String> header) {
+
+        String[] contentDisposition = header.getFirst("Content-Disposition").split(";");
+        
+        for (String filename : contentDisposition) {
+            if ((filename.trim().startsWith("filename"))) {
+
+                String[] name = filename.split("=");
+                
+                String finalFileName = name[1].trim().replaceAll("\"", "");
+                return finalFileName;
+            }
+        }
+        return "unknown";
+    }
+	
 	
 	 //Utility method
     private void writeFile(byte[] content, String filename) throws IOException 

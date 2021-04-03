@@ -1,6 +1,30 @@
 <p>file-upload works!</p>
 
 
+<p-fileUpload name="demo[]" url={{uploadUrl}} accept=".pdf" (onUpload)="onUpload($event)" (multiple)=true  (maxFileSize)=1000>
+  <ng-template pTemplate="content">
+      <ul *ngIf="uploadedFiles.length">
+          <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+      </ul>
+  </ng-template>
+</p-fileUpload>
+
+
+<div class="card mt-3">
+  <div class="card-header">List of Files Uploaded</div>
+  <ul
+    class="list-group list-group-flush"
+    *ngFor="let file of files"
+  >
+    <li class="list-group-item">
+      <a href="{{ file.name }}">{{ file.name }}</a>
+    </li>
+  </ul>
+</div>
+
+<!--
+
+
 <div class="row">
     <div class="col-8">
       <label class="btn btn-default p-0">
@@ -30,16 +54,6 @@
   
   <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
   
-  <div class="card mt-3">
-    <div class="card-header">List of Files</div>
-    <ul
-      class="list-group list-group-flush"
-      *ngFor="let file of files"
-    >
-      <li class="list-group-item">
-        <a href="{{ file.name }}">{{ file.name }}</a>
-      </li>
-    </ul>
-  </div>
 
 
+-->

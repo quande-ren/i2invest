@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { FileVo } from 'src/app/model/file-vo.model';
 import { RestfulService } from 'src/app/services/restful.service';
 import { UploadFilesService } from 'src/app/services/upload-files.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-file-upload',
@@ -14,10 +15,9 @@ import { UploadFilesService } from 'src/app/services/upload-files.service';
 })
 export class FileUploadComponent implements OnInit {
 
-  selectedFiles?: FileList;
-  currentFile?: File;
-  progress = 0;
-  message = '';
+  uploadUrl=environment.API_BASE_URL+'/fileapi/fileUpload';
+
+  uploadedFiles: any[] = [];
 
   files: FileVo[];
 
@@ -33,8 +33,13 @@ export class FileUploadComponent implements OnInit {
     this.retrieveFiles();
   }
 
-  selectFile(event: any): void {
-    this.selectedFiles = event.target.files;
+
+  onUpload(event:any) {
+    for(let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+
+    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
   }
 
   retrieveFiles(){
@@ -59,6 +64,8 @@ export class FileUploadComponent implements OnInit {
 		);    
 
   }
+
+  /*
 
   upload(): void {
     this.progress = 0;
@@ -96,5 +103,5 @@ export class FileUploadComponent implements OnInit {
       this.selectedFiles = undefined;
     }
   }
-
+*/
 }

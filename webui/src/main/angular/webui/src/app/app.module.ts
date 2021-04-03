@@ -22,12 +22,12 @@ import { StartClubComponent } from './member/start-club/start-club.component';
 import { MyClubsComponent } from './member/my-clubs/my-clubs.component';
 import { UpdateClubComponent } from './member/update-club/update-club.component';
 import { FileUploadComponent } from './publc/file-upload/file-upload.component';
-import { FileUploadModule } from 'ng2-file-upload';
 import { StartProjectComponent } from './member/start-project/start-project.component';
 import { MyProjectsComponent } from './member/my-projects/my-projects.component';
 import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password.component';
 import { TableModule } from 'primeng/table';
 import { ClubApplicationsComponent } from './member/club-applications/club-applications.component';
+import { FileUploadModule } from 'primeng/fileupload';
 
 
 @NgModule({

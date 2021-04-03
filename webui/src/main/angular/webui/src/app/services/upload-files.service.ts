@@ -2,13 +2,13 @@ import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RestfulService } from './restful.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UploadFilesService {
 
-  private baseUrl = 'http://localhost:8080/i2invest';
 
   constructor(private http: HttpClient, 
               private restfulService : RestfulService) { }
@@ -18,7 +18,7 @@ export class UploadFilesService {
 
     formData.append('file', file);
 
-    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+    const req = new HttpRequest('POST', environment.API_BASE_URL+'/fileupload', formData, {
       reportProgress: true,
       responseType: 'json'
     });
