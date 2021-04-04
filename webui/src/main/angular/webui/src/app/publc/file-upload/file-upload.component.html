@@ -12,28 +12,43 @@
 <table>
   <tr>
     <td width="10%" valign="top">
-      <div>
-        <div>
-          Pick a Icon and drop on the PDF file
+      <div  fxLayout="column" fxFlexAlign="start center">
+
+        <div>Pick a Icon and drop on the PDF file</div>
+
+        <div (click)="createDragDrop('iconSignature', 'Signature')">
+            <app-docu-sign-item 
+                imageFile="iconSignature" 
+                text="Signature" 
+                [allowDragDrop]=false
+            >
+            </app-docu-sign-item>
         </div>
-        <div class="example-box" cdkDrag (cdkDragEnded)="dragEnd($event)" align='left'>
-          <img src="assets/images/iconSignature.png" width="80px" height="50px"/>
-          Signature
+
+        <div (click)="createDragDrop('iconInitial', 'Initial')">
+          <app-docu-sign-item 
+              [allowDragDrop]=false
+              imageFile="iconInitial" 
+              text="Initial"></app-docu-sign-item>
         </div>
-      
-        <div class="example-box" cdkDrag (cdkDragEnded)="dragEnd($event)">
-          <img src="assets/images/iconInitial.png" width="80px" height="50px"/>
-          Initial
+
+        <div (click)="createDragDrop('iconDateSigned', 'Date Signed')">
+          <app-docu-sign-item 
+              [allowDragDrop]=false
+              imageFile="iconDateSigned" 
+              text="Date Signed">
+
+          </app-docu-sign-item>
         </div>
-      
-        <div class="example-box" cdkDrag (cdkDragEnded)="dragEnd($event)">
-          <img src="assets/images/iconDateSigned.png" width="80px" height="50px"/>
-          Signed Date
-        </div>
+
+        <template #dynamicElementContainer></template>
+
       </div>
-      
+
     </td>
     <td width="90%">
+
+
         <ngx-extended-pdf-viewer 
           src='/assets/example.pdf'
           [showToolbar]="false"
@@ -42,6 +57,7 @@
           height="160vh">
           (pageChange)="onEvent('pageChange', $event)"
         </ngx-extended-pdf-viewer>
+
     </td>
   </tr>
 </table>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-docu-sign-item',
@@ -6,14 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./docu-sign-item.component.css']
 })
 export class DocuSignItemComponent implements OnInit {
-  public imageFile:string;
-  public text:string
+  @Input() imageFile:string;
+  @Input() text:string
+  @Input() allowDragDrop=true;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   dragEnd($event){
-    
+
   }
 }

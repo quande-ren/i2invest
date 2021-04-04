@@ -1,4 +1,13 @@
-<div class="example-box" cdkDrag (cdkDragEnded)="dragEnd($event)" align='left'>
-    <img src="assets/images/{{imageFile}}.png" width="50px" height="30px"/>
-    {{text}}
+<div class="item-box" cdkDrag (cdkDragEnded)="dragEnd($event)" align='left' *ngIf="allowDragDrop===true">
+    <div  fxLayout="row" fxFlexAlign="start center">
+        <img src="assets/images/{{imageFile}}.png" width="50px" height="30px"/>
+        {{text}}
+    </div>
+</div>
+
+<div class="item-box" align='left' *ngIf="allowDragDrop===false" >
+    <div  fxLayout="row" fxFlexAlign="start center">
+        <img src="assets/images/{{imageFile}}.png" width="50px" height="30px"/>
+        {{text}}
+    </div>
 </div>

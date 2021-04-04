@@ -1,5 +1,5 @@
 import { HttpEvent, HttpEventType, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import { UploadFilesService } from 'src/app/services/upload-files.service';
 import { environment } from 'src/environments/environment';
 import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
+import { DocuSignItemComponent } from 'src/app/docu-sign-item/docu-sign-item.component';
 
 
 @Component({
@@ -19,12 +20,21 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
 export class FileUploadComponent implements OnInit {
 
 
-  onClick(evt:any){
+  @ViewChild("dynamicElementContainer", { read: ViewContainerRef }) container: any;
+  componentRef: ComponentRef<DocuSignItemComponent>;
+  
+  createDragDrop(imageFile: string, text: string):void {
+    console.log("in createDragDrop");
+    const factory: ComponentFactory<DocuSignItemComponent> = this.resolver.resolveComponentFactory(DocuSignItemComponent);
+    this.componentRef = this.container.createComponent(factory);
+    this.componentRef.instance.imageFile=imageFile;
+    this.componentRef.instance.text=text;
+  }
+
+
+  onClick(evt:any):void{
     console.log(evt.clientX+" "+evt.clientY);
-}  
-
-
-
+  }  
 
   uploadUrl=environment.API_BASE_URL+'/fileapi/fileUpload';
 
@@ -36,25 +46,15 @@ export class FileUploadComponent implements OnInit {
       private uploadService: UploadFilesService, 
       private messageService: MessageService,
       private router: Router,
+      private resolver: ComponentFactoryResolver,
       private restfulService : RestfulService) { 
-	//pdfDefaultOptions.assetsFolder = 'bleeding-edge';
 	}
-
-  fillColor = 'rgb(255, 0, 0)';
-
-  changeColor() {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    this.fillColor = `rgb(${r}, ${g}, ${b})`;
-  }
 
   dragEnd(event: CdkDragEnd) {
     console.log(event.source.getFreeDragPosition());
   }
 
   ngOnInit(): void {
-    //this.fileInfos = this.uploadService.getFiles();
     this.retrieveFiles();
   }
 
