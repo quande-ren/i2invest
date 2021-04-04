@@ -8,6 +8,7 @@ import { RestfulService } from 'src/app/services/restful.service';
 import { UploadFilesService } from 'src/app/services/upload-files.service';
 import { environment } from 'src/environments/environment';
 import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
 
 @Component({
@@ -22,14 +23,6 @@ export class FileUploadComponent implements OnInit {
     console.log(evt.clientX+" "+evt.clientY);
 }  
 
-  width = 600;
-  height = 1000;
-  draggables = [
-    { x: 0, y: 0 },
-    { x: 300, y: 300 },
-    { x: 0, y: 300 },
-    { x: 300, y: 0 },
-  ];
 
 
 
@@ -56,7 +49,9 @@ export class FileUploadComponent implements OnInit {
     this.fillColor = `rgb(${r}, ${g}, ${b})`;
   }
 
-  
+  dragEnd(event: CdkDragEnd) {
+    console.log(event.source.getFreeDragPosition());
+  }
 
   ngOnInit(): void {
     //this.fileInfos = this.uploadService.getFiles();

@@ -30,7 +30,8 @@ import { ClubApplicationsComponent } from './member/club-applications/club-appli
 import { FileUploadModule } from 'primeng/fileupload';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { CdkDragDropOverviewComponent } from './cdk-drag-drop-overview/cdk-drag-drop-overview.component';
+import { AlertComponent } from './alert/alert.component';
+import { MyItemComponent } from './my-item/my-item.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { CdkDragDropOverviewComponent } from './cdk-drag-drop-overview/cdk-drag-
     MyProjectsComponent,
     ForgotPasswordComponent,
     ClubApplicationsComponent,
-    CdkDragDropOverviewComponent
+    AlertComponent,
+    MyItemComponent
 
   ],
   imports: [

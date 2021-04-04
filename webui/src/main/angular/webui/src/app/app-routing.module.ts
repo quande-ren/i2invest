@@ -12,10 +12,10 @@ import { StartProjectComponent } from './member/start-project/start-project.comp
 import { MyProjectsComponent } from './member/my-projects/my-projects.component';
 import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password.component';
 import { ClubApplicationsComponent } from './member/club-applications/club-applications.component';
-import { CdkDragDropOverviewComponent } from './cdk-drag-drop-overview/cdk-drag-drop-overview.component';
+import { MyItemComponent } from './my-item/my-item.component';
 
 const routes: Routes = [
-	{ path: 'test', 						component: CdkDragDropOverviewComponent, 				data: {name: 'test', 						role: ['ALL']} },
+	{ path: 'test', 						component: MyItemComponent, 				data: {name: 'test', 						role: ['ALL']} },
 
 	{ path: '', 						component: LoginComponent, 				data: {name: '', 						role: ['ALL']} },
 	{ path: 'signin', 					component: LoginComponent,  			data: {name: 'SignIn', 					role: ['ALL']} },
