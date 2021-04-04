@@ -1,5 +1,5 @@
 import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { AlertComponent } from '../alert/alert.component';
+import { DocuSignItemComponent } from '../docu-sign-item/docu-sign-item.component';
 
 @Component({
   selector: 'app-my-item',
@@ -9,22 +9,21 @@ import { AlertComponent } from '../alert/alert.component';
 export class MyItemComponent implements OnInit {
 
   @ViewChild("alertContainer", { read: ViewContainerRef }) container: any;
-  componentRef: ComponentRef<any>;
+  componentRef: ComponentRef<DocuSignItemComponent>;
  
   
 
   constructor(private resolver: ComponentFactoryResolver) {}
   
-  createComponent(type:any) {
-    //this.container.clear();
-    const factory: ComponentFactory<any> = this.resolver.resolveComponentFactory(AlertComponent);
+  createComponent(imageFile:string, text: string) {
+
+    const factory: ComponentFactory<DocuSignItemComponent> = this.resolver.resolveComponentFactory(DocuSignItemComponent);
 
     this.componentRef = this.container.createComponent(factory);
+    this.componentRef.instance.imageFile=imageFile;
+    this.componentRef.instance.text=text;
+
     
-    this.componentRef.instance.type = type;
-
-    this.componentRef.instance.output.subscribe(event => console.log(event));
-
   }
 
   ngOnInit(): void {

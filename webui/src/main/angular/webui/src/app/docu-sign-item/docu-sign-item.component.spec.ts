@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AlertComponent } from './alert.component';
+import { DocuSignItemComponent } from './docu-sign-item.component';
 
-describe('AlertComponent', () => {
-  let component: AlertComponent;
-  let fixture: ComponentFixture<AlertComponent>;
+describe('DocuSignItemComponent', () => {
+  let component: DocuSignItemComponent;
+  let fixture: ComponentFixture<DocuSignItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlertComponent ]
+      declarations: [ DocuSignItemComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AlertComponent);
+    fixture = TestBed.createComponent(DocuSignItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
