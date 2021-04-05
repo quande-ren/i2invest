@@ -32,7 +32,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { MyItemComponent } from './my-item/my-item.component';
 import { DocuSignItemComponent } from './docu-sign-item/docu-sign-item.component';
-
+import { EditorModule } from 'primeng/editor';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,8 @@ import { DocuSignItemComponent } from './docu-sign-item/docu-sign-item.component
     FileUploadModule,
     TableModule,
     NgxExtendedPdfViewerModule,
-    DragDropModule
+    DragDropModule,
+    EditorModule
 
   ],
   providers: [RestfulService, MessageService],

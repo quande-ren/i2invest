@@ -5,6 +5,7 @@ export class UserVo {
 	public    email='';
 	public    password='';
 	public    phoneNum='';
+	public    description='';
 	
 	constructor(){}
 }

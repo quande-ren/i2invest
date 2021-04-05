@@ -1,9 +1,3 @@
 <p>my-item works!</p>
 
-<button (click)="createComponent('iconInitial','Initial')">Initial</button>
-<button (click)="createComponent('iconSignature','Signature')">Signature</button>
-<button (click)="createComponent('iconDateSigned','Date Signed')">Date Signed</button>
-
-
-<template #alertContainer></template>
-
+<p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>

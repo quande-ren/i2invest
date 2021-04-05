@@ -37,6 +37,7 @@ public  class UserDto extends BaseDto{
 	private   String email;
 	private   String password;
 	private   String phoneNum;
+	private   String description;
 	private   String status;
 
 	private Timestamp createTime;
@@ -135,6 +136,16 @@ public  class UserDto extends BaseDto{
 
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

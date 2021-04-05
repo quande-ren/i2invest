@@ -35,6 +35,8 @@ public class UserEjb extends BaseDto implements Serializable  {
 	private String passwordHash;
 	@NotNull
 	private String phoneNum;
+	private   String description;
+
 
 	private Timestamp createTime;
 
@@ -154,6 +156,14 @@ public class UserEjb extends BaseDto implements Serializable  {
 
 	public void setClubsOwn(List<ClubEjb> clubsOwn) {
 		this.clubsOwn = clubsOwn;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

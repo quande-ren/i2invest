@@ -6,7 +6,7 @@
 	<div class="p-field p-grid">
 	    <label for="email" class="p-col-fixed" style="width:160px">Email</label>
 	    <div class="p-col">
-	        <input id="email" type="text" [(ngModel)]="userVo.email" pInputText required/> 
+	        <input type="text" [(ngModel)]="userVo.email" pInputText required/> 
 	    </div>
 	</div>
 	
@@ -36,7 +36,16 @@
 	        <input id="phoneNum" type="text" [(ngModel)]="userVo.phoneNum" pInputText required/>
 	    </div>
 	</div>
-	
+
+	<div class="p-field p-grid">
+	    <label for="phoneNum" class="p-col-fixed" style="width:160px">Description</label>
+	    <div>
+			<p-editor  [(ngModel)]="userVo.description" ></p-editor>
+			
+			<div [innerHTML]="userVo.description"></div>
+	    </div>
+	</div>
+
 	<div class="p-field p-grid">
 	    <button name="signUpBtn" class="btn btn-primary" (click)="doChangeProfile()">Change Profile</button>
 	</div>
