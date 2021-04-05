@@ -39,10 +39,54 @@ public  class UserDto extends BaseDto{
 	private   String phoneNum;
 	private   String description;
 	private   String status;
+	private   String calendly;
+	private   String wechatId;
+	private   String website;
+	
 
 	private Timestamp createTime;
 
 	private Timestamp updateTime;
+
+	public String getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+	public String getCalendly() {
+		return calendly;
+	}
+
+
+	public void setCalendly(String calendly) {
+		this.calendly = calendly;
+	}
+
+
+	public String getWechatId() {
+		return wechatId;
+	}
+
+
+	public void setWechatId(String wechatId) {
+		this.wechatId = wechatId;
+	}
+
+
+	public String getWebsite() {
+		return website;
+	}
+
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
 
 
 	public Long getId() {

@@ -6,6 +6,10 @@ export class UserVo {
 	public    password='';
 	public    phoneNum='';
 	public    description='';
+
+	public    calendly='';
+	public    wechatId='';
+	public    website='';
 	
 	constructor(){}
 }

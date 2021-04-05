@@ -37,7 +37,7 @@ public class DtoFactory {
 		ClubJoinRequest.class,
 		ClubUpdateRequest.class,
 		FileRequest.class,
-		ProjectRequest.class,
+		ProjectRequest.class
 	};
 	
 	public static BaseDto getDto(String requestType, String json) {

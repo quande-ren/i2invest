@@ -21,13 +21,13 @@ public class UserChangePasswordRequestProcessorTest {
 		UserProfileChangeRequest request = new UserProfileChangeRequest(TestUtil.email, TestUtil.oldPassword);
 		request.token=token;
 
-		request.changePasswordOnly=true;
+		request.requestType=UserProfileChangeRequest.RequestType_ChangePassword;
 		request.oldPassword=TestUtil.oldPassword;
 		request.newPassword=TestUtil.newPassword;
 		
 		UserProfileChangeResponse response= (UserProfileChangeResponse)facadeService.processRequest(request);
 
-		request.changePasswordOnly=true;
+		request.requestType=UserProfileChangeRequest.RequestType_ChangePassword;
 		request.oldPassword=TestUtil.newPassword;
 		request.newPassword=TestUtil.oldPassword;
 		

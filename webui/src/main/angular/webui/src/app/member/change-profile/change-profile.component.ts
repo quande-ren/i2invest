@@ -71,7 +71,30 @@ export class ChangeProfileComponent implements OnInit {
 	}
 
 	doChangeProfile() {
-		}
+		let jsonType = 'UserProfileChangeRequest';
+		let jsonObj = { user: this.userVo , 
+		                email: this.sessionManager?.userVo?.email,
+						token: this.sessionManager?.token, 
+						requestType: "ChangeProfile"};
+
+		this.restfulService.callRestful(jsonType, jsonObj).subscribe(
+			response => {
+				if (response.success) {
+					console.log(response);
+					this.router.navigateByUrl('/signin');
+					this.messageService.add({ severity: 'message', summary: 'Password Change Success', detail: 'You can now sign in using the new created credential' });
+				} else {
+					this.messageService.add({ severity: 'error', summary: 'Error', detail: response.errorMessage + ' (' + response.errorCode + ')' });
+				}
+			},
+
+			error => {
+				this.messageService.add({ severity: 'error', summary: 'Error Message', detail: error });
+			}
+		);
+
+
+	}
 
 	doChangeEmail() {
 		}

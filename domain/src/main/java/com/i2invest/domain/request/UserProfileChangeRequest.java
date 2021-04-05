@@ -11,9 +11,9 @@ public class UserProfileChangeRequest extends BaseRequest<UserProfileChangeRespo
 	public UserDto user;
 	public String oldPassword;
 	public String newPassword;
-	public boolean changeEmailOnly=false;
-	public boolean changeProfileOnly=false;
-	public boolean changePasswordOnly=false;
+//	public static final String RequestType_ChangeEmail="ChangeEmail";
+	public static final String RequestType_ChangeProfile="ChangeProfile";
+	public static final String RequestType_ChangePassword="ChangePassword";
 	
 	public UserProfileChangeRequest() {
 		
@@ -35,9 +35,8 @@ public class UserProfileChangeRequest extends BaseRequest<UserProfileChangeRespo
 	    		+" user="+user
 	    		+" oldPassword="+oldPassword
 	    		+" newPassword="+newPassword
-	    		+" changeEmailOnly="+changeEmailOnly
-	    		+" changeProfileOnly="+changeProfileOnly
-	    		+" changePasswordOnly="+changePasswordOnly+")";
+	    		+" requestType="+requestType;
+	    
 	}
 
 }

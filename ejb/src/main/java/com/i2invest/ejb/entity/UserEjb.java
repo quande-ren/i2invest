@@ -39,10 +39,36 @@ public class UserEjb extends BaseDto implements Serializable  {
 
 
 	private Timestamp createTime;
-
 	private Timestamp updateTime;
 	private   Long createdBy;
 	private   Long updatedBy;
+	private   String calendly;
+	private   String wechatId;
+	private   String website;
+
+	public String getCalendly() {
+		return calendly;
+	}
+
+	public void setCalendly(String calendly) {
+		this.calendly = calendly;
+	}
+
+	public String getWechatId() {
+		return wechatId;
+	}
+
+	public void setWechatId(String wechatId) {
+		this.wechatId = wechatId;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
 
 	@OneToMany
 	@JoinColumn(name="ownerId")

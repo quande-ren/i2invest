@@ -38,6 +38,27 @@
 	</div>
 
 	<div class="p-field p-grid">
+	    <label for="calendly" class="p-col-fixed" style="width:160px">Calendly</label>
+	    <div class="p-col">
+	        <input id="calendly" type="text" [(ngModel)]="userVo.calendly" pInputText required/>
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="wechatId" class="p-col-fixed" style="width:160px">WeChat ID</label>
+	    <div class="p-col">
+	        <input id="wechatId" type="text" [(ngModel)]="userVo.wechatId" pInputText required/>
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="website" class="p-col-fixed" style="width:160px">Web Site</label>
+	    <div class="p-col">
+	        <input id="website" type="text" [(ngModel)]="userVo.website" pInputText required/>
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
 	    <label for="phoneNum" class="p-col-fixed" style="width:160px">Description</label>
 	    <div>
 			<p-editor  [(ngModel)]="userVo.description" ></p-editor>

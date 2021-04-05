@@ -25,12 +25,27 @@ public class UserProfileChangeRequestProcessor extends AbstractRequestProcessor<
 			throw new InvalidCredential();
 		}
 		
-		if(request.changePasswordOnly) {
+		if(UserProfileChangeRequest.RequestType_ChangePassword.equals(request.requestType)) {
 			changePassword(entityManager, userEjb, request.oldPassword, request.newPassword);
+		}else if (UserProfileChangeRequest.RequestType_ChangeProfile.equals(request.requestType)) {
+			changeProfile(entityManager, userEjb, request.user);
+		}else {
+			throw new RuntimeException("not recognized request type of ["+request.requestType+"]");
 		}
 		
 	}
 	
+	private void changeProfile(EntityManager entityManager, UserEjb userEjb, UserDto user) {
+		userEjb.setDescription(user.getDescription());
+		userEjb.setFirstName(user.getFirstName());
+		userEjb.setLastName(user.getLastName());
+		userEjb.setPhoneNum(user.getPhoneNum());
+//		userEjb.setUpdatedBy(user.getDescription());
+//		userEjb.setUpdateTime(user.getDescription());
+		entityManager.persist(userEjb);
+		
+	}
+
 	public boolean requireToken() {
 		return true;
 	}
