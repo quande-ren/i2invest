@@ -10,6 +10,7 @@ import com.i2invest.domain.request.ClubRequest;
 import com.i2invest.domain.request.ClubRetrieveRequest;
 import com.i2invest.domain.request.ClubStartRequest;
 import com.i2invest.domain.request.ClubUpdateRequest;
+import com.i2invest.domain.request.ConfigRequest;
 import com.i2invest.domain.request.FileRequest;
 import com.i2invest.domain.request.PingRequest;
 import com.i2invest.domain.request.ProjectRequest;
@@ -37,7 +38,8 @@ public class DtoFactory {
 		ClubJoinRequest.class,
 		ClubUpdateRequest.class,
 		FileRequest.class,
-		ProjectRequest.class
+		ProjectRequest.class,
+		ConfigRequest.class,
 	};
 	
 	public static BaseDto getDto(String requestType, String json) {

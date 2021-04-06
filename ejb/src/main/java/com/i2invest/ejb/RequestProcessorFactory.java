@@ -6,6 +6,7 @@ import com.i2invest.ejb.processor.ClubRequestProcessor;
 import com.i2invest.ejb.processor.ClubRetrieveRequestProcessor;
 import com.i2invest.ejb.processor.ClubStartRequestProcessor;
 import com.i2invest.ejb.processor.ClubUpdateRequestProcessor;
+import com.i2invest.ejb.processor.ConfigRequestProcessor;
 import com.i2invest.ejb.processor.FileRequestProcessor;
 import com.i2invest.ejb.processor.ProjectRequestProcessor;
 import com.i2invest.ejb.processor.UserForgotPasswordRequestProcessor;
@@ -28,6 +29,7 @@ public class RequestProcessorFactory {
 			new FileRequestProcessor(),
 			new ProjectRequestProcessor(),
 			new ClubRequestProcessor(),
+			new ConfigRequestProcessor(),
 	};
 	
 	public static AbstractRequestProcessor getProcessor(BaseRequest request) {
