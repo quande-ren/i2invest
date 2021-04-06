@@ -1,21 +1,11 @@
-<p-fieldset legend="Change Email" [toggleable]="true">
-	<div class="p-field p-grid">
-		When you change email, You password will be reset as well. You will be logout. 
-	</div>
-		
+<p-fieldset legend="Change Profile" [toggleable]="true">
 	<div class="p-field p-grid">
 	    <label for="email" class="p-col-fixed" style="width:160px">Email</label>
 	    <div class="p-col">
-	        <input type="text" [(ngModel)]="userVo.email" pInputText required/> 
+	        <input type="text" [(ngModel)]="userVo.email" pInputText disabled=true/> 
 	    </div>
 	</div>
-	
-	<div class="p-field p-grid">
-	    <button name="signUpBtn" class="btn btn-primary" (click)="doChangeEmail()">Change Email</button>
-	</div>
-</p-fieldset>
 
-<p-fieldset legend="Change Profile" [toggleable]="true">
 	<div class="p-field p-grid">
 	    <label for="firstName" class="p-col-fixed" style="width:160px">First Name</label>
 	    <div class="p-col">
