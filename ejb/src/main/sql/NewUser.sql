@@ -1,7 +1,6 @@
 alter session set "_ORACLE_SCRIPT"=true;  
 CREATE USER i2invest IDENTIFIED BY i2invest;
 
-CLUB_STARTER
 
 GRANT CONNECT TO i2invest ;
 GRANT RESOURCE TO i2invest ;
@@ -13,6 +12,8 @@ INSERT INTO "I2INVEST"."I2_ROLE" (ID, ROLENAME, ROLETYPE, STATUS) VALUES ('CLUB_
 INSERT INTO "I2INVEST"."I2_ROLE" (ID, ROLENAME, ROLETYPE, STATUS) VALUES ('CLUB_REJECTED', 'CLUB_REJECTED', 'CLUB', 'ACTIVE');
 
 
+alter table i2_club modify(description varchar2(4000));
+alter table i2_user modify(description varchar2(4000));
 
 
 drop table I2_USERCLUBROLE;

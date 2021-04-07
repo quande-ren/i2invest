@@ -11,9 +11,16 @@
 	<div class="p-field p-grid">
 	    <label for="description" class="p-col-fixed" style="width:160px">Description</label>
 	    <div class="p-col">
-	        <input id="description" type="text" [(ngModel)]="clubVo.description" pInputText required/> 
+				<textarea  [(ngModel)]="clubVo.description" cols="100" rows="20"></textarea>
+				
 	    </div>
 	</div>
+
+
+	<div class="p-field p-grid">
+	    <label for="phoneNum" class="p-col-fixed" style="width:160px">Description</label>
+	</div>
+
 
 	<div class="p-field p-grid">
 	    <button name="signUpBtn" class="btn btn-primary" (click)="updateClub()">Update Club</button>

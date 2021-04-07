@@ -13,7 +13,7 @@ import { UserVo } from '../../model/user-vo.model';
 })
 export class MemberHomeComponent implements OnInit {
 
-	searchEmail = 'quande.ren@gmail.com';
+	searchEmail:string;
 	userVo: UserVo;
 
 	constructor(private restfulService: RestfulService,
