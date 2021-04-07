@@ -33,6 +33,8 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { MyItemComponent } from './my-item/my-item.component';
 import { DocuSignItemComponent } from './docu-sign-item/docu-sign-item.component';
 import { EditorModule } from 'primeng/editor';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 @NgModule({
   declarations: [
@@ -69,8 +71,9 @@ import { EditorModule } from 'primeng/editor';
     TableModule,
     NgxExtendedPdfViewerModule,
     DragDropModule,
-    EditorModule
-
+    EditorModule,
+    CheckboxModule,
+    RadioButtonModule
   ],
   providers: [RestfulService, MessageService],
   bootstrap: [AppComponent]

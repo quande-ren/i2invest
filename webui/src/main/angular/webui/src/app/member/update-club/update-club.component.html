@@ -9,16 +9,18 @@
 	</div>
 
 	<div class="p-field p-grid">
-	    <label for="description" class="p-col-fixed" style="width:160px">Description</label>
+	    <label for="publicVisible" class="p-col-fixed" style="width:160px">Public Visible</label>
 	    <div class="p-col">
-				<textarea  [(ngModel)]="clubVo.description" cols="100" rows="20"></textarea>
-				
+			<p-radioButton name="groupname" value="true" [(ngModel)]="clubVo.publicVisible" label="Show to Public"></p-radioButton> &nbsp;&nbsp;
+            <p-radioButton name="groupname" value="false" [(ngModel)]="clubVo.publicVisible" label="Hide from Public"></p-radioButton>
 	    </div>
 	</div>
 
-
 	<div class="p-field p-grid">
-	    <label for="phoneNum" class="p-col-fixed" style="width:160px">Description</label>
+	    <label for="description" class="p-col-fixed" style="width:160px">Description</label>
+	    <div class="p-col">
+				<textarea  [(ngModel)]="clubVo.description" cols="100" rows="20"></textarea>
+	    </div>
 	</div>
 
 

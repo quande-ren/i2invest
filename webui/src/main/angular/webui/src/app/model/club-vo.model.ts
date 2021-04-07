@@ -4,5 +4,6 @@ export class ClubVo {
 	public    description='';
 	public    contactEmail='';
 	public    createTime: any;
+	public    publicVisible: Boolean;
 	constructor(){}
  }

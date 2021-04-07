@@ -39,7 +39,7 @@ public  class ClubRetrieveRequestProcessor
 
 		String otherClubsSql = "select p.* "
 				+ "	 from i2_Club p "
-				+ " where p.clubName is not null  ";
+				+ " where p.clubName is not null and p.publicVisible=1 ";
 		response.otherClubs=retrieveClubDtos(entityManager, otherClubsSql);
 		
 	}

@@ -32,6 +32,7 @@ export class UpdateClubComponent implements OnInit {
       this.restfulService.callRestful(jsonType, jsonObj).subscribe(
         response => {
               if(response.success){
+                this.sessionManager.clubVo=response.club;
                 this.messageService.add({severity:'message', summary: 'Success', detail: 'Club Info is updated ' });
                 this.router.navigateByUrl('/member/myclubs');
               }else{

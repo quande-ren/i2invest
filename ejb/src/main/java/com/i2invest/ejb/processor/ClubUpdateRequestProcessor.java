@@ -41,6 +41,7 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 		clubEjb.setClubName(request.club.getClubName());
 		clubEjb.setDescription(request.club.getDescription());
 		clubEjb.setContactEmail(request.club.getContactEmail());
+		clubEjb.setPublicVisible(request.club.getPublicVisible());
 		clubEjb.setUpdateTime(nowTime);
 		clubEjb.setUpdatedBy(userEjb.getId());
 		
@@ -48,6 +49,7 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 		
 		response.user=response.user;
 		response.club=new ClubDto(clubEjb);
+		response.club.setPublicVisible(request.club.getPublicVisible());
 	}
 
 	private boolean hasPermissionToUpdate(EntityManager entityManager, ClubEjb clubEjb, UserEjb userEjb) {

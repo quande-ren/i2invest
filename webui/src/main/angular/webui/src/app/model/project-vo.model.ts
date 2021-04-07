@@ -5,5 +5,6 @@ export class ProjectVo {
 	public    address='';
 	public    clubId: number;
 	public    clubName='';
+	public    publicVisible: boolean;
 
 }

@@ -32,6 +32,8 @@ public class RestServiceController {
 		if(facadeService==null) {
 			prepareFacadeService();
 		};
+
+		logger.info("Received dto="+dto);
 		
 		
 		BaseRequest payloadRequest=(BaseRequest) dto.getPayloadDto();

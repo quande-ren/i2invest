@@ -1,6 +1,5 @@
 package com.i2invest.ejb.entity;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +37,9 @@ public class ClubEjb extends BaseDto{
 	private   String contactEmail;
 	
 	private   String status;
-	
+
+	private   Boolean publicVisible;
+
 	private   Long createdBy;
 	
 	private   Long updatedBy;
@@ -164,6 +165,14 @@ public class ClubEjb extends BaseDto{
 
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public Boolean getPublicVisible() {
+		return publicVisible;
+	}
+
+	public void setPublicVisible(Boolean publicVisible) {
+		this.publicVisible = publicVisible;
 	}
 
 	
