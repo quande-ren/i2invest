@@ -35,6 +35,7 @@ import { DocuSignItemComponent } from './docu-sign-item/docu-sign-item.component
 import { EditorModule } from 'primeng/editor';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     DragDropModule,
     EditorModule,
     CheckboxModule,
-    RadioButtonModule
+    RadioButtonModule,
+    InputSwitchModule
   ],
   providers: [RestfulService, MessageService],
   bootstrap: [AppComponent]

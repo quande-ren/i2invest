@@ -11,8 +11,7 @@
 	<div class="p-field p-grid">
 	    <label for="publicVisible" class="p-col-fixed" style="width:160px">Public Visible</label>
 	    <div class="p-col">
-			<p-radioButton name="groupname" value="true" [(ngModel)]="clubVo.publicVisible" label="Show to Public"></p-radioButton> &nbsp;&nbsp;
-            <p-radioButton name="groupname" value="false" [(ngModel)]="clubVo.publicVisible" label="Hide from Public"></p-radioButton>
+			<p-inputSwitch id='publicVisible' name='publicVisible' [(ngModel)]="clubVo.publicVisible" class="col-sm-6 divPadding10" ></p-inputSwitch>
 	    </div>
 	</div>
 
