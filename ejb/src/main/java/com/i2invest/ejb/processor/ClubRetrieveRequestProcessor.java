@@ -74,7 +74,7 @@ public  class ClubRetrieveRequestProcessor
 	}
 	
 	public static List<ClubEjb> retrieveClubEjbs(EntityManager entityManager, String sql) {
-		logger.info("get result by sql="+sql);
+		logger.info("get result by sql=\n"+sql);
 		Query query = entityManager.createNativeQuery(sql, ClubEjb.class);
 		List<ClubEjb> list = query.getResultList();
 		return list;

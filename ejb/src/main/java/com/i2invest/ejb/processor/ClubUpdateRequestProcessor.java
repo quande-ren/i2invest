@@ -26,8 +26,7 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 	private static final Logger logger = Logger.getLogger(ClubUpdateRequestProcessor.class);
 	
 	public void process(EntityManager entityManager, ClubUpdateRequest request, ClubUpdateResponse response, UserEjb currentUserEjb) throws AppException{
-		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
-		if(userEjb==null ) {
+		if(currentUserEjb==null ) {
 			throw new DataNotFoundException();
 		}
 		
@@ -36,7 +35,7 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 			throw new DataNotFoundException("clubEjb id="+request.club.getId());
 		}
 
-		if( ! hasPermissionToUpdate(entityManager, clubEjb, userEjb) ) {
+		if( ! hasPermissionToUpdate(entityManager, clubEjb, currentUserEjb) ) {
 			throw new NoPermissionToUpdateClubException();
 		}
 		
@@ -48,7 +47,7 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 		clubEjb.setContactEmail(request.club.getContactEmail());
 		clubEjb.setPublicVisible(request.club.getPublicVisible());
 		clubEjb.setUpdateTime(nowTime);
-		clubEjb.setUpdatedBy(userEjb.getId());
+		clubEjb.setUpdatedBy(currentUserEjb.getId());
 		
 		entityManager.persist(clubEjb);
 		

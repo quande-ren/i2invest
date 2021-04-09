@@ -13,7 +13,7 @@ import { SessionManagerService } from '../../services/session-manager.service';
 })
 export class MyClubsComponent implements OnInit {
   clubsOwn: ClubVo[];
-  clubsInvested: ClubVo[];
+  clubsInterested: ClubVo[];
   otherClubs: ClubVo[];
 
   constructor(private restfulService: RestfulService,
@@ -39,7 +39,7 @@ export class MyClubsComponent implements OnInit {
         response => {
               if(response.success){
                  this.clubsOwn=response.clubsOwn;
-                 this.clubsInvested=response.clubsInvested;
+                 this.clubsInterested=response.clubsInterested;
                  this.otherClubs=response.otherClubs;
               }else{
                 this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
