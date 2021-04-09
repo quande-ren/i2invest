@@ -3,16 +3,12 @@ package com.i2invest.ejb.entity;
 import java.sql.Timestamp;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.i2invest.domain.BaseDto;
 
-import lombok.Data;
-
-@Data 
 @Entity
 @Table(name = "I2_Role")
 public class RoleEjb extends BaseDto{

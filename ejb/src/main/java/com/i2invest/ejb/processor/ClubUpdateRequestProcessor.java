@@ -5,11 +5,14 @@ import java.util.Date;
 
 import javax.persistence.EntityManager;
 
+import org.apache.log4j.Logger;
+
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.DataNotFoundException;
 import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.appexception.NoPermissionToUpdateClubException;
 import com.i2invest.domain.dto.ClubDto;
+import com.i2invest.domain.dto.RoleDto;
 import com.i2invest.domain.request.ClubStartRequest;
 import com.i2invest.domain.request.ClubUpdateRequest;
 import com.i2invest.domain.response.ClubUpdateResponse;
@@ -20,6 +23,8 @@ import com.i2invest.ejb.entity.UserClubRoleEjb;
 import com.i2invest.ejb.entity.UserEjb;
 
 public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpdateRequest, ClubUpdateResponse> {
+	private static final Logger logger = Logger.getLogger(ClubUpdateRequestProcessor.class);
+	
 	public void process(EntityManager entityManager, ClubUpdateRequest request, ClubUpdateResponse response) throws AppException{
 		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
 		if(userEjb==null ) {
@@ -53,11 +58,16 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 	}
 
 	private boolean hasPermissionToUpdate(EntityManager entityManager, ClubEjb clubEjb, UserEjb userEjb) {
+		logger.info("Check permission for "+clubEjb+" and "+userEjb);
 		for(UserClubRoleEjb role: clubEjb.getUserRoles()) {
-			if(role.getRole().getId().equals("CLUB_STARTER")) {
+			logger.info("Check role "+role);
+			
+			if(role.getRole().getId().equals(RoleDto.ROLE_CLUB_STARTER)) {
+				logger.info("Return true");
 				return true;
 			}
 		}
+		logger.info("Return false");
 
 		return false;
 	}

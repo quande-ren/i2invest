@@ -6,6 +6,7 @@
             <tr>
                 <th pSortableColumn="clubName">Name <p-sortIcon field="clubName"></p-sortIcon></th>
                 <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+                <th pSortableColumn="publicVisible">Public Visible <p-sortIcon field="publicVisible"></p-sortIcon></th>
                 <th pSortableColumn="contactEmail">Contact Email <p-sortIcon field="contactEmail"></p-sortIcon></th>
                 <th pSortableColumn="createTime">Create Time <p-sortIcon field="createTime"></p-sortIcon></th>
             </tr>
@@ -20,6 +21,7 @@
                     </div> 
                 </td>
                 <td>{{club.description}}</td>
+                <td>{{club.publicVisible}}</td>
                 <td>{{club.contactEmail}}</td>
                 <td>{{club.createTime}}</td>
             </tr>

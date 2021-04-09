@@ -3,6 +3,7 @@ package com.i2invest.ejb.entity;
 import java.sql.Timestamp;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -12,10 +13,7 @@ import javax.validation.constraints.NotNull;
 
 import com.i2invest.domain.BaseDto;
 
-import lombok.Data;
 
-
-@Data 
 @Entity
 @Table(name = "I2_UserClubRole")
 public class UserClubRoleEjb extends BaseDto{
@@ -33,21 +31,26 @@ public class UserClubRoleEjb extends BaseDto{
 	@NotNull
 	private   Long id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "userId", nullable=false)
 	private   UserEjb user;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "clubId", nullable=false)
 	private   ClubEjb club;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "roleId", nullable=false)
 	private   RoleEjb role;
 
 	private   String status;
 	private   Timestamp createTime;
 	private   Timestamp updateTime;
+	
+	@Override
+	public String toString() {
+		return "UserClubRoleEjb[ id="+id+" user="+user.getId()+" club="+club.getId()+" role="+role.getId()+" status="+status+"]";
+	}
 	
 
 	public ClubEjb getClub() {

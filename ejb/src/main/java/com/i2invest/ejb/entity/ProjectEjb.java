@@ -14,9 +14,6 @@ import javax.validation.constraints.NotNull;
 
 import com.i2invest.domain.BaseDto;
 
-import lombok.Data;
-
-@Data 
 @Entity
 @Table(name = "I2_Project")
 public class ProjectEjb extends BaseDto{

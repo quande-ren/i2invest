@@ -23,7 +23,7 @@ public class NoPermissionToUpdateClubException extends AppException{
 		return "102";
 	}
 	public String getErrorMessage() {
-		return "Data Not Found : "+searchData;
+		return "No Permission To Update";
 	}
 
 }

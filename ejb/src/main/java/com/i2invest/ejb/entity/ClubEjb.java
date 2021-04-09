@@ -15,9 +15,6 @@ import javax.validation.constraints.NotNull;
 
 import com.i2invest.domain.BaseDto;
 
-import lombok.Data;
-
-@Data 
 @Entity
 @Table(name = "I2_Club")
 public class ClubEjb extends BaseDto{
@@ -52,12 +49,12 @@ public class ClubEjb extends BaseDto{
 	@JoinColumn(name = "ownerId", nullable=false)
 	private   UserEjb owner;
 
-	@OneToMany
-	@JoinColumn(name="clubId")
+	@OneToMany(mappedBy="club")
+//	@JoinColumn(name="clubId")
 	private List<UserClubRoleEjb> userRoles;
 
-	@OneToMany
-	@JoinColumn(name="projectId")
+	@OneToMany(mappedBy="club")
+//	@JoinColumn(name="projectId")
 	private List<ProjectEjb> projects;
 
 
@@ -173,6 +170,11 @@ public class ClubEjb extends BaseDto{
 
 	public void setPublicVisible(Boolean publicVisible) {
 		this.publicVisible = publicVisible;
+	}
+	
+	@Override
+	public String toString() {
+		return "ClubEjb[ clubName="+this.clubName+" "+this.contactEmail+" "+this.description+" "+this.status+" "+this.publicVisible+" numberOfUserRoles="+(this.getUserRoles()==null?0:this.getUserRoles().size())+" ]";
 	}
 
 	
