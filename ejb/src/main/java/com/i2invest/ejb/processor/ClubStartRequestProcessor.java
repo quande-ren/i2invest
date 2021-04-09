@@ -21,7 +21,7 @@ import com.i2invest.ejb.entity.UserClubRoleEjb;
 import com.i2invest.ejb.entity.UserEjb;
 
 public class ClubStartRequestProcessor extends AbstractRequestProcessor<ClubStartRequest, ClubStartResponse> {
-	public void process(EntityManager entityManager, ClubStartRequest request, ClubStartResponse response) throws AppException{
+	public void process(EntityManager entityManager, ClubStartRequest request, ClubStartResponse response, UserEjb currentUserEjb) throws AppException{
 		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
 		if(userEjb==null ) {
 			throw new DataNotFoundException();
@@ -33,7 +33,6 @@ public class ClubStartRequestProcessor extends AbstractRequestProcessor<ClubStar
 		clubEjb.setCreateTime(nowTime);
 		clubEjb.setUpdateTime(nowTime);
 		clubEjb.setId(null);
-		clubEjb.setOwner(userEjb);
 		entityManager.persist(clubEjb);
 		
 		RoleEjb roleEjb=retrieveRoleById(entityManager, RoleDto.ROLE_CLUB_STARTER);

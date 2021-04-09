@@ -25,7 +25,7 @@ public class ClubRetrieveRequestProcessorTest {
 		
 		
 		ClubRetrieveRequest retrieveUserRequest=new ClubRetrieveRequest(token, TestUtil.email, ClubRetrieveRequest.RetrieveType_BY_USER, null);
-		retrieveUserRequest.retrieveType="select p.* from i2_Club p where p.clubName is not null";
+//		retrieveUserRequest.retrieveType="select p.* from i2_Club p where p.clubName is not null";
 		ClubRetrieveResponse retrieveUserResponse=(ClubRetrieveResponse) facadeService.processRequest(retrieveUserRequest);
 		
 		assertNotNull(retrieveUserResponse);

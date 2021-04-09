@@ -14,9 +14,10 @@ import com.i2invest.domain.request.ProjectRequest;
 import com.i2invest.domain.response.ConfigResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.entity.ConfigEjb;
+import com.i2invest.ejb.entity.UserEjb;
 
 public class ConfigRequestProcessor extends AbstractRequestProcessor<ConfigRequest, ConfigResponse> {
-	public void process(EntityManager entityManager, ConfigRequest request, ConfigResponse response) throws AppException{
+	public void process(EntityManager entityManager, ConfigRequest request, ConfigResponse response, UserEjb currentUserEjb) throws AppException{
 		if(FileRequest.RequestType_Create.equals(request.requestType)) {
 			ConfigEjb ejb=new ConfigEjb(request.config);
 			ejb.setId(null);

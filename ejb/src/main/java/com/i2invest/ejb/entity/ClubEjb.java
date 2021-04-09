@@ -45,10 +45,6 @@ public class ClubEjb extends BaseDto{
 	
 	private   Date updateTime;
 	
-	@ManyToOne
-	@JoinColumn(name = "ownerId", nullable=false)
-	private   UserEjb owner;
-
 	@OneToMany(mappedBy="club")
 //	@JoinColumn(name="clubId")
 	private List<UserClubRoleEjb> userRoles;
@@ -138,14 +134,6 @@ public class ClubEjb extends BaseDto{
 
 	public void setProjects(List<ProjectEjb> projects) {
 		this.projects = projects;
-	}
-
-	public UserEjb getOwner() {
-		return owner;
-	}
-
-	public void setOwner(UserEjb owner) {
-		this.owner = owner;
 	}
 
 	public Date getCreateTime() {

@@ -18,6 +18,8 @@ import com.i2invest.domain.appexception.TokenIsNotProvidedException;
 import com.i2invest.domain.appexception.TokenIsNotValidException;
 import com.i2invest.domain.request.BaseRequest;
 import com.i2invest.domain.response.BaseResponse;
+import com.i2invest.ejb.entity.UserEjb;
+import com.i2invest.ejb.processor.UserRetrieveRequestProcessor;
 import com.i2invest.util.JwtUtil;
 
 @Stateless
@@ -54,7 +56,13 @@ public class FacadeEjb implements FacadeService {
 			
 			response= request.getDummayResponse();
 			
-			processor.process(entityManager, request, response);
+			UserEjb currentUserEjb=null;
+			if(request.email!=null) {
+				currentUserEjb=UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
+			}
+
+			
+			processor.process(entityManager, request, response, currentUserEjb);
 	
 			logger.info("\n\n\nRequest is\n"+request+"\n\nResponse is\n"+response+"\n");
 			

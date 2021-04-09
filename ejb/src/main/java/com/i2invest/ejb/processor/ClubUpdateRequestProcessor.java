@@ -25,7 +25,7 @@ import com.i2invest.ejb.entity.UserEjb;
 public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpdateRequest, ClubUpdateResponse> {
 	private static final Logger logger = Logger.getLogger(ClubUpdateRequestProcessor.class);
 	
-	public void process(EntityManager entityManager, ClubUpdateRequest request, ClubUpdateResponse response) throws AppException{
+	public void process(EntityManager entityManager, ClubUpdateRequest request, ClubUpdateResponse response, UserEjb currentUserEjb) throws AppException{
 		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
 		if(userEjb==null ) {
 			throw new DataNotFoundException();

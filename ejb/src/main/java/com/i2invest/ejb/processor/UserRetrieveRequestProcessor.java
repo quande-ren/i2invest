@@ -22,7 +22,7 @@ public  class UserRetrieveRequestProcessor
 		extends AbstractRequestProcessor<UserRetrieveRequest, UserRetrieveResponse> 
 		implements TokenRequiredRequestProcessor{
 
-	public void process(EntityManager entityManager, UserRetrieveRequest request, UserRetrieveResponse response) throws AppException{
+	public void process(EntityManager entityManager, UserRetrieveRequest request, UserRetrieveResponse response, UserEjb currentUserEjb) throws AppException{
 		UserEjb ejb= retrieveUserByEmail(entityManager, request.searchEmail);
 		if(ejb!=null ) {
 			response.user=new UserDto(ejb);

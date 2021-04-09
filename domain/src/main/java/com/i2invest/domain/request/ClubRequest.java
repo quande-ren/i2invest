@@ -12,7 +12,7 @@ public  class ClubRequest extends BaseRequest<ClubResponse>{
 	private static final long serialVersionUID = 6556666213116651308L;
 	public ClubDto club;
 	
-	public static final String RequestType_RetrieveClubApplocations="RetrieveClubApplocations";
+	public static final String RequestType_RetrieveClubApplications="RetrieveClubApplications";
 
 	public ClubRequest() {
 		

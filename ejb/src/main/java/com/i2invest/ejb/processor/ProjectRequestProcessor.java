@@ -13,9 +13,10 @@ import com.i2invest.domain.response.ProjectResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.entity.ClubEjb;
 import com.i2invest.ejb.entity.ProjectEjb;
+import com.i2invest.ejb.entity.UserEjb;
 
 public class ProjectRequestProcessor extends AbstractRequestProcessor<ProjectRequest, ProjectResponse> {
-	public void process(EntityManager entityManager, ProjectRequest request, ProjectResponse response) throws AppException{
+	public void process(EntityManager entityManager, ProjectRequest request, ProjectResponse response, UserEjb currentUserEjb) throws AppException{
 		if(FileRequest.RequestType_Create.equals(request.requestType)) {
 			ClubEjb clubEjb=entityManager.find(ClubEjb.class, request.project.getClubId());
 			ProjectEjb ejb=new ProjectEjb(request.project);

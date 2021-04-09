@@ -12,7 +12,7 @@ public  class ClubRetrieveResponse extends BaseResponse {
 
 	public ClubDto club;
 	public List<ClubDto> clubsOwn;
-	public List<ClubDto> clubsInvested;
+	public List<ClubDto> clubsInterested;
 	public List<ClubDto> otherClubs;
 	
 	public ClubRetrieveResponse() {
@@ -22,9 +22,9 @@ public  class ClubRetrieveResponse extends BaseResponse {
 		this.club=club;
 	}
 
-	public ClubRetrieveResponse(List<ClubDto> clubsOwn, List<ClubDto> clubsInvested, List<ClubDto> otherClubs) {
+	public ClubRetrieveResponse(List<ClubDto> clubsOwn, List<ClubDto> clubsInterested, List<ClubDto> otherClubs) {
 		this.clubsOwn=clubsOwn;
-		this.clubsInvested=clubsInvested;
+		this.clubsInterested=clubsInterested;
 		this.otherClubs=otherClubs;
 	}
 

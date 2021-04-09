@@ -15,7 +15,7 @@ import com.i2invest.util.JwtUtil;
 
 public class UserSignInRequestProcessor extends AbstractRequestProcessor<UserSignInRequest, UserSignInResponse> {
 
-	public void process(EntityManager entityManager, UserSignInRequest request, UserSignInResponse response) throws AppException{
+	public void process(EntityManager entityManager, UserSignInRequest request, UserSignInResponse response, UserEjb currentUserEjb) throws AppException{
 		UserDto inUser = new UserDto();
 		inUser.setEmail(request.email);
 		inUser.setPassword(request.password);

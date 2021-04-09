@@ -11,9 +11,10 @@ import com.i2invest.domain.request.FileRequest;
 import com.i2invest.domain.response.FileResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.entity.FileEjb;
+import com.i2invest.ejb.entity.UserEjb;
 
 public class FileRequestProcessor extends AbstractRequestProcessor<FileRequest, FileResponse> {
-	public void process(EntityManager entityManager, FileRequest request, FileResponse response) throws AppException{
+	public void process(EntityManager entityManager, FileRequest request, FileResponse response, UserEjb currentUserEjb) throws AppException{
 		if(FileRequest.RequestType_Create.equals(request.requestType)) {
 			FileEjb ejb=new FileEjb(request.file);
 			entityManager.persist(ejb);

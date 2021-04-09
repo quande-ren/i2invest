@@ -15,7 +15,7 @@ import com.i2invest.ejb.entity.UserEjb;
 
 public  class UserForgotPasswordRequestProcessor extends AbstractRequestProcessor<UserForgotPasswordRequest, UserForgotPasswordResponse>{
 
-	public void process(EntityManager entityManager, UserForgotPasswordRequest request, UserForgotPasswordResponse response) throws AppException{
+	public void process(EntityManager entityManager, UserForgotPasswordRequest request, UserForgotPasswordResponse response, UserEjb currentUserEjb) throws AppException{
 		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
 		if(userEjb==null ) {
 			throw new DataNotFoundException(request.email);

@@ -18,7 +18,7 @@ import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.entity.UserEjb;
 
 public class UserSignUpRequestProcessor extends AbstractRequestProcessor<UserSignUpRequest, UserSignUpResponse> {
-	public void process(EntityManager entityManager, UserSignUpRequest request, UserSignUpResponse response) throws AppException{
+	public void process(EntityManager entityManager, UserSignUpRequest request, UserSignUpResponse response, UserEjb currentUserEjb) throws AppException{
 		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.user.getEmail());
 		if(userEjb!=null ) {
 			throw new DataAlreadyExistException(request.user.getEmail());

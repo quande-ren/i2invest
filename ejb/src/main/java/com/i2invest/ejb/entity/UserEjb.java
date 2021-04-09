@@ -71,10 +71,6 @@ public class UserEjb extends BaseDto implements Serializable  {
 	}
 
 	@OneToMany
-	@JoinColumn(name="ownerId")
-	private List<ClubEjb> clubsOwn;
-	
-	@OneToMany
 	@JoinColumn(name="userId")
 	private Set<UserClubRoleEjb> clubRoles;
 	
@@ -174,14 +170,6 @@ public class UserEjb extends BaseDto implements Serializable  {
 
 	public void setUpdatedBy(Long updatedBy) {
 		this.updatedBy = updatedBy;
-	}
-
-	public List<ClubEjb> getClubsOwn() {
-		return clubsOwn;
-	}
-
-	public void setClubsOwn(List<ClubEjb> clubsOwn) {
-		this.clubsOwn = clubsOwn;
 	}
 
 	public String getDescription() {

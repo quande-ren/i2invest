@@ -16,7 +16,7 @@ import com.i2invest.ejb.entity.UserEjb;
 
 public class UserProfileChangeRequestProcessor extends AbstractRequestProcessor<UserProfileChangeRequest, UserProfileChangeResponse> implements TokenRequiredRequestProcessor{
 
-	public void process(EntityManager entityManager, UserProfileChangeRequest request, UserProfileChangeResponse response) throws AppException{
+	public void process(EntityManager entityManager, UserProfileChangeRequest request, UserProfileChangeResponse response, UserEjb currentUserEjb) throws AppException{
 		UserDto inUser = new UserDto();
 		inUser.setEmail(request.email);
 

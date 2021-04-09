@@ -19,7 +19,7 @@ import com.i2invest.ejb.entity.UserClubRoleEjb;
 import com.i2invest.ejb.entity.UserEjb;
 
 public class ClubJoinRequestProcessor extends AbstractRequestProcessor<ClubJoinRequest, ClubJoinResponse> {
-	public void process(EntityManager entityManager, ClubJoinRequest request, ClubJoinResponse response) throws AppException{
+	public void process(EntityManager entityManager, ClubJoinRequest request, ClubJoinResponse response, UserEjb currentUserEjb) throws AppException{
 		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
 		ClubEjb clubEjb = entityManager.find(ClubEjb.class, request.clubId);
 		if(clubEjb==null) {

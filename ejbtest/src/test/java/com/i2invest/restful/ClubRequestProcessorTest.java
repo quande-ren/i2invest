@@ -28,7 +28,7 @@ public class ClubRequestProcessorTest {
 		ClubRequest request=new ClubRequest();
 		request.email=TestUtil.emailAlbert;
 		request.token=token;
-		request.requestType=ClubRequest.RequestType_RetrieveClubApplocations;
+		request.requestType=ClubRequest.RequestType_RetrieveClubApplications;
 
 		ClubResponse response=(ClubResponse) facadeService.processRequest(request);
 		
