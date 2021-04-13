@@ -14,6 +14,7 @@ import com.i2invest.domain.request.ConfigRequest;
 import com.i2invest.domain.request.FileRequest;
 import com.i2invest.domain.request.PingRequest;
 import com.i2invest.domain.request.ProjectRequest;
+import com.i2invest.domain.request.PropertyRequest;
 import com.i2invest.domain.request.UserForgotPasswordRequest;
 import com.i2invest.domain.request.UserProfileChangeRequest;
 import com.i2invest.domain.request.UserRetrieveRequest;
@@ -40,6 +41,7 @@ public class DtoFactory {
 		FileRequest.class,
 		ProjectRequest.class,
 		ConfigRequest.class,
+		PropertyRequest.class,
 	};
 	
 	public static BaseDto getDto(String requestType, String json) {

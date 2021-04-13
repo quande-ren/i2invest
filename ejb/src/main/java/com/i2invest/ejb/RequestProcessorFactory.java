@@ -9,6 +9,7 @@ import com.i2invest.ejb.processor.ClubUpdateRequestProcessor;
 import com.i2invest.ejb.processor.ConfigRequestProcessor;
 import com.i2invest.ejb.processor.FileRequestProcessor;
 import com.i2invest.ejb.processor.ProjectRequestProcessor;
+import com.i2invest.ejb.processor.PropertyRequestProcessor;
 import com.i2invest.ejb.processor.UserForgotPasswordRequestProcessor;
 import com.i2invest.ejb.processor.UserProfileChangeRequestProcessor;
 import com.i2invest.ejb.processor.UserRetrieveRequestProcessor;
@@ -30,6 +31,7 @@ public class RequestProcessorFactory {
 			new ProjectRequestProcessor(),
 			new ClubRequestProcessor(),
 			new ConfigRequestProcessor(),
+			new PropertyRequestProcessor(),
 	};
 	
 	public static AbstractRequestProcessor getProcessor(BaseRequest request) {

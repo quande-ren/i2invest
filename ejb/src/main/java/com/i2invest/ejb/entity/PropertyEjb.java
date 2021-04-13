@@ -15,43 +15,23 @@ import javax.validation.constraints.NotNull;
 import com.i2invest.domain.BaseDto;
 
 @Entity
-@Table(name = "I2_Project")
-public class ProjectEjb extends BaseDto{
+@Table(name = "I2_Property")
+public class PropertyEjb extends BaseDto{
 	@Id 
 	@GeneratedValue
 	@NotNull
 	private   Long id;
 	private   String name;
 	private   String description;
-	private   String contactEmail;
 	private   String status;
 	private   Long createdBy;
 	private   Long updatedBy;
 	private   Timestamp createTime;
 	private   Timestamp updateTime;
 	@ManyToOne
-	@JoinColumn(name = "clubId", nullable=false)
-	private   ClubEjb club;
+	@JoinColumn(name = "projectId", nullable=false)
+	private   ProjectEjb project;
 	
-	@OneToMany
-	@JoinColumn(name="projectId")
-	private List<UserProjectRoleEjb> userRoles;
-
-	@OneToMany
-	@JoinColumn(name="propertyId")
-	private List<PropertyEjb> properties;
-
-
-	public String getContactEmail() {
-		return contactEmail;
-	}
-
-
-	public void setContactEmail(String contactEmail) {
-		this.contactEmail = contactEmail;
-	}
-
-
 	public Long getId() {
 		return id;
 	}
@@ -78,11 +58,11 @@ public class ProjectEjb extends BaseDto{
 
 	private static final long serialVersionUID = -4926938619167517315L;
 
-	public ProjectEjb(BaseDto fromCopy) {
+	public PropertyEjb(BaseDto fromCopy) {
 		super(fromCopy);
 	}
 
-	public ProjectEjb() {}
+	public PropertyEjb() {}
 
 	public String getDescription() {
 		return description;
@@ -126,35 +106,14 @@ public class ProjectEjb extends BaseDto{
 		this.name = name;
 	}
 
-
-	public List<UserProjectRoleEjb> getUserRoles() {
-		return userRoles;
+	public ProjectEjb getProject() {
+		return project;
 	}
 
-
-	public void setUserRoles(List<UserProjectRoleEjb> userRoles) {
-		this.userRoles = userRoles;
+	public void setProject(ProjectEjb project) {
+		this.project = project;
 	}
 
-
-	public ClubEjb getClub() {
-		return club;
-	}
-
-
-	public void setClub(ClubEjb club) {
-		this.club = club;
-	}
-
-
-	public List<PropertyEjb> getProperties() {
-		return properties;
-	}
-
-
-	public void setProperties(List<PropertyEjb> properties) {
-		this.properties = properties;
-	}
 
 	
 }
