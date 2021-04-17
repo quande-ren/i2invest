@@ -2,11 +2,13 @@
 
 <div fxLayout="column" fxLayoutAlign="space-between stretch">
 
-	<app-header fxLayout="column"></app-header>
+	<div [style.height.px]="80">
+		<app-header fxLayout="column"></app-header>
+	</div>
 	
-	<div fxLayout="row" fxFlex="100">
+	<div fxLayout="row" fxFlex="100%">
 	
-	  <app-sidebar  fxLayout="column" fxFlex="300px"></app-sidebar>
+	  <app-sidebar  fxLayout="column" fxFlex="200px"></app-sidebar>
 
 	  <div class="content" fxLayout="column" fxFlex>
 
@@ -15,8 +17,9 @@
 	  </div>
 	</div>
 	
-	<app-footer  fxLayout="column"></app-footer>
-
+	<div [style.height.px]="80">
+		<app-footer  fxLayout="column"></app-footer>
+	</div>
 </div>
 
 

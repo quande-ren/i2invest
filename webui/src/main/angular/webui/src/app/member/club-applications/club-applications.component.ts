@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { ClubVo } from 'src/app/model/club-vo.model';
 import { UserVo } from 'src/app/model/user-vo.model';
 import { RestfulService } from 'src/app/services/restful.service';
@@ -15,10 +13,9 @@ export class ClubApplicationsComponent implements OnInit {
   clubs: ClubVo[];
   clubUsers: UserVo[];
 
-  constructor(private restfulService: RestfulService,
-		private messageService: MessageService,
-		private sessionManager: SessionManagerService,
-    private router: Router) { }
+  constructor(
+		private restfulService: RestfulService,
+		private sessionManager: SessionManagerService) { }
 
   ngOnInit(): void {
     this.doRetrieve();
