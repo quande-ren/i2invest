@@ -33,26 +33,15 @@ export class LoginComponent implements OnInit {
 		let jsonType='UserSignInRequest';
 		let jsonObj={email: this.email, password: this.password};
 
-		this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-		 	response => {
-							if(response.success){
+		this.restfulService.callRestful(jsonType, jsonObj, 
+			(response)=> {
 								this.sessionManager.token=response.token;
 								this.sessionManager.email=this.email;
 								this.sessionManager.userVo=response.user;
 								this.sessionManager.isLoggedIn=true;
 								console.log(this.sessionManager.token);
 								this.router.navigateByUrl('/member/memberhome');
-							}else{
-								this.messageService.add({severity:'error', summary: 'Error Login', detail: response.errorMessage+' ('+response.errorCode+')' });
-								this.sessionManager.token='';
-								this.sessionManager.email='';
-							}
-						},
-			 
-		 	error   => 	{
-							this.messageService.add({severity:'error', summary: 'Error !', detail:'Failed to connect server'});
-						}
-		);
+						});
 	}
 
 }

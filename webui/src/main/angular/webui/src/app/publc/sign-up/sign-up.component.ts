@@ -26,21 +26,12 @@ export class SignUpComponent implements OnInit   {
 		let jsonType='UserSignUpRequest';
 		let jsonObj={user: this.userVo};
 
-		this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-		 	response => {
-							if(response.success){
+		this.restfulService.callRestful(jsonType, jsonObj, 
+			(response)=> {
 								console.log(response);
 								this.router.navigateByUrl('/signin');
 								this.messageService.add({severity:'message', summary: 'Success', detail: 'You can now sign in using the new created credential' });
-							}else{
-								this.messageService.add({severity:'error', summary: 'Error Sign Up', detail: response.errorMessage+' ('+response.errorCode+')' });
-							}
-						},
-			 
-		 	error   => 	{
-							this.messageService.add({severity:'error', summary: 'Error Message', detail:error});
-						}
-		);
+						});
 		
 	}
 

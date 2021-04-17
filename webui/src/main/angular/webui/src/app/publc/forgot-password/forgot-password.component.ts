@@ -25,23 +25,12 @@ export class ForgotPasswordComponent implements OnInit {
 		let jsonType='UserForgotPasswordRequest';
 		let jsonObj={email: this.email};
 
-		this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-		 	response => {
-							if(response.success){
+		this.restfulService.callRestful(jsonType, jsonObj, 
+			(response)=> {
 								this.sessionManager.email=this.email;
 								this.messageService.add({severity:'message', summary: 'Success', detail: 'Password Retrieved Successfully' });
 								this.router.navigateByUrl('/signin');
-							}else{
-								this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
-								this.sessionManager.token='';
-								this.sessionManager.email='';
-							}
-						},
-			 
-		 	error   => 	{
-							this.messageService.add({severity:'error', summary: 'Error !', detail:'Failed to connect server'});
-						}
-		);
+						});
 
   }
 }

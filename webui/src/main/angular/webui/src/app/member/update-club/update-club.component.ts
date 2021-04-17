@@ -29,20 +29,12 @@ export class UpdateClubComponent implements OnInit {
     let jsonType='ClubUpdateRequest';
     this.clubVo.contactEmail=this.sessionManager.email;
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, club: this.clubVo};
-      this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-        response => {
-              if(response.success){
+      this.restfulService.callRestful(jsonType, jsonObj, 
+			(response)=> {
                 this.sessionManager.clubVo=response.club;
                 this.messageService.add({severity:'message', summary: 'Success', detail: 'Club Info is updated ' });
                 this.router.navigateByUrl('/member/myclubs');
-              }else{
-                this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
-              }
-            },
-        error   => 	{
-              this.messageService.add({severity:'error', summary: 'Error Message', detail:error});
-            }
-    );
+            } );
 
   }
 
@@ -51,19 +43,11 @@ export class UpdateClubComponent implements OnInit {
     this.clubVo.contactEmail=this.sessionManager.email;
     this.clubVo.id=this.sessionManager.clubVo.id;
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, clubId: this.sessionManager.clubVo.id};
-    this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-        response => {
-              if(response.success){
+    this.restfulService.callRestful(jsonType, jsonObj, 
+			(response)=> {
                 this.messageService.add({severity:'message', summary: 'Success', detail: 'Request to Join Club is sent ' });
                 this.router.navigateByUrl('/member/myclubs');
-              }else{
-                this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
-              }
-            },
-        error   => 	{
-              this.messageService.add({severity:'error', summary: 'Error Message', detail:error});
-            }
-    );
+            } );
 
   }
   

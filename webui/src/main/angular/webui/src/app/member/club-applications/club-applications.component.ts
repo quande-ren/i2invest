@@ -27,20 +27,11 @@ export class ClubApplicationsComponent implements OnInit {
   doRetrieve(){
     console.log("here");
     let jsonType='ClubRequest';
-		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, requestType: 'RetrieveClubApplocations'};
-      this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-        response => {
-              if(response.success){
+	let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, requestType: 'RetrieveClubApplocations'};
+    this.restfulService.callRestful(jsonType, jsonObj, (response)=> {
                  this.clubs=response.clubs;
                  this.clubUsers=response.clubUsers;
-              }else{
-                this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
-              }
-            },
-        error   => 	{
-              this.messageService.add({severity:'error', summary: 'Error', detail:'Server Error.'});
-            }
-    );    
+            } );    
   }
 
 }

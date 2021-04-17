@@ -52,21 +52,11 @@ export class ChangeProfileComponent implements OnInit {
 						newPassword: this.newPassword, 
 						changePasswordOnly: true};
 
-		this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-			response => {
-				if (response.success) {
+		this.restfulService.callRestful(jsonType, jsonObj, (response)=> {
 					console.log(response);
 					this.router.navigateByUrl('/signin');
 					this.messageService.add({ severity: 'message', summary: 'Password Change Success', detail: 'You can now sign in using the new created credential' });
-				} else {
-					this.messageService.add({ severity: 'error', summary: 'Error', detail: response.errorMessage + ' (' + response.errorCode + ')' });
-				}
-			},
-
-			error => {
-				this.messageService.add({ severity: 'error', summary: 'Error Message', detail: error });
-			}
-		);
+				});
 
 	}
 
@@ -77,26 +67,16 @@ export class ChangeProfileComponent implements OnInit {
 						token: this.sessionManager?.token, 
 						requestType: "ChangeProfile"};
 
-		this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-			response => {
-				if (response.success) {
+		this.restfulService.callRestful(jsonType, jsonObj, (response)=> {
 					console.log(response);
 					this.router.navigateByUrl('/signin');
 					this.messageService.add({ severity: 'message', summary: 'Password Change Success', detail: 'You can now sign in using the new created credential' });
-				} else {
-					this.messageService.add({ severity: 'error', summary: 'Error', detail: response.errorMessage + ' (' + response.errorCode + ')' });
-				}
-			},
-
-			error => {
-				this.messageService.add({ severity: 'error', summary: 'Error Message', detail: error });
-			}
-		);
+			});
 
 
 	}
 
 	doChangeEmail() {
-		}
+	}
 
 }

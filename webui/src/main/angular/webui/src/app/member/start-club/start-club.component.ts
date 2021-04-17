@@ -13,34 +13,27 @@ import { SessionManagerService } from '../../services/session-manager.service';
 export class StartClubComponent implements OnInit {
   clubVo: ClubVo=new ClubVo();
 
-  constructor(private restfulService: RestfulService,
+  constructor(
+		private restfulService: RestfulService,
 		private messageService: MessageService,
 		private sessionManager: SessionManagerService,
-    private router: Router
-
+    	private router: Router
     ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
   startClub() {
-		let jsonType='ClubStartRequest';
-    //this.clubVo.clubName="abc";
-    this.clubVo.contactEmail=this.sessionManager.email;
-		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, club: this.clubVo};
-      this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-        response => {
-              if(response.success){
-                this.messageService.add({severity:'message', summary: 'Success', detail: 'Invest Club is created ' });
+
+	let jsonType='ClubStartRequest';
+	    
+	this.clubVo.contactEmail=this.sessionManager.email;
+	
+	let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, club: this.clubVo};
+    
+	this.restfulService.callRestful(jsonType, jsonObj, (response)=> {
+				this.messageService.add({severity:'message', summary: 'Success', detail: 'Invest Club is created ' });
                 this.router.navigateByUrl('/member/myclubs');
-              }else{
-                this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
-              }
-            },
-        error   => 	{
-              this.messageService.add({severity:'error', summary: 'Error Message', detail:error});
-            }
-    );
+			});
   }
 
 }

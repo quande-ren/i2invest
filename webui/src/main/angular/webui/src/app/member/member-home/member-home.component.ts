@@ -27,15 +27,10 @@ export class MemberHomeComponent implements OnInit {
 		let jsonType='UserRetrieveRequest';
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, searchEmail: this.searchEmail};
 
-		this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-		 	response => {
-							if(response.success){
-								this.userVo=response.user;
-							}else{
-								this.messageService.add({severity:'error', summary: 'Error Login', detail: response.errorMessage+' ('+response.errorCode+')' });
-							}
-						}
-			);
+		this.restfulService.callRestful(jsonType, jsonObj, 
+			(response)=> {
+							this.userVo=response.user;
+						 });
 
 	}
 

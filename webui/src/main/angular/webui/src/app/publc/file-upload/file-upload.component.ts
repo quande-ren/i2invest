@@ -1,13 +1,10 @@
-import { HttpEvent, HttpEventType, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Observable } from 'rxjs';
 import { FileVo } from 'src/app/model/file-vo.model';
 import { RestfulService } from 'src/app/services/restful.service';
 import { UploadFilesService } from 'src/app/services/upload-files.service';
 import { environment } from 'src/environments/environment';
-import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { DocuSignItemComponent } from 'src/app/docu-sign-item/docu-sign-item.component';
 
@@ -43,9 +40,7 @@ export class FileUploadComponent implements OnInit {
   files: FileVo[];
 
   constructor(
-      private uploadService: UploadFilesService, 
       private messageService: MessageService,
-      private router: Router,
       private resolver: ComponentFactoryResolver,
       private restfulService : RestfulService) { 
 	}
@@ -72,21 +67,12 @@ export class FileUploadComponent implements OnInit {
     let jsonType='FileRequest';
 		let jsonObj={requestType: 'RetrieveWithoutData'};
 
-		this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-		 	response => {
-							if(response.success){
-								console.log(response);
-                this.files=response.files;
-								this.messageService.add({severity:'message', summary: 'Success', detail: 'File Retrieved' });
-							}else{
-								this.messageService.add({severity:'error', summary: 'Error Sign Up', detail: response.errorMessage+' ('+response.errorCode+')' });
-							}
-						},
-			 
-		 	error   => 	{
-							this.messageService.add({severity:'error', summary: 'Error Message', detail:error});
-						}
-		);    
+		this.restfulService.callRestful(jsonType, jsonObj, 
+			(response)=> {
+							console.log(response);
+                			this.files=response.files;
+							this.messageService.add({severity:'message', summary: 'Success', detail: 'File Retrieved' });
+						});    
 
   }
 

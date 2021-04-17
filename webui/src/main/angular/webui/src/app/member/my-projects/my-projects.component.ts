@@ -25,18 +25,10 @@ export class MyProjectsComponent implements OnInit {
   doRetrieve(){
     let jsonType='ProjectRequest';
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, requestType: 'Retrieve', retrieveType: 'select p.* from i2_Project p where p.name is not null'};
-      this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-        response => {
-              if(response.success){
+      this.restfulService.callRestful(jsonType, jsonObj, 
+			(response)=> {
                  this.projects=response.projects;
-              }else{
-                this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
-              }
-            },
-        error   => 	{
-              this.messageService.add({severity:'error', summary: 'Error', detail:'Server Error.'});
-            }
-    );    
+            } );    
   }
 
 

@@ -33,21 +33,13 @@ export class MyClubsComponent implements OnInit {
 
 
   doRetrieve(){
-    let jsonType='ClubRetrieveRequest';
+    	let jsonType='ClubRetrieveRequest';
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, retrieveType: 'select p.* from i2_Club p where p.clubName is not null'};
-      this.restfulService.callRestful(jsonType, jsonObj).subscribe(
-        response => {
-              if(response.success){
+      	this.restfulService.callRestful(jsonType, jsonObj, 
+			(response)=> {
                  this.clubsOwn=response.clubsOwn;
                  this.clubsInterested=response.clubsInterested;
                  this.otherClubs=response.otherClubs;
-              }else{
-                this.messageService.add({severity:'error', summary: 'Error', detail: response.errorMessage+' ('+response.errorCode+')' });
-              }
-            },
-        error   => 	{
-              this.messageService.add({severity:'error', summary: 'Error', detail:'Server Error.'});
-            }
-    );    
+            } );    
   }
 }
