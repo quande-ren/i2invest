@@ -2,17 +2,15 @@ import { UserVo } from '../../model/user-vo.model';
 import { Component, OnInit, OnDestroy, ChangeDetectorRef, Input, Renderer2 } from '@angular/core';
 import { RestfulService } from '../../services/restful.service';
 import { MessageService } from 'primeng/api';
-import { Response } from '@angular/http';
 import { Router } from '@angular/router';
-import { FieldsetModule } from 'primeng/fieldset';
 import { SessionManagerService } from '../../services/session-manager.service';
 
 @Component({
-	selector: 'app-change-profile',
-	templateUrl: './change-profile.component.html',
-	styleUrls: ['./change-profile.component.css']
+	selector: 'app-profile-update',
+	templateUrl: './profile-update.component.html',
+	styleUrls: ['./profile-update.component.css']
 })
-export class ChangeProfileComponent implements OnInit {
+export class ProfileUpdateComponent implements OnInit {
 
 	userVo: UserVo=new UserVo();
 	oldPassword = '1';

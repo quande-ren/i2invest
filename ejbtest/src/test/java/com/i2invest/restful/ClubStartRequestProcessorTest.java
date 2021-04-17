@@ -27,7 +27,7 @@ public class ClubStartRequestProcessorTest {
 		startClubRequest.email=TestUtil.email;
 		startClubRequest.token=token;
 		startClubRequest.club=new ClubDto();
-		startClubRequest.club.setClubName("Albert Shi Invest");
+		startClubRequest.club.setName("Albert Shi Invest");
 		startClubRequest.club.setContactEmail(TestUtil.email);
 		
 		

@@ -7,11 +7,11 @@ import { SessionManagerService } from '../../services/session-manager.service';
 
 
 @Component({
-  selector: 'app-my-clubs',
-  templateUrl: './my-clubs.component.html',
-  styleUrls: ['./my-clubs.component.css']
+  selector: 'app-club-list',
+  templateUrl: './club-list.component.html',
+  styleUrls: ['./club-list.component.css']
 })
-export class MyClubsComponent implements OnInit {
+export class ClubListComponent implements OnInit {
   clubsOwn: ClubVo[];
   clubsInterested: ClubVo[];
   otherClubs: ClubVo[];
@@ -26,15 +26,16 @@ export class MyClubsComponent implements OnInit {
     this.doRetrieve();
   }
 
-  goModify(clubVo: ClubVo){
-        this.sessionManager.clubVo=clubVo;
-        this.router.navigateByUrl('/member/updateclub');
+  selectClub(clubVo: ClubVo){
+        this.sessionManager.currentClub=clubVo;
+
+        this.router.navigateByUrl('/member/clubupdate');
   }
 
 
   doRetrieve(){
     	let jsonType='ClubRetrieveRequest';
-		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, retrieveType: 'select p.* from i2_Club p where p.clubName is not null'};
+		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, retrieveType: 'select p.* from i2_Club p where p.name is not null'};
       	this.restfulService.callRestful(jsonType, jsonObj, 
 			(response)=> {
                  this.clubsOwn=response.clubsOwn;

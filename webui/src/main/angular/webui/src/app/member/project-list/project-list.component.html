@@ -3,6 +3,8 @@
 
 <button name="signUpBtn" class="btn btn-primary" (click)="doRetrieve()">Refresh</button>
 
+Projects under Club of {{sessionManager.currentClub.name}}
+
 
 <p-table [value]="projects">
     <ng-template pTemplate="header">
@@ -15,9 +17,10 @@
     <ng-template pTemplate="body" let-project>
         <tr>
             <td>
-                <span> 
+
+                <a class="dropdown-item" (click)="selectProject(project)" href="javascript:void(0);" >    
                     {{project.name}} 
-                </span> 
+                </a>
             </td>
             <td>{{project.description}}</td>
             <td>{{project.clubName}}</td>

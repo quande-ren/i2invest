@@ -42,7 +42,7 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 		Date now=new Date();
 		Timestamp nowTime = new Timestamp(now.getTime());
 
-		clubEjb.setClubName(request.club.getClubName());
+		clubEjb.setName(request.club.getName());
 		clubEjb.setDescription(request.club.getDescription());
 		clubEjb.setContactEmail(request.club.getContactEmail());
 		clubEjb.setPublicVisible(request.club.getPublicVisible());
@@ -78,8 +78,8 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 		if (request.club.getId() == null) {
 			throw new MissingParameterException("club.id");
 		}
-		if (request.club.getClubName() == null) {
-			throw new MissingParameterException("club.clubName");
+		if (request.club.getName() == null) {
+			throw new MissingParameterException("club.name");
 		}
 		if (request.club.getContactEmail() == null) {
 			throw new MissingParameterException("club.contactEmail");

@@ -13,6 +13,7 @@ public  class PropertyDto extends BaseDto{
 	private   String name;
 	private   Long projectId;
 	private   String clubName;
+	private   String projectName;
 	private   String address;
 	private   String description;
 	private   String status;
@@ -117,5 +118,13 @@ public  class PropertyDto extends BaseDto{
 
 	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
+	}
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 }

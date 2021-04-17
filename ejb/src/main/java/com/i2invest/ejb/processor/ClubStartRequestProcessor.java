@@ -65,8 +65,8 @@ public class ClubStartRequestProcessor extends AbstractRequestProcessor<ClubStar
 		if (request.club == null) {
 			throw new MissingParameterException("club");
 		}
-		if (request.club.getClubName() == null) {
-			throw new MissingParameterException("club.clubName");
+		if (request.club.getName() == null) {
+			throw new MissingParameterException("club.name");
 		}
 		if (request.club.getContactEmail() == null) {
 			throw new MissingParameterException("club.contactEmail");

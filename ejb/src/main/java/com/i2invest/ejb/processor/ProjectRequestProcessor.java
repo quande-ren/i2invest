@@ -26,13 +26,15 @@ public class ProjectRequestProcessor extends AbstractRequestProcessor<ProjectReq
 			response.project=new ProjectDto(ejb);
 			response.project.setId(ejb.getId());
 		}else if(ProjectRequest.RequestType_Retrieve.equals(request.requestType)) {
-			List<ProjectEjb> ejbs=entityManager.createQuery("from ProjectEjb p", ProjectEjb.class).getResultList();
+			ClubEjb club=ClubRetrieveRequestProcessor.retrieveClubEjb(entityManager, request.project.getClubId());
+			List<ProjectEjb> ejbs=club.getProjects();//entityManager.createQuery("from ProjectEjb p", ProjectEjb.class).getResultList();
 			if(ejbs!=null) {
 				ProjectDto[] result = new ProjectDto[ejbs.size()];
 				int i=0;
 				for(ProjectEjb ejb: ejbs) {
 					result[i]=new ProjectDto(ejb);
-					result[i].setClubName(ejb.getClub().getClubName());
+					result[i].setClubName(ejb.getClub().getName());
+					result[i].setClubId(ejb.getClub().getId());
 					i++;
 				}
 				
@@ -58,6 +60,14 @@ public class ProjectRequestProcessor extends AbstractRequestProcessor<ProjectReq
 			}
 			if(request.project.getDescription()==null) {
 				throw new MissingParameterException("request.project.description");
+			}
+		}
+		if(FileRequest.RequestType_Retrieve.equals(request.requestType)) {
+			if(request.project==null) {
+				throw new MissingParameterException("request.project");
+			}
+			if(request.project.getClubId()==null) {
+				throw new MissingParameterException("request.project.clubId");
 			}
 		}
 	}

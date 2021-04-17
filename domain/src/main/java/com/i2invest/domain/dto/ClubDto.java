@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public  class ClubDto extends BaseDto{
 	private   Long id;
-	private   String clubName;
+	private   String name;
 	private   String description;
 	private   String contactEmail;
 	private   String status;
@@ -52,15 +52,6 @@ public  class ClubDto extends BaseDto{
 		this.publicVisible = publicVisible;
 	}
 
-	public String getClubName() {
-		return clubName;
-	}
-
-	public void setClubName(String clubName) {
-		this.clubName = clubName;
-	}
-
-
 	public String getContactEmail() {
 		return contactEmail;
 	}
@@ -97,5 +88,13 @@ public  class ClubDto extends BaseDto{
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

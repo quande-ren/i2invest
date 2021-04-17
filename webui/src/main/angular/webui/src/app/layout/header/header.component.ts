@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   doLogout(){
     this.sessionManager.email='';
     this.sessionManager.token='';
-    this.sessionManager.clubVo=new ClubVo();
+    this.sessionManager.currentClub=new ClubVo();
     this.sessionManager.userVo=new UserVo();
     this.sessionManager.isLoggedIn=false;
     this.router.navigateByUrl('/signin');

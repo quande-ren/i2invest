@@ -4,7 +4,7 @@
 	<div class="p-field p-grid">
 	    <label for="clubName" class="p-col-fixed" style="width:160px">Club Name</label>
 	    <div class="p-col">
-	        <input id="clubName" type="text" [(ngModel)]="clubVo.clubName" pInputText required/> 
+	        <input id="clubName" type="text" [(ngModel)]="clubVo.name" pInputText required/> 
 	    </div>
 	</div>
 
@@ -26,7 +26,8 @@
 	<div class="p-field p-grid">
 	    <button name="signUpBtn" class="btn btn-primary" (click)="updateClub()">Update Club</button>
 	    <button name="startProjectBtn" class="btn btn-primary" (click)="startProject()">Start a Project</button>
-	    <button name="joinClubBtn" class="btn btn-primary" (click)="joinClub()">Apply to join the club</button>
+	    <button name="joinClubBtn" class="btn btn-primary" (click)="joinClub()">Join the club</button>
+	    <button name="showProjectsBtn" class="btn btn-primary" (click)="showProjects()">Projects</button>
 	</div>
 </p-fieldset>
 

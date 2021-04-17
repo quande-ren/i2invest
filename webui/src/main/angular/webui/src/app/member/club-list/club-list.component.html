@@ -4,7 +4,7 @@
     <p-table [value]="clubsOwn">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="clubName">Name <p-sortIcon field="clubName"></p-sortIcon></th>
+                <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
                 <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
                 <th pSortableColumn="publicVisible">Public Visible <p-sortIcon field="publicVisible"></p-sortIcon></th>
                 <th pSortableColumn="contactEmail">Contact Email <p-sortIcon field="contactEmail"></p-sortIcon></th>
@@ -15,8 +15,8 @@
             <tr>
                 <td>
                     <div class="p-d-flex">
-                        <a class="dropdown-item"  (click)="goModify(club)" href="javascript:void(0);">    
-                            {{club.clubName}} 
+                        <a class="dropdown-item"  (click)="selectClub(club)" href="javascript:void(0);">    
+                            {{club.name}} 
                         </a>
                     </div> 
                 </td>
@@ -36,7 +36,7 @@
     <p-table [value]="clubsInterested">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="clubName">Name <p-sortIcon field="clubName"></p-sortIcon></th>
+                <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
                 <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
                 <th pSortableColumn="contactEmail">Contact Email <p-sortIcon field="contactEmail"></p-sortIcon></th>
                 <th pSortableColumn="createTime">Create Time <p-sortIcon field="createTime"></p-sortIcon></th>
@@ -46,8 +46,8 @@
             <tr>
                 <td>
                     <div class="p-d-flex">
-                        <a class="dropdown-item"  (click)="goModify(club)" href="javascript:void(0);">    
-                            {{club.clubName}} 
+                        <a class="dropdown-item"  (click)="selectClub(club)" href="javascript:void(0);">    
+                            {{club.name}} 
                         </a>
                     </div> 
                 </td>
@@ -67,7 +67,7 @@
     <p-table [value]="otherClubs">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="clubName">Name <p-sortIcon field="clubName"></p-sortIcon></th>
+                <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
                 <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
                 <th pSortableColumn="contactEmail">Contact Email <p-sortIcon field="contactEmail"></p-sortIcon></th>
                 <th pSortableColumn="createTime">Create Time <p-sortIcon field="createTime"></p-sortIcon></th>
@@ -77,8 +77,8 @@
             <tr>
                 <td>
                     <div class="p-d-flex">
-                        <a class="dropdown-item" (click)="goModify(club)" href="javascript:void(0);" >    
-                            {{club.clubName}} 
+                        <a class="dropdown-item" (click)="selectClub(club)" href="javascript:void(0);" >    
+                            {{club.name}} 
                         </a>
                     </div>
                 </td>

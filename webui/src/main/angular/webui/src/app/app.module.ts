@@ -12,18 +12,12 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MemberHomeComponent } from './member/member-home/member-home.component';
-import { ChangeProfileComponent } from './member/change-profile/change-profile.component';
 import { FieldsetModule } from 'primeng/fieldset';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { StartClubComponent } from './member/start-club/start-club.component';
-import { MyClubsComponent } from './member/my-clubs/my-clubs.component';
-import { UpdateClubComponent } from './member/update-club/update-club.component';
 import { FileUploadComponent } from './publc/file-upload/file-upload.component';
-import { StartProjectComponent } from './member/start-project/start-project.component';
-import { MyProjectsComponent } from './member/my-projects/my-projects.component';
 import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password.component';
 import { TableModule } from 'primeng/table';
 import { ClubApplicationsComponent } from './member/club-applications/club-applications.component';
@@ -36,6 +30,14 @@ import { EditorModule } from 'primeng/editor';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { ProfileUpdateComponent } from './member/profile-update/profile-update.component';
+import { ClubCreateComponent } from './member/club-create/club-create.component';
+import { ClubListComponent } from './member/club-list/club-list.component';
+import { ClubUpdateComponent } from './member/club-update/club-update.component';
+import { ProjectCreateComponent } from './member/project-create/project-create.component';
+import { ProjectListComponent } from './member/project-list/project-list.component';
+import { PropertyListComponent } from './member/property-list/property-list.component';
+import { ProjectUpdateComponent } from './member/project-update/project-update.component';
 
 @NgModule({
   declarations: [
@@ -43,20 +45,23 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     LoginComponent,
     SignUpComponent,
     MemberHomeComponent,
-    ChangeProfileComponent,
+    ProfileUpdateComponent,
     FooterComponent,
     HeaderComponent,
     SidebarComponent,
-    StartClubComponent,
-    MyClubsComponent,
-    UpdateClubComponent,
+    ClubCreateComponent,
+
+    ClubListComponent,
+    ClubUpdateComponent,
     FileUploadComponent,
-    StartProjectComponent,
-    MyProjectsComponent,
+    ProjectCreateComponent,
+    ProjectListComponent,
     ForgotPasswordComponent,
     ClubApplicationsComponent,
     MyItemComponent,
-    DocuSignItemComponent
+    DocuSignItemComponent,
+    PropertyListComponent,
+    ProjectUpdateComponent
 
   ],
   imports: [

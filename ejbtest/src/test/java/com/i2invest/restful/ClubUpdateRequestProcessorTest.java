@@ -29,7 +29,7 @@ public class ClubUpdateRequestProcessorTest {
 		startClubRequest.club=new ClubDto();
 		startClubRequest.club.setId(77L);
 		startClubRequest.club.setDescription("Albert Shi Invest, welcome to join.");
-		startClubRequest.club.setClubName("Albert Shi Invest...");
+		startClubRequest.club.setName("Albert Shi Invest...");
 		startClubRequest.club.setPublicVisible(false);
 		startClubRequest.club.setContactEmail(TestUtil.email);
 		

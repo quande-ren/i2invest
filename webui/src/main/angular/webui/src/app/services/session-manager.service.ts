@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ClubVo } from '../model/club-vo.model';
+import { ProjectVo } from '../model/project-vo.model';
 import { UserVo } from '../model/user-vo.model';
 
 @Injectable({
@@ -7,7 +8,9 @@ import { UserVo } from '../model/user-vo.model';
 })
 export class SessionManagerService {
   public userVo : UserVo;
-  public clubVo : ClubVo;
+  //public clubVo : ClubVo;
+  public currentClub : ClubVo;
+  public currentProject : ProjectVo;
   public token='';
   public email='';
   public isLoggedIn=false;

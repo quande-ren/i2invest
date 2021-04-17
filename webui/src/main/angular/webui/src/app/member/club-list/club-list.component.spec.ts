@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChangeProfileComponent } from './change-profile.component';
+import { ClubListComponent } from './club-list.component';
 
-describe('ChangeProfileComponent', () => {
-  let component: ChangeProfileComponent;
-  let fixture: ComponentFixture<ChangeProfileComponent>;
+describe('ClubListComponent', () => {
+  let component: ClubListComponent;
+  let fixture: ComponentFixture<ClubListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChangeProfileComponent ]
+      declarations: [ ClubListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChangeProfileComponent);
+    fixture = TestBed.createComponent(ClubListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

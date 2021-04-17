@@ -6,16 +6,16 @@ import { RestfulService } from 'src/app/services/restful.service';
 import { SessionManagerService } from 'src/app/services/session-manager.service';
 
 @Component({
-  selector: 'app-start-project',
-  templateUrl: './start-project.component.html',
-  styleUrls: ['./start-project.component.css']
+  selector: 'app-project-create',
+  templateUrl: './project-create.component.html',
+  styleUrls: ['./project-create.component.css']
 })
-export class StartProjectComponent implements OnInit {
+export class ProjectCreateComponent implements OnInit {
   projectVo: ProjectVo=new ProjectVo();
 
   constructor(private restfulService: RestfulService,
 		private messageService: MessageService,
-		private sessionManager: SessionManagerService,
+		public sessionManager: SessionManagerService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -23,12 +23,12 @@ export class StartProjectComponent implements OnInit {
 
   startProject(){
 		let jsonType='ProjectRequest';
-    this.projectVo.clubId=this.sessionManager.clubVo.id;
+    this.projectVo.clubId=this.sessionManager.currentClub.id;
 		let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, requestType: 'Create', project: this.projectVo};
       this.restfulService.callRestful(jsonType, jsonObj, 
 			(response)=> {
                 this.messageService.add({severity:'message', summary: 'Success', detail: 'Project is created ' });
-                this.router.navigateByUrl('/member/myprojects');
+                this.router.navigateByUrl('/member/projectlist');
             });
 
   }

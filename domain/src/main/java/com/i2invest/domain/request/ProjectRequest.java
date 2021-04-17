@@ -12,6 +12,7 @@ public  class ProjectRequest extends BaseRequest<ProjectResponse>{
 	
 	public ProjectRequest() {
 	}
+	
 	public ProjectRequest(String requestType) {
 		this.requestType=requestType;
 	}
@@ -23,6 +24,11 @@ public  class ProjectRequest extends BaseRequest<ProjectResponse>{
 
 	public  ProjectResponse getDummayResponse() {
 		return new ProjectResponse();
+	}
+	
+	@Override
+	public String toString() {
+		return "ProjectRequest[ requestType="+requestType+" email="+email+" project="+project+"]";
 	}
 
 }

@@ -31,7 +31,7 @@ public  class ClubRetrieveRequestProcessor
 			+ "   join i2_userclubrole ucr on ucr.userid = "+currentUserEjb.getId()+"		\n"			
 			+ "                           and ucr.clubId = c.id 							\n"
 			+ "                           and ucr.roleId = '"+ RoleDto.ROLE_CLUB_STARTER+"'	\n"
-			+ "  where c.clubName is not null 												\n";
+			+ "  where c.name is not null 												\n";
 		response.clubsOwn=retrieveClubDtos(entityManager, clubsOwnedSql);
 		
 		String clubsInterestedSql = 
@@ -45,7 +45,7 @@ public  class ClubRetrieveRequestProcessor
 		String otherClubsSql = 
 				  "select c.* 															\n"
 				+ "	 from i2_Club c 													\n"
-				+ " where c.clubName is not null 										\n"
+				+ " where c.name is not null 											\n"
 				+ "   and c.publicVisible=1 											\n"
 				+ "   and c.id not in (     select clubid 								\n"
 				+ "                           from i2_userclubrole 						\n"
@@ -80,4 +80,9 @@ public  class ClubRetrieveRequestProcessor
 		return list;
 	}
 
+	public static ClubEjb retrieveClubEjb(EntityManager entityManager, Long clubId) {
+		ClubEjb club = entityManager.find(ClubEjb.class, clubId);
+		return club;
+	}
+	
 }

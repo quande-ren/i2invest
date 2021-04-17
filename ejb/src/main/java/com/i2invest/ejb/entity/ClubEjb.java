@@ -26,7 +26,7 @@ public class ClubEjb extends BaseDto{
 	@NotNull
 	private   Long id;
 
-	private   String clubName;
+	private   String name;
 	
 	@Column(name = "description",  length = 4000)
 	private   String description;
@@ -52,16 +52,6 @@ public class ClubEjb extends BaseDto{
 	@OneToMany(mappedBy="club")
 //	@JoinColumn(name="projectId")
 	private List<ProjectEjb> projects;
-
-
-	public String getClubName() {
-		return clubName;
-	}
-
-	public void setClubName(String clubName) {
-		this.clubName = clubName;
-	}
-
 
 	public String getContactEmail() {
 		return contactEmail;
@@ -162,7 +152,17 @@ public class ClubEjb extends BaseDto{
 	
 	@Override
 	public String toString() {
-		return "ClubEjb[ clubName="+this.clubName+" "+this.contactEmail+" "+this.description+" "+this.status+" "+this.publicVisible+" numberOfUserRoles="+(this.getUserRoles()==null?0:this.getUserRoles().size())+" ]";
+		return "ClubEjb[ name="+this.name+" "+this.contactEmail+" "+this.description+" "+this.status+" "+this.publicVisible+" numberOfUserRoles="+(this.getUserRoles()==null?0:this.getUserRoles().size())+" ]";
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	

@@ -6,11 +6,11 @@ import { RestfulService } from '../../services/restful.service';
 import { SessionManagerService } from '../../services/session-manager.service';
 
 @Component({
-  selector: 'app-start-club',
-  templateUrl: './start-club.component.html',
-  styleUrls: ['./start-club.component.css']
+  selector: 'app-club-create',
+  templateUrl: './club-create.component.html',
+  styleUrls: ['./club-create.component.css']
 })
-export class StartClubComponent implements OnInit {
+export class ClubCreateComponent implements OnInit {
   clubVo: ClubVo=new ClubVo();
 
   constructor(
@@ -32,7 +32,7 @@ export class StartClubComponent implements OnInit {
     
 	this.restfulService.callRestful(jsonType, jsonObj, (response)=> {
 				this.messageService.add({severity:'message', summary: 'Success', detail: 'Invest Club is created ' });
-                this.router.navigateByUrl('/member/myclubs');
+                this.router.navigateByUrl('/member/clublist');
 			});
   }
 
