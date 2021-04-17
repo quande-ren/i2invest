@@ -7,16 +7,16 @@ import com.i2invest.domain.appexception.InvalidCredential;
 import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.appexception.PasswordNotMatchException;
 import com.i2invest.domain.dto.UserDto;
-import com.i2invest.domain.request.UserProfileChangeRequest;
+import com.i2invest.domain.request.UserProfileUpdateRequest;
 import com.i2invest.domain.request.UserSignUpRequest;
-import com.i2invest.domain.response.UserProfileChangeResponse;
+import com.i2invest.domain.response.UserProfileUpdateResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.TokenRequiredRequestProcessor;
 import com.i2invest.ejb.entity.UserEjb;
 
-public class UserProfileChangeRequestProcessor extends AbstractRequestProcessor<UserProfileChangeRequest, UserProfileChangeResponse> implements TokenRequiredRequestProcessor{
+public class UserProfileUpdateRequestProcessor extends AbstractRequestProcessor<UserProfileUpdateRequest, UserProfileUpdateResponse> implements TokenRequiredRequestProcessor{
 
-	public void process(EntityManager entityManager, UserProfileChangeRequest request, UserProfileChangeResponse response, UserEjb currentUserEjb) throws AppException{
+	public void process(EntityManager entityManager, UserProfileUpdateRequest request, UserProfileUpdateResponse response, UserEjb currentUserEjb) throws AppException{
 		UserDto inUser = new UserDto();
 		inUser.setEmail(request.email);
 
@@ -25,9 +25,9 @@ public class UserProfileChangeRequestProcessor extends AbstractRequestProcessor<
 			throw new InvalidCredential();
 		}
 		
-		if(UserProfileChangeRequest.RequestType_ChangePassword.equals(request.requestType)) {
+		if(UserProfileUpdateRequest.RequestType_ChangePassword.equals(request.requestType)) {
 			changePassword(entityManager, userEjb, request.oldPassword, request.newPassword);
-		}else if (UserProfileChangeRequest.RequestType_ChangeProfile.equals(request.requestType)) {
+		}else if (UserProfileUpdateRequest.RequestType_ChangeProfile.equals(request.requestType)) {
 			changeProfile(entityManager, userEjb, request.user);
 		}else {
 			throw new RuntimeException("not recognized request type of ["+request.requestType+"]");

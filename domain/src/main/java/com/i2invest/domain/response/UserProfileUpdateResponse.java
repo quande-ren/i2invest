@@ -5,13 +5,13 @@ import com.i2invest.domain.dto.UserDto;
 import lombok.Data;
 
 @Data
-public  class UserProfileChangeResponse extends BaseResponse {
+public  class UserProfileUpdateResponse extends BaseResponse {
 	private static final long serialVersionUID = -151115347725319372L;
 	public UserDto user;
-	public UserProfileChangeResponse() {
+	public UserProfileUpdateResponse() {
 	}
 
-	public UserProfileChangeResponse(UserDto user) {
+	public UserProfileUpdateResponse(UserDto user) {
 		this.user=user;
 	}
 

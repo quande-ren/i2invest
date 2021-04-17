@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 import com.i2invest.domain.request.ClubJoinRequest;
 import com.i2invest.domain.request.ClubRequest;
 import com.i2invest.domain.request.ClubRetrieveRequest;
-import com.i2invest.domain.request.ClubStartRequest;
+import com.i2invest.domain.request.ClubCreateRequest;
 import com.i2invest.domain.request.ClubUpdateRequest;
 import com.i2invest.domain.request.ConfigRequest;
 import com.i2invest.domain.request.FileRequest;
@@ -16,7 +16,7 @@ import com.i2invest.domain.request.PingRequest;
 import com.i2invest.domain.request.ProjectRequest;
 import com.i2invest.domain.request.PropertyRequest;
 import com.i2invest.domain.request.UserForgotPasswordRequest;
-import com.i2invest.domain.request.UserProfileChangeRequest;
+import com.i2invest.domain.request.UserProfileUpdateRequest;
 import com.i2invest.domain.request.UserRetrieveRequest;
 import com.i2invest.domain.request.UserSignInRequest;
 import com.i2invest.domain.request.UserSignUpRequest;
@@ -32,8 +32,8 @@ public class DtoFactory {
 		UserRetrieveRequest.class,
 		UserSignInRequest.class,
 		UserSignUpRequest.class,
-		UserProfileChangeRequest.class,
-		ClubStartRequest.class,
+		UserProfileUpdateRequest.class,
+		ClubCreateRequest.class,
 		ClubRetrieveRequest.class,
 		ClubRequest.class,
 		ClubJoinRequest.class,

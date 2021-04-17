@@ -6,8 +6,8 @@ import org.junit.Test;
 
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
-import com.i2invest.domain.request.UserProfileChangeRequest;
-import com.i2invest.domain.response.UserProfileChangeResponse;
+import com.i2invest.domain.request.UserProfileUpdateRequest;
+import com.i2invest.domain.response.UserProfileUpdateResponse;
 
 public class UserChangePasswordRequestProcessorTest {
 
@@ -18,20 +18,20 @@ public class UserChangePasswordRequestProcessorTest {
 		String token=UserSignInRequestProcessorTest.doSignIn(facadeService, TestUtil.email, TestUtil.oldPassword);
 
 
-		UserProfileChangeRequest request = new UserProfileChangeRequest(TestUtil.email, TestUtil.oldPassword);
+		UserProfileUpdateRequest request = new UserProfileUpdateRequest(TestUtil.email, TestUtil.oldPassword);
 		request.token=token;
 
-		request.requestType=UserProfileChangeRequest.RequestType_ChangePassword;
+		request.requestType=UserProfileUpdateRequest.RequestType_ChangePassword;
 		request.oldPassword=TestUtil.oldPassword;
 		request.newPassword=TestUtil.newPassword;
 		
-		UserProfileChangeResponse response= (UserProfileChangeResponse)facadeService.processRequest(request);
+		UserProfileUpdateResponse response= (UserProfileUpdateResponse)facadeService.processRequest(request);
 
-		request.requestType=UserProfileChangeRequest.RequestType_ChangePassword;
+		request.requestType=UserProfileUpdateRequest.RequestType_ChangePassword;
 		request.oldPassword=TestUtil.newPassword;
 		request.newPassword=TestUtil.oldPassword;
 		
-		response= (UserProfileChangeResponse)facadeService.processRequest(request);
+		response= (UserProfileUpdateResponse)facadeService.processRequest(request);
 
 	}
 

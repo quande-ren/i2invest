@@ -13,7 +13,7 @@ import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.appexception.NoPermissionToUpdateClubException;
 import com.i2invest.domain.dto.ClubDto;
 import com.i2invest.domain.dto.RoleDto;
-import com.i2invest.domain.request.ClubStartRequest;
+import com.i2invest.domain.request.ClubCreateRequest;
 import com.i2invest.domain.request.ClubUpdateRequest;
 import com.i2invest.domain.response.ClubUpdateResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
@@ -71,7 +71,7 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 		return false;
 	}
 
-	public void verifyData(ClubStartRequest request) throws MissingParameterException {
+	public void verifyData(ClubCreateRequest request) throws MissingParameterException {
 		if (request.club == null) {
 			throw new MissingParameterException("club");
 		}

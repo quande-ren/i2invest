@@ -12,7 +12,7 @@ import com.i2invest.domain.dto.ClubDto;
 import com.i2invest.domain.request.ClubUpdateRequest;
 import com.i2invest.domain.response.ClubUpdateResponse;
 
-public class ClubStartRequestProcessorTest {
+public class ClubCreateRequestProcessorTest {
 
 	@Test
 	public void testIt() throws NamingException, AppException {

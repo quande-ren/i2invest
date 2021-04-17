@@ -4,14 +4,14 @@ import com.i2invest.domain.request.BaseRequest;
 import com.i2invest.ejb.processor.ClubJoinRequestProcessor;
 import com.i2invest.ejb.processor.ClubRequestProcessor;
 import com.i2invest.ejb.processor.ClubRetrieveRequestProcessor;
-import com.i2invest.ejb.processor.ClubStartRequestProcessor;
+import com.i2invest.ejb.processor.ClubCreateRequestProcessor;
 import com.i2invest.ejb.processor.ClubUpdateRequestProcessor;
 import com.i2invest.ejb.processor.ConfigRequestProcessor;
 import com.i2invest.ejb.processor.FileRequestProcessor;
 import com.i2invest.ejb.processor.ProjectRequestProcessor;
 import com.i2invest.ejb.processor.PropertyRequestProcessor;
 import com.i2invest.ejb.processor.UserForgotPasswordRequestProcessor;
-import com.i2invest.ejb.processor.UserProfileChangeRequestProcessor;
+import com.i2invest.ejb.processor.UserProfileUpdateRequestProcessor;
 import com.i2invest.ejb.processor.UserRetrieveRequestProcessor;
 import com.i2invest.ejb.processor.UserSignInRequestProcessor;
 import com.i2invest.ejb.processor.UserSignUpRequestProcessor;
@@ -22,8 +22,8 @@ public class RequestProcessorFactory {
 			new UserSignInRequestProcessor(),
 			new UserForgotPasswordRequestProcessor(),
 			new UserRetrieveRequestProcessor(),
-			new UserProfileChangeRequestProcessor(),
-			new ClubStartRequestProcessor(),
+			new UserProfileUpdateRequestProcessor(),
+			new ClubCreateRequestProcessor(),
 			new ClubRetrieveRequestProcessor(),
 			new ClubJoinRequestProcessor(),
 			new ClubUpdateRequestProcessor(),

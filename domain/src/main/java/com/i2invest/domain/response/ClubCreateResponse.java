@@ -6,14 +6,14 @@ import com.i2invest.domain.dto.UserDto;
 import lombok.Data;
 
 @Data
-public  class ClubStartResponse extends BaseResponse {
+public  class ClubCreateResponse extends BaseResponse {
 	private static final long serialVersionUID = -151115347725319372L;
 	public UserDto user;
 	public ClubDto club;
-	public ClubStartResponse() {
+	public ClubCreateResponse() {
 	}
 
-	public ClubStartResponse(UserDto user, ClubDto club) {
+	public ClubCreateResponse(UserDto user, ClubDto club) {
 		this.user=user;
 		this.club=club;
 	}

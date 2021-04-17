@@ -12,16 +12,16 @@ import com.i2invest.domain.appexception.DataNotFoundException;
 import com.i2invest.domain.appexception.MissingParameterException;
 import com.i2invest.domain.dto.ClubDto;
 import com.i2invest.domain.dto.RoleDto;
-import com.i2invest.domain.request.ClubStartRequest;
-import com.i2invest.domain.response.ClubStartResponse;
+import com.i2invest.domain.request.ClubCreateRequest;
+import com.i2invest.domain.response.ClubCreateResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.entity.ClubEjb;
 import com.i2invest.ejb.entity.RoleEjb;
 import com.i2invest.ejb.entity.UserClubRoleEjb;
 import com.i2invest.ejb.entity.UserEjb;
 
-public class ClubStartRequestProcessor extends AbstractRequestProcessor<ClubStartRequest, ClubStartResponse> {
-	public void process(EntityManager entityManager, ClubStartRequest request, ClubStartResponse response, UserEjb currentUserEjb) throws AppException{
+public class ClubCreateRequestProcessor extends AbstractRequestProcessor<ClubCreateRequest, ClubCreateResponse> {
+	public void process(EntityManager entityManager, ClubCreateRequest request, ClubCreateResponse response, UserEjb currentUserEjb) throws AppException{
 		UserEjb userEjb= UserRetrieveRequestProcessor.retrieveUserByEmail(entityManager, request.email);
 		if(userEjb==null ) {
 			throw new DataNotFoundException();
@@ -61,7 +61,7 @@ public class ClubStartRequestProcessor extends AbstractRequestProcessor<ClubStar
 		response.club=newClub;
 	}
 
-	public void verifyData(ClubStartRequest request) throws MissingParameterException {
+	public void verifyData(ClubCreateRequest request) throws MissingParameterException {
 		if (request.club == null) {
 			throw new MissingParameterException("club");
 		}

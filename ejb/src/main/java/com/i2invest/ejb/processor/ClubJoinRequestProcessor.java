@@ -34,7 +34,7 @@ public class ClubJoinRequestProcessor extends AbstractRequestProcessor<ClubJoinR
 			}
 		}
 		
-		RoleEjb roleEjb=ClubStartRequestProcessor.retrieveRoleById(entityManager, "CLUB_APPLY");
+		RoleEjb roleEjb=ClubCreateRequestProcessor.retrieveRoleById(entityManager, "CLUB_APPLY");
 		
 		UserClubRoleEjb userClubRoleEjb=new UserClubRoleEjb();
 		userClubRoleEjb.setRole(roleEjb);
