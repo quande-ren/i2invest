@@ -37,5 +37,10 @@ export class ProjectUpdateComponent implements OnInit {
 
   }
 
+  showProperties(){
+    this.sessionManager.currentProject=this.projectVo;
+    this.router.navigateByUrl('/member/propertylist');
+  }
+
 
 }

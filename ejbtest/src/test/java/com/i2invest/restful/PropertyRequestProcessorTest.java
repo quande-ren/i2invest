@@ -9,42 +9,26 @@ import org.junit.Test;
 
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
-import com.i2invest.domain.dto.ProjectDto;
-import com.i2invest.domain.request.FileRequest;
+import com.i2invest.domain.dto.PropertyDto;
 import com.i2invest.domain.request.ProjectRequest;
-import com.i2invest.domain.response.ProjectResponse;
+import com.i2invest.domain.request.PropertyRequest;
+import com.i2invest.domain.response.PropertyResponse;
 
 public class PropertyRequestProcessorTest {
-
-	@Test
-	public void testCreate() throws NamingException, AppException {
-
-		FacadeService facadeService = TestUtil.getFacadeService();
-		
-		ProjectDto dto = new ProjectDto("2305 Houston ", "1230 units, 4.3% cap rate","2305 Hay Rd Houston");
-		ProjectRequest request=new ProjectRequest(FileRequest.RequestType_Create, dto);
-		
-		ProjectResponse response=(ProjectResponse) facadeService.processRequest(request);
-		
-		assertNotNull(response.project);
-		assertNotNull(response.project.getName());
-		assertNotNull(response.project.getDescription());
-		assertNotNull(response.project.getId());
-		
-	}
 
 	@Test
 	public void testRetrieve() throws NamingException, AppException {
 
 		FacadeService facadeService = TestUtil.getFacadeService();
 		
-		ProjectRequest request=new ProjectRequest(ProjectRequest.RequestType_Retrieve);
+		PropertyDto property=new PropertyDto(161L);
+		PropertyRequest request=new PropertyRequest(ProjectRequest.RequestType_Retrieve, property);
 		
-		ProjectResponse response=(ProjectResponse) facadeService.processRequest(request);
+		PropertyResponse response=(PropertyResponse) facadeService.processRequest(request);
 		
-		assertNotNull(response.projects);
-		assertTrue(response.projects.length>0);
-		for(ProjectDto f : response.projects) {
+		assertNotNull(response.properties);
+		assertTrue(response.properties.length>0);
+		for(PropertyDto f : response.properties) {
 			assertNotNull(f.getId());
 			assertNotNull(f.getName());
 			assertNotNull(f.getDescription());

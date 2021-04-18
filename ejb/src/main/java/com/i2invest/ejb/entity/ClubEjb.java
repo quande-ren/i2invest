@@ -45,12 +45,12 @@ public class ClubEjb extends BaseDto{
 	
 	private   Date updateTime;
 	
-	@OneToMany(mappedBy="club")
-//	@JoinColumn(name="clubId")
+	@OneToMany
+	@JoinColumn(name = "clubId")
 	private List<UserClubRoleEjb> userRoles;
 
-	@OneToMany(mappedBy="club")
-//	@JoinColumn(name="projectId")
+	@OneToMany
+	@JoinColumn(name = "clubId")
 	private List<ProjectEjb> projects;
 
 	public String getContactEmail() {

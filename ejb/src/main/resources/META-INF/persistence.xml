@@ -5,9 +5,9 @@
 	<persistence-unit name="example">
 		<jta-data-source>java:/I2InvestDS</jta-data-source>
 		<properties>
-			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.Oracle10gDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name = "hibernate.dialect" 		value = "org.hibernate.dialect.Oracle10gDialect" />
+			<property name = "hibernate.hbm2ddl.auto" 	value = "validate" />
+			<property name = "hibernate.show_sql" 		value = "true" />
 <!-- 
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
  -->

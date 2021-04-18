@@ -37,7 +37,6 @@ public class UserEjb extends BaseDto implements Serializable  {
 	@Column(name = "description",  length = 4000)
 	private   String description;
 
-
 	private Timestamp createTime;
 	private Timestamp updateTime;
 	private   Long createdBy;
@@ -45,6 +44,10 @@ public class UserEjb extends BaseDto implements Serializable  {
 	private   String calendly;
 	private   String wechatId;
 	private   String website;
+
+	@OneToMany
+	@JoinColumn(name = "userId")
+	private Set<UserClubRoleEjb> clubRoles;
 
 	public String getCalendly() {
 		return calendly;
@@ -70,9 +73,6 @@ public class UserEjb extends BaseDto implements Serializable  {
 		this.website = website;
 	}
 
-	@OneToMany
-	@JoinColumn(name="userId")
-	private Set<UserClubRoleEjb> clubRoles;
 	
 	public String getLastName() {
 		return lastName;

@@ -82,6 +82,10 @@ public  class PropertyDto extends BaseDto{
 
 	public PropertyDto() {}
 
+	public PropertyDto(Long projectId) {
+		this.projectId=projectId;
+	}
+
 	public PropertyDto(String name, String description, String address) {
 		this.name=name;
 		this.description=description;

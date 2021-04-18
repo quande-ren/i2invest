@@ -1,14 +1,13 @@
 package com.i2invest.ejb.entity;
 
 import java.sql.Timestamp;
-import java.util.List;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -26,8 +25,8 @@ public class PropertyEjb extends BaseDto{
 	private   String status;
 	private   Long createdBy;
 	private   Long updatedBy;
-	private   Timestamp createTime;
-	private   Timestamp updateTime;
+	private   Date createTime;
+	private   Date updateTime;
 	@ManyToOne
 	@JoinColumn(name = "projectId", nullable=false)
 	private   ProjectEjb project;
@@ -40,19 +39,19 @@ public class PropertyEjb extends BaseDto{
 		this.id = id;
 	}
 
-	public Timestamp getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(Timestamp createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	public Timestamp getUpdateTime() {
+	public Date getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime(Timestamp updateTime) {
+	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 

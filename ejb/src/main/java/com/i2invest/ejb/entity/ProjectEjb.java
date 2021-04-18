@@ -1,6 +1,5 @@
 package com.i2invest.ejb.entity;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -35,11 +34,11 @@ public class ProjectEjb extends BaseDto{
 	private   ClubEjb club;
 	
 	@OneToMany
-	@JoinColumn(name="projectId")
+	@JoinColumn(name = "projectId")
 	private List<UserProjectRoleEjb> userRoles;
 
 	@OneToMany
-	@JoinColumn(name="propertyId")
+	@JoinColumn(name = "projectId")
 	private List<PropertyEjb> properties;
 
 

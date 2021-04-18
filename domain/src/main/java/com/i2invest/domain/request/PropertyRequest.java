@@ -24,5 +24,10 @@ public  class PropertyRequest extends BaseRequest<PropertyResponse>{
 	public  PropertyResponse getDummayResponse() {
 		return new PropertyResponse();
 	}
+	
+	@Override
+	public String toString() {
+		return "PropertyRequest[ email="+email+" property="+property+"]";
+	}
 
 }
