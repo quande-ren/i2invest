@@ -24,7 +24,7 @@ export class ClubCreateComponent implements OnInit {
 
   startClub() {
 
-	let jsonType='ClubStartRequest';
+	let jsonType='ClubCreateRequest';
 	    
 	this.clubVo.contactEmail=this.sessionManager.email;
 	

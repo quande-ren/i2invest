@@ -6,10 +6,12 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.appexception.DataNotFoundException;
 import com.i2invest.domain.appexception.MissingParameterException;
+import com.i2invest.domain.appexception.NameAlreadyExistException;
 import com.i2invest.domain.dto.ClubDto;
 import com.i2invest.domain.dto.RoleDto;
 import com.i2invest.domain.request.ClubCreateRequest;
@@ -26,6 +28,8 @@ public class ClubCreateRequestProcessor extends AbstractRequestProcessor<ClubCre
 		if(userEjb==null ) {
 			throw new DataNotFoundException();
 		}
+		
+		checkClubNameNotExists(entityManager, request.club.getName(), request.club.getId());
 		
 		ClubEjb clubEjb=new ClubEjb(request.club);
 		Date now=new Date();
@@ -59,6 +63,20 @@ public class ClubCreateRequestProcessor extends AbstractRequestProcessor<ClubCre
 
 		response.user=response.user;
 		response.club=newClub;
+	}
+
+	public static void checkClubNameNotExists(EntityManager entityManager, String name, Long id) throws NameAlreadyExistException {
+		String sql=null;
+		if(id!=null && id.longValue()>0L) {
+			sql="select count(*) from i2_club where upper(name)='"+name.toUpperCase()+"' and id <>"+id;
+		}else {
+			sql="select count(*) from i2_club where upper(name)='"+name.toUpperCase()+"'";
+		}
+		Query q=entityManager.createNativeQuery(sql);
+		Number result=(Number) q.getSingleResult();
+		if(result!=null && result.intValue()>0) {
+			throw new NameAlreadyExistException(name);
+		}
 	}
 
 	public void verifyData(ClubCreateRequest request) throws MissingParameterException {

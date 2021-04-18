@@ -39,6 +39,8 @@ public class ClubUpdateRequestProcessor extends AbstractRequestProcessor<ClubUpd
 			throw new NoPermissionToUpdateClubException();
 		}
 		
+		ClubCreateRequestProcessor.checkClubNameNotExists(entityManager, request.club.getName(), clubEjb.getId());
+		
 		Date now=new Date();
 		Timestamp nowTime = new Timestamp(now.getTime());
 
