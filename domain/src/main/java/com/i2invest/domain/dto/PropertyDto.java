@@ -1,7 +1,6 @@
 package com.i2invest.domain.dto;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
 
 import com.i2invest.domain.BaseDto;
 
@@ -18,8 +17,18 @@ public  class PropertyDto extends BaseDto{
 	private   String description;
 	private   String status;
 	private   Date closingDate;
-	private   Timestamp createTime;
-	private   Timestamp updateTime;
+	private   Date createTime;
+	private   Date updateTime;
+	public    Long clubId;
+	public    String num;
+	public    String age;
+	public    String units;
+	public    String avgSf;
+	public    String effRents;
+	public    String effRentPerSf;
+	public    String occupancy;
+
+	
 
 	public String getAddress() {
 		return address;
@@ -46,10 +55,6 @@ public  class PropertyDto extends BaseDto{
 	}
 
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -58,19 +63,19 @@ public  class PropertyDto extends BaseDto{
 		this.id = id;
 	}
 
-	public Timestamp getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(Timestamp createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	public Timestamp getUpdateTime() {
+	public Date getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime(Timestamp updateTime) {
+	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 
@@ -131,4 +136,69 @@ public  class PropertyDto extends BaseDto{
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
+	
+	public Long getClubId() {
+		return clubId;
+	}
+
+	public void setClubId(Long clubId) {
+		this.clubId = clubId;
+	}
+
+	public String getNum() {
+		return num;
+	}
+
+	public void setNum(String num) {
+		this.num = num;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	public String getUnits() {
+		return units;
+	}
+
+	public void setUnits(String units) {
+		this.units = units;
+	}
+
+	public String getAvgSf() {
+		return avgSf;
+	}
+
+	public void setAvgSf(String avgSf) {
+		this.avgSf = avgSf;
+	}
+
+	public String getEffRents() {
+		return effRents;
+	}
+
+	public void setEffRents(String effRents) {
+		this.effRents = effRents;
+	}
+
+	public String getEffRentPerSf() {
+		return effRentPerSf;
+	}
+
+	public void setEffRentPerSf(String effRentPerSf) {
+		this.effRentPerSf = effRentPerSf;
+	}
+
+	public String getOccupancy() {
+		return occupancy;
+	}
+
+	public void setOccupancy(String occupancy) {
+		this.occupancy = occupancy;
+	}
+	
 }

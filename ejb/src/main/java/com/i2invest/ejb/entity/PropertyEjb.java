@@ -1,6 +1,5 @@
 package com.i2invest.ejb.entity;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -27,6 +26,17 @@ public class PropertyEjb extends BaseDto{
 	private   Long updatedBy;
 	private   Date createTime;
 	private   Date updateTime;
+	private   String address;
+	private   Date closingDate;
+	public    String num;
+	public    String age;
+	public    String units;
+	public    String avgSf;
+	public    String effRents;
+	public    String effRentPerSf;
+	public    String occupancy;
+
+	
 	@ManyToOne
 	@JoinColumn(name = "projectId", nullable=false)
 	private   ProjectEjb project;
@@ -113,6 +123,77 @@ public class PropertyEjb extends BaseDto{
 		this.project = project;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Date getClosingDate() {
+		return closingDate;
+	}
+
+	public void setClosingDate(Date closingDate) {
+		this.closingDate = closingDate;
+	}
+
+	public String getNum() {
+		return num;
+	}
+
+	public void setNum(String num) {
+		this.num = num;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	public String getUnits() {
+		return units;
+	}
+
+	public void setUnits(String units) {
+		this.units = units;
+	}
+
+	public String getAvgSf() {
+		return avgSf;
+	}
+
+	public void setAvgSf(String avgSf) {
+		this.avgSf = avgSf;
+	}
+
+	public String getEffRents() {
+		return effRents;
+	}
+
+	public void setEffRents(String effRents) {
+		this.effRents = effRents;
+	}
+
+	public String getEffRentPerSf() {
+		return effRentPerSf;
+	}
+
+	public void setEffRentPerSf(String effRentPerSf) {
+		this.effRentPerSf = effRentPerSf;
+	}
+
+	public String getOccupancy() {
+		return occupancy;
+	}
+
+	public void setOccupancy(String occupancy) {
+		this.occupancy = occupancy;
+	}
 
 	
 }
