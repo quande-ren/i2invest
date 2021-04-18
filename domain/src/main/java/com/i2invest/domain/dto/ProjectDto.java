@@ -13,7 +13,7 @@ public  class ProjectDto extends BaseDto{
 	private   String name;
 	private   Long clubId;
 	private   String clubName;
-	private   String address;
+	private   String contactEmail;
 	private   String description;
 	private   String status;
 	private   Date closingDate;
@@ -26,14 +26,6 @@ public  class ProjectDto extends BaseDto{
 
 	public void setClubId(Long clubId) {
 		this.clubId = clubId;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getStatus() {
@@ -89,10 +81,10 @@ public  class ProjectDto extends BaseDto{
 
 	public ProjectDto() {}
 
-	public ProjectDto(String name, String description, String address) {
+	public ProjectDto(String name, String description, String contactEmail) {
 		this.name=name;
 		this.description=description;
-		this.address=address;
+		this.contactEmail=contactEmail;
 	}
 
 	public String getDescription() {
@@ -118,4 +110,14 @@ public  class ProjectDto extends BaseDto{
 	public void setClubName(String clubName) {
 		this.clubName = clubName;
 	}
+
+	public String getContactEmail() {
+		return contactEmail;
+	}
+
+	public void setContactEmail(String contactEmail) {
+		this.contactEmail = contactEmail;
+	}
+
+
 }
