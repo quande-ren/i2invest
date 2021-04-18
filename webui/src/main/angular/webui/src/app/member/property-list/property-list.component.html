@@ -8,21 +8,36 @@ Project:
 <p-table [value]="properties">
     <ng-template pTemplate="header">
         <tr>
-            <th pSortableColumn="name">Project Name <p-sortIcon field="name"></p-sortIcon></th>
-            <th pSortableColumn="description">Project Description <p-sortIcon field="description"></p-sortIcon></th>
-            <th pSortableColumn="clubName">Club Name <p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="num">#<p-sortIcon field="num"></p-sortIcon></th>
+            <th pSortableColumn="name">ASSET<p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="address">ADDRESS<p-sortIcon field="address"></p-sortIcon></th>
+            <th pSortableColumn="age">AGE<p-sortIcon field="age"></p-sortIcon></th>
+            <th pSortableColumn="units">UNITS<p-sortIcon field="units"></p-sortIcon></th>
+            <th pSortableColumn="avgSf">AVG SF<p-sortIcon field="avgSf"></p-sortIcon></th>
+            <th pSortableColumn="effRents">Eff Rents<p-sortIcon field="effRents"></p-sortIcon></th>
+            <th pSortableColumn="effRentPerSf">eff Rent/Sf<p-sortIcon field="effRentPerSf"></p-sortIcon></th>
+            <th pSortableColumn="occupancy">OCC<p-sortIcon field="occupancy"></p-sortIcon></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-property>
         <tr>
             <td>
-
+                <a class="dropdown-item" (click)="selectProperty(property)" href="javascript:void(0);" >    
+                    {{property.num}} 
+                </a>
+            </td>
+            <td>
                 <a class="dropdown-item" (click)="selectProperty(property)" href="javascript:void(0);" >    
                     {{property.name}} 
                 </a>
             </td>
-            <td>{{property.description}}</td>
-            <td>{{property.clubName}}</td>
+            <td>{{property.address}}</td>
+            <td>{{property.age}}</td>
+            <td>{{property.units}}</td>
+            <td>{{property.avgSf}}</td>
+            <td>{{property.effRents}}</td>
+            <td>{{property.effRentPerSf}}</td>
+            <td>{{property.occupancy}}</td>
         </tr>
     </ng-template>
 </p-table>

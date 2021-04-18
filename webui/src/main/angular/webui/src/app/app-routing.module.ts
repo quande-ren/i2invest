@@ -16,6 +16,7 @@ import { ProjectUpdateComponent } from './member/project-update/project-update.c
 import { ProjectListComponent } from './member/project-list/project-list.component';
 import { PropertyListComponent } from './member/property-list/property-list.component';
 import { PropertyCreateComponent } from './member/property-create/property-create.component';
+import { PropertyUpdateComponent } from './member/property-update/property-update.component';
 
 const routes: Routes = [
 	{ path: '', 						component: LoginComponent, 				data: {name: '', 						role: ['ALL']} },
@@ -25,16 +26,20 @@ const routes: Routes = [
 	{ path: 'fileupload', 				component: FileUploadComponent, 		data: {name: 'FileUpload', 				role: ['ALL']} },
 	{ path: 'forgotpassword', 			component: ForgotPasswordComponent, 	data: {name: 'Forgotpassword', 			role: ['ALL']} },
 	{ path: 'member/memberhome', 		component: MemberHomeComponent, 		data: {name: 'MemberHome', 				role: ['ALL']} },
-	{ path: 'member/clubapplications', 	component: ClubApplicationsComponent, 	data: {name: 'ClubApplications', 		role: ['ALL']} },
 	{ path: 'member/profileupdate', 	component: ProfileUpdateComponent, 		data: {name: 'ProfileUpdate', 			role: ['ALL']} },
+	
+	{ path: 'member/clubapplications', 	component: ClubApplicationsComponent, 	data: {name: 'ClubApplications', 		role: ['ALL']} },
 	{ path: 'member/clubcreate', 		component: ClubCreateComponent, 		data: {name: 'ClubCreate', 				role: ['ALL']} },
 	{ path: 'member/clublist', 			component: ClubListComponent, 			data: {name: 'ClubList', 				role: ['ALL']} },
 	{ path: 'member/clubupdate', 		component: ClubUpdateComponent, 		data: {name: 'ClubUpdate', 				role: ['ALL']} },
+	
 	{ path: 'member/projectcreate', 	component: ProjectCreateComponent, 		data: {name: 'ProjectCreate', 			role: ['ALL']} },
 	{ path: 'member/projectupdate', 	component: ProjectUpdateComponent, 		data: {name: 'ProjectUpdate', 			role: ['ALL']} },
 	{ path: 'member/projectlist', 		component: ProjectListComponent, 		data: {name: 'ProjectList', 			role: ['ALL']} },
+	
 	{ path: 'member/propertylist', 		component: PropertyListComponent, 		data: {name: 'PropertyList', 			role: ['ALL']} },
 	{ path: 'member/propertycreate', 	component: PropertyCreateComponent, 	data: {name: 'PropertyCreate', 			role: ['ALL']} },
+	{ path: 'member/propertyupdate', 	component: PropertyUpdateComponent, 	data: {name: 'PropertyUpdate', 			role: ['ALL']} },
 
 ];
 

@@ -1,0 +1,69 @@
+<p-fieldset legend="Update Property in {{sessionManager.currentClub.name}} / {{sessionManager.currentProject.name}}" [toggleable]="true">
+	<div class="p-field p-grid">
+	    <label for="num" class="p-col-fixed" style="width:160px">#</label>
+	    <div class="p-col">
+	        <input id="num" type="text" [(ngModel)]="propertyVo.num" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="name" class="p-col-fixed" style="width:160px">Asset</label>
+	    <div class="p-col">
+	        <input id="name" type="text" [(ngModel)]="propertyVo.name" pInputText required/> 
+	    </div>
+	</div>
+
+    <div class="p-field p-grid">
+	    <label for="address" class="p-col-fixed" style="width:160px">Address</label>
+	    <div class="p-col">
+	        <input id="address" type="text" [(ngModel)]="propertyVo.address" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="address" class="p-col-fixed" style="width:160px">Age</label>
+	    <div class="p-col">
+	        <input id="address" type="text" [(ngModel)]="propertyVo.age" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="address" class="p-col-fixed" style="width:160px">Units</label>
+	    <div class="p-col">
+	        <input id="address" type="text" [(ngModel)]="propertyVo.units" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="address" class="p-col-fixed" style="width:160px">Avg SF</label>
+	    <div class="p-col">
+	        <input id="address" type="text" [(ngModel)]="propertyVo.avgSf" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="address" class="p-col-fixed" style="width:160px">EFF RENTS</label>
+	    <div class="p-col">
+	        <input id="address" type="text" [(ngModel)]="propertyVo.effRents" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="address" class="p-col-fixed" style="width:160px">EFF RENTS/SF</label>
+	    <div class="p-col">
+	        <input id="address" type="text" [(ngModel)]="propertyVo.effRentPerSf" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <label for="address" class="p-col-fixed" style="width:160px">OCC</label>
+	    <div class="p-col">
+	        <input id="address" type="text" [(ngModel)]="propertyVo.occupancy" pInputText required/> 
+	    </div>
+	</div>
+
+	<div class="p-field p-grid">
+	    <button name="updateBtn" class="btn btn-primary" (click)="updateProperty()">Update</button>
+	</div>
+</p-fieldset>
+

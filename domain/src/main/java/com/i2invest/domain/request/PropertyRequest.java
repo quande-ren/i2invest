@@ -27,7 +27,7 @@ public  class PropertyRequest extends BaseRequest<PropertyResponse>{
 	
 	@Override
 	public String toString() {
-		return "PropertyRequest[ email="+email+" property="+property+"]";
+		return "PropertyRequest[ email="+email+" requestType="+requestType+" property="+property+"]";
 	}
 
 }

@@ -39,6 +39,7 @@ import { ProjectListComponent } from './member/project-list/project-list.compone
 import { PropertyListComponent } from './member/property-list/property-list.component';
 import { ProjectUpdateComponent } from './member/project-update/project-update.component';
 import { PropertyCreateComponent } from './member/property-create/property-create.component';
+import { PropertyUpdateComponent } from './member/property-update/property-update.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { PropertyCreateComponent } from './member/property-create/property-creat
     DocuSignItemComponent,
     PropertyListComponent,
     ProjectUpdateComponent,
-    PropertyCreateComponent
+    PropertyCreateComponent,
+    PropertyUpdateComponent
 
   ],
   imports: [
