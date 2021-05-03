@@ -3,6 +3,7 @@ package com.i2invest.domain.response;
 import java.util.List;
 
 import com.i2invest.domain.dto.ClubDto;
+import com.i2invest.domain.dto.UserClubRoleDto;
 import com.i2invest.domain.dto.UserDto;
 
 import lombok.Data;
@@ -13,7 +14,7 @@ public  class ClubResponse extends BaseResponse {
 	public UserDto user;
 	public ClubDto club;
 	public List<ClubDto> clubs;
-	public List<UserDto> clubUsers;
+	public List<UserClubRoleDto> clubUsers;
 	public ClubResponse() {
 	}
 
@@ -26,7 +27,7 @@ public  class ClubResponse extends BaseResponse {
 		this.clubs=clubs;
 	}
 
-	public ClubResponse(List<ClubDto> clubs, List<UserDto> clubUsers) {
+	public ClubResponse(List<ClubDto> clubs, List<UserClubRoleDto> clubUsers) {
 		this.clubs=clubs;
 		this.clubUsers=clubUsers;
 	}

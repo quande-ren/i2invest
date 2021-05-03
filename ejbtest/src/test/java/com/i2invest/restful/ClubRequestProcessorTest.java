@@ -9,10 +9,9 @@ import org.junit.Test;
 import com.i2invest.domain.FacadeService;
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.dto.ClubDto;
-import com.i2invest.domain.dto.UserDto;
+import com.i2invest.domain.dto.UserClubRoleDto;
 import com.i2invest.domain.request.ClubRequest;
 import com.i2invest.domain.response.ClubResponse;
-import com.i2invest.domain.response.ClubUpdateResponse;
 
 public class ClubRequestProcessorTest {
 
@@ -28,16 +27,21 @@ public class ClubRequestProcessorTest {
 		ClubRequest request=new ClubRequest();
 		request.email=TestUtil.emailAlbert;
 		request.token=token;
-		request.requestType=ClubRequest.RequestType_RetrieveClubApplications;
+		request.requestType=ClubRequest.RequestType_RetrieveClubUsers;
+		request.club=new ClubDto();
+		request.club.setId(71L);
 
 		ClubResponse response=(ClubResponse) facadeService.processRequest(request);
 		
-		assertNotNull(response.clubs);
 		assertNotNull(response.clubUsers);
-		for(UserDto user: response.clubUsers) {
+		assertNotNull(response.clubUsers);
+		for(UserClubRoleDto user: response.clubUsers) {
 			assertNotNull(user.getClubName());
 			assertNotNull(user.getFirstName());
 			assertNotNull(user.getLastName());
+			assertNotNull(user.getRoleId());
+			assertNotNull(user.getRoleName());
+			assertNotNull(user.getUserId());
 			assertNotNull(user.getId());
 			
 		}

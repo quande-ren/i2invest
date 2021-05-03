@@ -12,10 +12,13 @@ import com.i2invest.domain.BaseDto;
 @Entity
 @Table(name = "I2_Role")
 public class RoleEjb extends BaseDto{
+
 	private static final long serialVersionUID = 5752744043687408583L;
+	
 	@Id 
 	@NotNull
 	private   String id;
+	
 	private   String roleType;
 	private   String roleName;
 	private   String status;
@@ -59,4 +62,21 @@ public class RoleEjb extends BaseDto{
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 }

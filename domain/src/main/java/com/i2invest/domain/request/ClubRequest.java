@@ -13,6 +13,7 @@ public  class ClubRequest extends BaseRequest<ClubResponse>{
 	public ClubDto club;
 	
 	public static final String RequestType_RetrieveClubApplications="RetrieveClubApplications";
+	public static final String RequestType_RetrieveClubUsers="RetrieveClubUsers";
 
 	public ClubRequest() {
 		
