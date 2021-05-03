@@ -11,11 +11,13 @@ import org.apache.log4j.Logger;
 import com.i2invest.domain.appexception.AppException;
 import com.i2invest.domain.dto.ClubDto;
 import com.i2invest.domain.dto.RoleDto;
+import com.i2invest.domain.dto.UserDto;
 import com.i2invest.domain.request.ClubRetrieveRequest;
 import com.i2invest.domain.response.ClubRetrieveResponse;
 import com.i2invest.ejb.AbstractRequestProcessor;
 import com.i2invest.ejb.TokenRequiredRequestProcessor;
 import com.i2invest.ejb.entity.ClubEjb;
+import com.i2invest.ejb.entity.RoleEjb;
 import com.i2invest.ejb.entity.UserEjb;
 
 public  class ClubRetrieveRequestProcessor 
@@ -65,14 +67,46 @@ public  class ClubRetrieveRequestProcessor
 		List<ClubDto> result = new ArrayList<ClubDto>();
 		if(clubEjbList!=null ) {
 			for(ClubEjb ejb : clubEjbList) {
-				ClubDto dto=new ClubDto();
-				dto.copyPropertiesFrom(ejb);
+				ClubDto dto = convertClubEjb2Dto(ejb);
 				result.add(dto);
 			}
 		}
 		return result;
 	}
-	
+
+	public static ClubDto convertClubEjb2Dto(ClubEjb ejb) {
+		ClubDto dto=new ClubDto();
+		dto.setId(ejb.getId());
+		dto.setName(ejb.getName());
+		dto.setStatus(ejb.getStatus());
+//		dto.copyPropertiesFrom(ejb);
+		return dto;
+	}
+
+	public static RoleDto convertRoleEjb2Dto(RoleEjb ejb) {
+		RoleDto dto=new RoleDto();
+//		dto.copyPropertiesFrom(ejb);
+		dto.setId(ejb.getId());
+		dto.setRoleName(ejb.getRoleName());
+		dto.setRoleType(ejb.getRoleType());
+		dto.setStatus(ejb.getStatus());
+
+		return dto;
+	}
+
+	public static UserDto convertUserEjb2Dto(UserEjb ejb) {
+		UserDto dto=new UserDto();
+		dto.setId(ejb.getId());
+		dto.setFirstName(ejb.getFirstName());
+		dto.setLastName(ejb.getLastName());
+		dto.setEmail(ejb.getEmail());
+		dto.setPhoneNum(ejb.getPhoneNum());
+//		dto.setStatus(ejb.getFirstName());
+		
+//		dto.copyPropertiesFrom(ejb);
+		return dto;
+	}
+
 	public static List<ClubEjb> retrieveClubEjbs(EntityManager entityManager, String sql) {
 		logger.info("get result by sql=\n"+sql);
 		Query query = entityManager.createNativeQuery(sql, ClubEjb.class);

@@ -36,12 +36,15 @@ public class ClubRequestProcessorTest {
 		assertNotNull(response.clubUsers);
 		assertNotNull(response.clubUsers);
 		for(UserClubRoleDto user: response.clubUsers) {
-			assertNotNull(user.getClubName());
-			assertNotNull(user.getFirstName());
-			assertNotNull(user.getLastName());
-			assertNotNull(user.getRoleId());
-			assertNotNull(user.getRoleName());
-			assertNotNull(user.getUserId());
+			assertNotNull(user.getClub().getName());
+			assertNotNull(user.getClub().getId());
+			
+			assertNotNull(user.getUser().getId());
+			assertNotNull(user.getUser().getFirstName());
+			assertNotNull(user.getUser().getLastName());
+			
+			assertNotNull(user.getRole().getId());
+			assertNotNull(user.getRole().getRoleName());
 			assertNotNull(user.getId());
 			
 		}

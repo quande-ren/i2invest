@@ -8,41 +8,16 @@ import lombok.Data;
 
 @Data
 public class UserClubRoleDto extends BaseDto {
+	private ClubDto club;
+
+	private UserDto user;
+	private RoleDto role;
+	
+	
 	private Long id;
-	private Long userId;
-	private Long clubId;
-	private String roleId;
-	private String firstName;
-	private String lastName;
-	private String clubName;
-	private String roleName;
 	private String status;
 	private Timestamp createTime;
 	private Timestamp updateTime;
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public Long getClubId() {
-		return clubId;
-	}
-
-	public void setClubId(Long clubId) {
-		this.clubId = clubId;
-	}
-
-	public String getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
-	}
 
 	public String getStatus() {
 		return status;
@@ -85,37 +60,28 @@ public class UserClubRoleDto extends BaseDto {
 		this.id = id;
 	}
 
-	public String getClubName() {
-		return clubName;
+	public ClubDto getClub() {
+		return club;
 	}
 
-	public void setClubName(String clubName) {
-		this.clubName = clubName;
+	public void setClub(ClubDto club) {
+		this.club = club;
 	}
 
-	public String getRoleName() {
-		return roleName;
+	public UserDto getUser() {
+		return user;
 	}
 
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
+	public void setUser(UserDto user) {
+		this.user = user;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public RoleDto getRole() {
+		return role;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setRole(RoleDto role) {
+		this.role = role;
 	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 
 }

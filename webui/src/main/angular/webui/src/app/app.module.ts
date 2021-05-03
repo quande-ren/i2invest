@@ -20,7 +20,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FileUploadComponent } from './publc/file-upload/file-upload.component';
 import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password.component';
 import { TableModule } from 'primeng/table';
-import { ClubApplicationsComponent } from './member/club-applications/club-applications.component';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
@@ -40,6 +39,7 @@ import { PropertyListComponent } from './member/property-list/property-list.comp
 import { ProjectUpdateComponent } from './member/project-update/project-update.component';
 import { PropertyCreateComponent } from './member/property-create/property-create.component';
 import { PropertyUpdateComponent } from './member/property-update/property-update.component';
+import { ClubUserListComponent } from './member/club-user-list/club-user-list.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ import { PropertyUpdateComponent } from './member/property-update/property-updat
     ProjectCreateComponent,
     ProjectListComponent,
     ForgotPasswordComponent,
-    ClubApplicationsComponent,
+    ClubUserListComponent,
     MyItemComponent,
     DocuSignItemComponent,
     PropertyListComponent,

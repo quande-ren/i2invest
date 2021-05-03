@@ -41,13 +41,9 @@ public  class ClubRequestProcessor
 
 	private UserClubRoleDto convertEjbToDto(ClubEjb clubEjb, UserClubRoleEjb ejb) {
 		UserClubRoleDto result = new UserClubRoleDto(ejb);
-		result.setClubId(clubEjb.getId());
-		result.setClubName(clubEjb.getName());
-		result.setRoleId(ejb.getRole().getId());
-		result.setRoleName(ejb.getRole().getRoleType());
-		result.setFirstName(ejb.getUser().getFirstName());
-		result.setLastName(ejb.getUser().getLastName());
-		result.setUserId(ejb.getUser().getId());
+		result.setClub(ClubRetrieveRequestProcessor.convertClubEjb2Dto(clubEjb));
+		result.setUser(ClubRetrieveRequestProcessor.convertUserEjb2Dto(ejb.getUser()));
+		result.setRole(ClubRetrieveRequestProcessor.convertRoleEjb2Dto(ejb.getRole()));
 		return result;
 	}
 	

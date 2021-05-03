@@ -5,11 +5,12 @@ import { RestfulService } from 'src/app/services/restful.service';
 import { SessionManagerService } from 'src/app/services/session-manager.service';
 
 @Component({
-  selector: 'app-club-applications',
-  templateUrl: './club-applications.component.html',
-  styleUrls: ['./club-applications.component.css']
+  selector: 'app-club-user-list',
+  templateUrl: './club-user-list.component.html',
+  styleUrls: ['./club-user-list.component.css']
 })
-export class ClubApplicationsComponent implements OnInit {
+export class ClubUserListComponent implements OnInit {
+  club: ClubVo;
   clubs: ClubVo[];
   clubUsers: UserVo[];
 
@@ -24,7 +25,16 @@ export class ClubApplicationsComponent implements OnInit {
   doRetrieve(){
     console.log("here");
     let jsonType='ClubRequest';
-	let jsonObj={email: this.sessionManager.email, token: this.sessionManager.token, requestType: 'RetrieveClubApplocations'};
+    this.club=new ClubVo();
+    this.club.id=this.sessionManager.currentClub.id;
+	  
+    let jsonObj={
+        email: this.sessionManager.email, 
+        token: this.sessionManager.token, 
+        club: this.club,
+        requestType: 'RetrieveClubUsers'
+      };
+    
     this.restfulService.callRestful(jsonType, jsonObj, (response)=> {
                  this.clubs=response.clubs;
                  this.clubUsers=response.clubUsers;

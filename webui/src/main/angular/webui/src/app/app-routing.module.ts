@@ -5,7 +5,6 @@ import { SignUpComponent } from './publc/sign-up/sign-up.component';
 import { MemberHomeComponent } 		from './member/member-home/member-home.component';
 import { FileUploadComponent } from './publc/file-upload/file-upload.component';
 import { ForgotPasswordComponent } from './publc/forgot-password/forgot-password.component';
-import { ClubApplicationsComponent } from './member/club-applications/club-applications.component';
 import { MyItemComponent } from './my-item/my-item.component';
 import { ProfileUpdateComponent } from './member/profile-update/profile-update.component';
 import { ClubCreateComponent } from './member/club-create/club-create.component';
@@ -17,6 +16,7 @@ import { ProjectListComponent } from './member/project-list/project-list.compone
 import { PropertyListComponent } from './member/property-list/property-list.component';
 import { PropertyCreateComponent } from './member/property-create/property-create.component';
 import { PropertyUpdateComponent } from './member/property-update/property-update.component';
+import { ClubUserListComponent } from './member/club-user-list/club-user-list.component';
 
 const routes: Routes = [
 	{ path: '', 						component: LoginComponent, 				data: {name: '', 						role: ['ALL']} },
@@ -28,7 +28,7 @@ const routes: Routes = [
 	{ path: 'member/memberhome', 		component: MemberHomeComponent, 		data: {name: 'MemberHome', 				role: ['ALL']} },
 	{ path: 'member/profileupdate', 	component: ProfileUpdateComponent, 		data: {name: 'ProfileUpdate', 			role: ['ALL']} },
 	
-	{ path: 'member/clubapplications', 	component: ClubApplicationsComponent, 	data: {name: 'ClubApplications', 		role: ['ALL']} },
+	{ path: 'member/clubuserlist', 		component: ClubUserListComponent, 		data: {name: 'ClubUserList', 			role: ['ALL']} },
 	{ path: 'member/clubcreate', 		component: ClubCreateComponent, 		data: {name: 'ClubCreate', 				role: ['ALL']} },
 	{ path: 'member/clublist', 			component: ClubListComponent, 			data: {name: 'ClubList', 				role: ['ALL']} },
 	{ path: 'member/clubupdate', 		component: ClubUpdateComponent, 		data: {name: 'ClubUpdate', 				role: ['ALL']} },
