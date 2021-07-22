@@ -44,6 +44,8 @@ public class RestServiceController {
 			return response;
 		} catch (AppException e) {
 			return new BaseResponse(e.getErrorCode(), e.getErrorMessage());
+		} catch (RuntimeException e) {
+			return new BaseResponse("100", e.getMessage());
 		}
 	}
 

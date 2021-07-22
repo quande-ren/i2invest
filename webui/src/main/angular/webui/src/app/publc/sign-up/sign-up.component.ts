@@ -23,6 +23,23 @@ export class SignUpComponent implements OnInit   {
   }
 
 	doSignUp(){
+		if(this.userVo.phoneNum===''){
+			 this.messageService.add({severity:'error', summary: 'Error Message', detail:'Phone Num is required'});
+			 return;
+		}
+		if(this.userVo.email===''){
+			 this.messageService.add({severity:'error', summary: 'Error Message', detail:'Email is required'});
+			 return;
+		}
+		if(this.userVo.firstName===''){
+			 this.messageService.add({severity:'error', summary: 'Error Message', detail:'First Name is required'});
+			 return;
+		}
+		if(this.userVo.lastName===''){
+			 this.messageService.add({severity:'error', summary: 'Error Message', detail:'Last Name is required'});
+			 return;
+		}
+		
 		let jsonType='UserSignUpRequest';
 		let jsonObj={user: this.userVo};
 
